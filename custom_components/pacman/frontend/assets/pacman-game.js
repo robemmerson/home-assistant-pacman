@@ -169,11 +169,11 @@
 
     // Map (col, row) to pixel centre of the tile in game coordinates
     function px(col) {
-      return OX + col * TILE + TILE / 2;
+      return OX + col * TILE;
     }
 
     function py(row) {
-      return OY + row * TILE + TILE / 2;
+      return OY + row * TILE;
     }
 
     // ── Input ─────────────────────────────────────────────────────────────
@@ -341,7 +341,7 @@
     function makePac() {
       return {
         col: 13.5,
-        row: 23,
+        row: 23.5,
         dir: LEFT,
         mouth: 0.0,
         mouthDir: 1,
@@ -362,7 +362,7 @@
 
     function makeGhost(i) {
       var startCols = [13.5, 13.5, 11.5, 15.5];
-      var startRows = [11, 13.5, 13.5, 13.5];
+      var startRows = [11.5, 13.5, 13.5, 13.5];
       var dotsLeave = [0, 0, 30, 60];
       return {
         i: i,
@@ -502,7 +502,7 @@
 
       if (g.mode === G_EATEN) {
         // Head back to ghost house door (col 13-14, row 12)
-        var target = { col: 13.5, row: 12 };
+        var target = { col: 13.5, row: 12.5 };
         bestDir(g, tileC, tileR, target.col, target.row, true, false);
         return;
       }
@@ -585,8 +585,8 @@
           g.col = 13.5;
           // Move up to exit
           g.row -= spd;
-          if (g.row <= 11) {
-            g.row = 11;
+          if (g.row <= 11.5) {
+            g.row = 11.5;
             g.mode = frightenTimer > 0 ? G_FRIGHT : G_SCATTER;
             g.dir = LEFT;
           }
@@ -598,7 +598,7 @@
     function updateEatenGhost(g) {
       if (g.mode !== G_EATEN) return;
       // When reaching the door area, enter house
-      if (Math.abs(g.col - 13.5) < 0.15 && Math.abs(g.row - 12) < 0.2) {
+      if (Math.abs(g.col - 13.5) < 0.15 && Math.abs(g.row - 12.5) < 0.2) {
         g.col = 13.5;
         g.row = 13.5;
         g.mode = G_LEAVING;
