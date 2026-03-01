@@ -208,7 +208,7 @@
       }
     }
 
-    document.addEventListener("keydown", onKey);
+    canvas.addEventListener("keydown", onKey);
 
     // Touch / swipe support
     var touchStartX = 0,
@@ -1174,7 +1174,7 @@
     function stop() {
       stopped = true;
       if (rafId) cancelAnimationFrame(rafId);
-      document.removeEventListener("keydown", onKey);
+      canvas.removeEventListener("keydown", onKey);
       canvas.removeEventListener("touchstart", onTouchStart);
       canvas.removeEventListener("touchend", onTouchEnd);
       if (audioCtx) {
