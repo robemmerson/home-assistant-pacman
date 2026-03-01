@@ -51,6 +51,7 @@ export class PacmanCard extends LitElement implements LovelaceCard {
   @state() private _config?: PacmanCardConfig;
   @state() private _gameStarted = false;
   @state() private _loading = false;
+  @state() private _isFullscreen = false;
 
   private _gameRunning = false;
   private _entryId?: string;
@@ -58,6 +59,7 @@ export class PacmanCard extends LitElement implements LovelaceCard {
   private _commandInterface?: { stop: () => void };
   private _boundBeforeUnload = this._stopPinging.bind(this);
   private _boundVisibilityChange = this._handleVisibilityChange.bind(this);
+  private _boundFullscreenChange = this._handleFullscreenChange.bind(this);
 
   public static async getConfigElement(): Promise<LovelaceCardEditor> {
     await import("./pacman-card-editor");
@@ -94,6 +96,10 @@ export class PacmanCard extends LitElement implements LovelaceCard {
     super.connectedCallback();
     window.addEventListener("beforeunload", this._boundBeforeUnload);
     document.addEventListener("visibilitychange", this._boundVisibilityChange);
+    document.addEventListener(
+      "fullscreenchange",
+      this._boundFullscreenChange
+    );
   }
 
   disconnectedCallback(): void {
@@ -103,6 +109,10 @@ export class PacmanCard extends LitElement implements LovelaceCard {
     document.removeEventListener(
       "visibilitychange",
       this._boundVisibilityChange
+    );
+    document.removeEventListener(
+      "fullscreenchange",
+      this._boundFullscreenChange
     );
   }
 
@@ -157,6 +167,23 @@ export class PacmanCard extends LitElement implements LovelaceCard {
                 </div>
               `
             : nothing}
+          <button
+            id="fullscreen-btn"
+            @click=${this._toggleFullscreen}
+            title=${this._isFullscreen ? "Exit fullscreen" : "Fullscreen"}
+          >
+            ${this._isFullscreen
+              ? html`<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"
+                  />
+                </svg>`
+              : html`<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"
+                  />
+                </svg>`}
+          </button>
           ${this._loading
             ? html`
                 <div id="loading">
@@ -269,6 +296,18 @@ export class PacmanCard extends LitElement implements LovelaceCard {
     this.hass
       .callWS({ type: "pacman/stop", entry_id: this._entryId })
       .catch(() => {});
+  }
+
+  private _toggleFullscreen(): void {
+    if (!document.fullscreenElement) {
+      this.requestFullscreen().catch(() => {});
+    } else {
+      document.exitFullscreen().catch(() => {});
+    }
+  }
+
+  private _handleFullscreenChange(): void {
+    this._isFullscreen = document.fullscreenElement === this;
   }
 
   private _handleVisibilityChange(): void {
@@ -398,6 +437,30 @@ export class PacmanCard extends LitElement implements LovelaceCard {
         to {
           transform: rotate(360deg);
         }
+      }
+      #fullscreen-btn {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        z-index: 101;
+        background: rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 255, 0, 0.4);
+        border-radius: 4px;
+        padding: 4px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.4;
+        transition: opacity 0.2s;
+      }
+      #fullscreen-btn:hover {
+        opacity: 1;
+      }
+      #fullscreen-btn svg {
+        width: 20px;
+        height: 20px;
+        fill: #ffff00;
       }
     `;
   }
