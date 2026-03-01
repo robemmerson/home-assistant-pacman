@@ -32,7 +32,7 @@ This is a fun effort, but it carries a vision: imagine a gaming dashboard in
 Home Assistant with small games you can play, no matter where you are. Your
 smart home, your rules, your entertainment.
 
-![DOOM Card Screenshot](https://raw.githubusercontent.com/frenck/home-assistant-doom/main/assets/screenshot.png)
+![Screenshot of DOOM running in Home Assistant](https://raw.githubusercontent.com/frenck/home-assistant-doom/main/images/home-assistant-doom.png)
 
 ## Credits
 
@@ -90,7 +90,7 @@ After installing and setting up the integration:
 4. Add the card and resize it to your liking.
 5. Click **"Click to play"** to start the game.
 
-<!-- TODO: Add screenshot of the "Add card" dialog showing the DOOM card -->
+![Screenshot of the "Add card" dialog showing the DOOM card](https://raw.githubusercontent.com/frenck/home-assistant-doom/main/images/doom-add-card.png)
 
 ### Card options
 
@@ -101,7 +101,7 @@ The card editor provides the following configuration options:
 - **Auto start**: Start the game immediately without clicking to play.
   Off by default.
 
-<!-- TODO: Add screenshot of the card editor -->
+![Screenshot of the card editor showing the DOOM card](https://raw.githubusercontent.com/frenck/home-assistant-doom/main/images/doom-card-editor.png)
 
 ### Controls
 
@@ -126,7 +126,7 @@ The card editor provides the following configuration options:
 The integration provides several entities, all grouped under a single
 **DOOM** device.
 
-<!-- TODO: Add screenshot of the DOOM device with all entities -->
+![Screenshot of the DOOM device with all entities](https://raw.githubusercontent.com/frenck/home-assistant-doom/main/images/doom-device.png)
 
 ### DOOM binary sensor
 
