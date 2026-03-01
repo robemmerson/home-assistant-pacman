@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pac-Man"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fact": {
+        "name": "نقل قول/حقیقت",
+        "state": {}
+      },
+      "last_played": {
+        "name": "آخرین بازی"
+      },
+      "session_duration": {
+        "name": "مدت نشست"
+      },
+      "total_play_time": {
+        "name": "مجموع زمان بازی"
+      },
+      "sessions_played": {
+        "name": "نشست‌های بازی شده"
+      },
+      "current_player": {
+        "name": "بازیکن فعلی",
+        "state": {
+          "nobody": "هیچ‌کس بازی نمی‌کند"
+        }
+      }
+    },
+    "binary_sensor": {
+      "playing": {
+        "name": "Pac-Man"
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
   "editor": {
     "card": {
-      "doom": {
+      "pacman": {
         "title": "Nosaukums",
         "sound": "Skaņa",
         "auto_start": "Automātiskā palaišana"
@@ -9,7 +9,7 @@
     }
   },
   "dialog": {
-    "iddqd": {
+    "wakawaka": {
       "title": "DIEVA REŽĪMS AKTIVIZĒTS"
     }
   }

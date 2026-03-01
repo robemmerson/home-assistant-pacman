@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pac-Man"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fact": {
+        "name": "Sitaat/Feit",
+        "state": {}
+      },
+      "last_played": {
+        "name": "Lêst spile"
+      },
+      "session_duration": {
+        "name": "Sesjedoer"
+      },
+      "total_play_time": {
+        "name": "Totale spyltiid"
+      },
+      "sessions_played": {
+        "name": "Spile sesjes"
+      },
+      "current_player": {
+        "name": "Hjoeddeiske spiler",
+        "state": {
+          "nobody": "Nimmen spilet"
+        }
+      }
+    },
+    "binary_sensor": {
+      "playing": {
+        "name": "Pac-Man"
+      }
+    }
+  }
+}

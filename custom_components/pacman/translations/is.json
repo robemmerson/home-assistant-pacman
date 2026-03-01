@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pac-Man"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fact": {
+        "state": {},
+        "name": "Tilvitnun/Stadreynd"
+      },
+      "last_played": {
+        "name": "Síðast spilað"
+      },
+      "session_duration": {
+        "name": "Lengd lotu"
+      },
+      "total_play_time": {
+        "name": "Heildarspilatími"
+      },
+      "sessions_played": {
+        "name": "Spilaðar lotur"
+      },
+      "current_player": {
+        "name": "Núverandi leikmaður",
+        "state": {
+          "nobody": "Enginn er að spila"
+        }
+      }
+    },
+    "binary_sensor": {
+      "playing": {
+        "name": "Pac-Man"
+      }
+    }
+  }
+}

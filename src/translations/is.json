@@ -1,7 +1,7 @@
 {
   "editor": {
     "card": {
-      "doom": {
+      "pacman": {
         "title": "Titill",
         "sound": "Hljóð",
         "auto_start": "Sjálfvirk ræsing"
@@ -9,7 +9,7 @@
     }
   },
   "dialog": {
-    "iddqd": {
+    "wakawaka": {
       "title": "GUÐSTILLING VIRKJUÐ"
     }
   }

@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pac-Man"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fact": {
+        "state": {},
+        "name": "Lainaus/Fakta"
+      },
+      "last_played": {
+        "name": "Viimeksi pelattu"
+      },
+      "session_duration": {
+        "name": "Istunnon kesto"
+      },
+      "total_play_time": {
+        "name": "Peliaika yhteensä"
+      },
+      "sessions_played": {
+        "name": "Pelatut istunnot"
+      },
+      "current_player": {
+        "name": "Nykyinen pelaaja",
+        "state": {
+          "nobody": "Kukaan ei pelaa"
+        }
+      }
+    },
+    "binary_sensor": {
+      "playing": {
+        "name": "Pac-Man"
+      }
+    }
+  }
+}

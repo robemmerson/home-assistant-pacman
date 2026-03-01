@@ -1,7 +1,7 @@
 {
   "editor": {
     "card": {
-      "doom": {
+      "pacman": {
         "title": "Názov",
         "sound": "Zvuk",
         "auto_start": "Automatické spustenie"
@@ -9,7 +9,7 @@
     }
   },
   "dialog": {
-    "iddqd": {
+    "wakawaka": {
       "title": "REŽIM BOHA AKTIVOVANÝ"
     }
   }

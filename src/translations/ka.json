@@ -1,7 +1,7 @@
 {
   "editor": {
     "card": {
-      "doom": {
+      "pacman": {
         "title": "სათაური",
         "sound": "ხმა",
         "auto_start": "ავტომატური დაწყება"
@@ -9,7 +9,7 @@
     }
   },
   "dialog": {
-    "iddqd": {
+    "wakawaka": {
       "title": "ღვთის რეჟიმი გააქტიურებულია"
     }
   }

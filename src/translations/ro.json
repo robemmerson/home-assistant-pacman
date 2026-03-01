@@ -1,7 +1,7 @@
 {
   "editor": {
     "card": {
-      "doom": {
+      "pacman": {
         "title": "Titlu",
         "sound": "Sunet",
         "auto_start": "Pornire automată"
@@ -9,7 +9,7 @@
     }
   },
   "dialog": {
-    "iddqd": {
+    "wakawaka": {
       "title": "MODUL DIVIN ACTIVAT"
     }
   }

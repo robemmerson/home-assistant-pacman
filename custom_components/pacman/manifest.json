@@ -1,0 +1,12 @@
+{
+  "domain": "pacman",
+  "name": "Pac-Man",
+  "codeowners": ["@robemmerson"],
+  "config_flow": true,
+  "dependencies": ["frontend", "http", "websocket_api"],
+  "documentation": "https://github.com/robemmerson/home-assistant-pacman",
+  "integration_type": "service",
+  "iot_class": "calculated",
+  "issue_tracker": "https://github.com/robemmerson/home-assistant-pacman/issues",
+  "version": "0.0.0"
+}

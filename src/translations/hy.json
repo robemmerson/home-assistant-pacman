@@ -1,7 +1,7 @@
 {
   "editor": {
     "card": {
-      "doom": {
+      "pacman": {
         "title": "Վերնագիր",
         "sound": "Ձայն",
         "auto_start": "Ինքնաադարձակ գործարկում"
@@ -9,8 +9,8 @@
     }
   },
   "dialog": {
-    "iddqd": {
-      "title": "GOD MODE ACTIVATED"
+    "wakawaka": {
+      "title": "WAKA WAKA WAKA!"
     }
   }
 }

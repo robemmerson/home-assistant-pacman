@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pac-Man"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fact": {
+        "name": "Citace/Fakt",
+        "state": {}
+      },
+      "last_played": {
+        "name": "Naposledy hráno"
+      },
+      "session_duration": {
+        "name": "Délka relace"
+      },
+      "total_play_time": {
+        "name": "Celkový čas hraní"
+      },
+      "sessions_played": {
+        "name": "Odehraných relací"
+      },
+      "current_player": {
+        "name": "Aktuální hráč",
+        "state": {
+          "nobody": "Nikdo nehraje"
+        }
+      }
+    },
+    "binary_sensor": {
+      "playing": {
+        "name": "Pac-Man"
+      }
+    }
+  }
+}

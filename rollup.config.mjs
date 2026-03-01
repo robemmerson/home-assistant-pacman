@@ -47,18 +47,18 @@ const plugins = [
 
 export default [
   {
-    input: "src/doom.ts",
+    input: "src/pacman.ts",
     output: {
-      file: "custom_components/doom/frontend/doom-card.js",
+      file: "custom_components/pacman/frontend/pacman-card.js",
       format: "es",
       inlineDynamicImports: true,
     },
     plugins,
   },
   {
-    input: "src/doom-iddqd.ts",
+    input: "src/pacman-wakawaka.ts",
     output: {
-      file: "custom_components/doom/frontend/doom-iddqd.js",
+      file: "custom_components/pacman/frontend/pacman-wakawaka.js",
       format: "es",
       inlineDynamicImports: true,
     },

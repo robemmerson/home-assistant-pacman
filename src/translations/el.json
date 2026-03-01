@@ -1,7 +1,7 @@
 {
   "editor": {
     "card": {
-      "doom": {
+      "pacman": {
         "title": "Τίτλος",
         "sound": "Ήχος",
         "auto_start": "Αυτόματη εκκίνηση"
@@ -9,7 +9,7 @@
     }
   },
   "dialog": {
-    "iddqd": {
+    "wakawaka": {
       "title": "ΛΕΙΤΟΥΡΓΙΑ ΘΕΟΥ ΕΝΕΡΓΟΠΟΙΗΘΗΚΕ"
     }
   }

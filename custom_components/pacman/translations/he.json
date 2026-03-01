@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pac-Man"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fact": {
+        "name": "ציטוט/עובדה",
+        "state": {}
+      },
+      "last_played": {
+        "name": "שוחק לאחרונה"
+      },
+      "session_duration": {
+        "name": "משך ההפעלה"
+      },
+      "total_play_time": {
+        "name": "זמן משחק כולל"
+      },
+      "sessions_played": {
+        "name": "הפעלות ששוחקו"
+      },
+      "current_player": {
+        "name": "שחקן נוכחי",
+        "state": {
+          "nobody": "אף אחד לא משחק"
+        }
+      }
+    },
+    "binary_sensor": {
+      "playing": {
+        "name": "Pac-Man"
+      }
+    }
+  }
+}

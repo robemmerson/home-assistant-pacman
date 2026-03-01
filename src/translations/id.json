@@ -1,7 +1,7 @@
 {
   "editor": {
     "card": {
-      "doom": {
+      "pacman": {
         "title": "Judul",
         "sound": "Suara",
         "auto_start": "Mulai otomatis"
@@ -9,7 +9,7 @@
     }
   },
   "dialog": {
-    "iddqd": {
+    "wakawaka": {
       "title": "MODE TUHAN DIAKTIFKAN"
     }
   }

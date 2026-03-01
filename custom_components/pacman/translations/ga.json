@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pac-Man"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fact": {
+        "state": {},
+        "name": "Athfhriotal/Fior"
+      },
+      "last_played": {
+        "name": "Imeartha go deireanach"
+      },
+      "session_duration": {
+        "name": "Fad an tseisiúin"
+      },
+      "total_play_time": {
+        "name": "Am imeartha iomlán"
+      },
+      "sessions_played": {
+        "name": "Seisiúin imeartha"
+      },
+      "current_player": {
+        "name": "Imreoir reatha",
+        "state": {
+          "nobody": "Níl aon duine ag imirt"
+        }
+      }
+    },
+    "binary_sensor": {
+      "playing": {
+        "name": "Pac-Man"
+      }
+    }
+  }
+}

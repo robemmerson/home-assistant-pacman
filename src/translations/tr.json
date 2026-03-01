@@ -1,7 +1,7 @@
 {
   "editor": {
     "card": {
-      "doom": {
+      "pacman": {
         "title": "Başlık",
         "sound": "Ses",
         "auto_start": "Otomatik başlatma"
@@ -9,7 +9,7 @@
     }
   },
   "dialog": {
-    "iddqd": {
+    "wakawaka": {
       "title": "TANRI MODU ETKİNLEŞTİRİLDİ"
     }
   }

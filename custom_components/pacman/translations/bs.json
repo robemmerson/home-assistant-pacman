@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pac-Man"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fact": {
+        "name": "Citat/Činjenica",
+        "state": {}
+      },
+      "last_played": {
+        "name": "Zadnje igrano"
+      },
+      "session_duration": {
+        "name": "Trajanje sesije"
+      },
+      "total_play_time": {
+        "name": "Ukupno vrijeme igranja"
+      },
+      "sessions_played": {
+        "name": "Odigrane sesije"
+      },
+      "current_player": {
+        "name": "Trenutni igrač",
+        "state": {
+          "nobody": "Niko ne igra"
+        }
+      }
+    },
+    "binary_sensor": {
+      "playing": {
+        "name": "Pac-Man"
+      }
+    }
+  }
+}

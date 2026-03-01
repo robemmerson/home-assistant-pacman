@@ -14,7 +14,7 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "experimentalDecorators": true,
-    "outDir": "custom_components/doom/frontend",
+    "outDir": "custom_components/pacman/frontend",
     "rootDir": "."
   },
   "include": ["src/**/*.ts"],

@@ -1,7 +1,7 @@
 {
   "editor": {
     "card": {
-      "doom": {
+      "pacman": {
         "title": "Titel",
         "sound": "Lûd",
         "auto_start": "Automatysk starte"
@@ -9,7 +9,7 @@
     }
   },
   "dialog": {
-    "iddqd": {
+    "wakawaka": {
       "title": "GODMODUS AKTIVEARRE"
     }
   }

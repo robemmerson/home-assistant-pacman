@@ -1,7 +1,7 @@
 {
   "editor": {
     "card": {
-      "doom": {
+      "pacman": {
         "title": "Tiêu đề",
         "sound": "Âm thanh",
         "auto_start": "Tự động bắt đầu"
@@ -9,7 +9,7 @@
     }
   },
   "dialog": {
-    "iddqd": {
+    "wakawaka": {
       "title": "CHẾ ĐỘ THẦN ĐÃ KÍCH HOẠT"
     }
   }

@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pac-Man"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fact": {
+        "name": "उद्धरण/तथ्य",
+        "state": {}
+      },
+      "last_played": {
+        "name": "अंतिम बार खेला गया"
+      },
+      "session_duration": {
+        "name": "सत्र की अवधि"
+      },
+      "total_play_time": {
+        "name": "कुल खेल समय"
+      },
+      "sessions_played": {
+        "name": "खेले गए सत्र"
+      },
+      "current_player": {
+        "name": "वर्तमान खिलाड़ी",
+        "state": {
+          "nobody": "कोई नहीं खेल रहा"
+        }
+      }
+    },
+    "binary_sensor": {
+      "playing": {
+        "name": "Pac-Man"
+      }
+    }
+  }
+}

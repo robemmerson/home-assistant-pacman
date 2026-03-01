@@ -1,4 +1,4 @@
-# Home Assistant Custom Integration: DOOM
+# Home Assistant Custom Integration: Pac-Man
 
 [![GitHub Release][releases-shield]][releases]
 [![HACS][hacs-shield]][hacs]
@@ -8,51 +8,36 @@
 [![GitHub Activity][commits-shield]][commits]
 [![GitHub Last Commit][last-commit-shield]][commits]
 
-[![Sponsor Frenck via GitHub Sponsors][github-sponsors-shield]][github-sponsors]
-
-Play the original DOOM in your Home Assistant dashboard. 🎮
+Play the classic Pac-Man arcade game in your Home Assistant dashboard. 🎮
 
 ## About
 
-It is a well-known tradition that DOOM runs on everything. Calculators,
-ATMs, pregnancy tests, tractors, thermostats, and even a
-[LEGO brick](https://www.youtube.com/watch?v=43ky9rpmMT0). If it has a
-screen and a processor, someone will make DOOM run on it. It was only a matter
-of time before Home Assistant joined the club.
+WAKA WAKA WAKA! This custom integration adds a dashboard card that lets you
+play Pac-Man directly inside your Home Assistant dashboard. No emulator, no
+external dependencies — just a self-contained HTML5 Canvas game engine that
+runs right in your browser.
 
-This custom integration adds a dashboard card that lets you play the original
-DOOM (1993) directly inside your Home Assistant dashboard. It uses
-[js-dos](https://js-dos.com/) to run the real `DOOM.EXE` through a DOSBox
-emulator compiled to WebAssembly, right in your browser.
-
-The shareware version of DOOM (Episode 1: Knee Deep in the Dead) is included
-and freely redistributable per id Software's original shareware license.
+Guide Pac-Man through the maze, eat all the dots, and avoid Blinky, Pinky,
+Inky, and Clyde. Grab a power pellet to turn the tables and eat the ghosts
+for bonus points. Classic arcade action, smart home style.
 
 This is a fun effort, but it carries a vision: imagine a gaming dashboard in
 Home Assistant with small games you can play, no matter where you are. Your
 smart home, your rules, your entertainment.
 
-![Screenshot of DOOM running in Home Assistant](https://raw.githubusercontent.com/frenck/home-assistant-doom/main/images/home-assistant-doom.png)
-
 ## Credits
 
 This project was entirely written by AI. Not just assisted, _entirely_ written.
-The Python backend, the TypeScript frontend card, the DOSBox configuration, the
+The Python backend, the TypeScript frontend card, the Pac-Man game engine, the
 build tooling, the translations, and even this README. All of it.
 
-It was built using [Visual Studio Code][vscode] with [GitHub Copilot][copilot],
-powered by the Claude Opus 4.6 model. The process started with an extensive
-prompt describing what this project should be, and from there, the AI handled
-every aspect of the implementation. The whole thing took less than 2 hours
-from start to finish.
+It was built using [Claude Code][claude-code], powered by the Claude Sonnet 4.6
+model. The process started with a conversation describing what this project
+should be, and from there, the AI handled every aspect of the implementation.
 
 It is wild how capable AI has become. What would have taken days of work,
 reading documentation, debugging edge cases, and wiring everything together,
 was done in a single sitting with a conversation. We live in amazing times.
-
-Massive thanks to [GitHub][github] for providing Copilot free of charge. 🙏
-
-No kittens or octocats have been harmed during the development of this integration. 🐱
 
 ## Installation
 
@@ -62,23 +47,23 @@ No kittens or octocats have been harmed during the development of this integrati
    instance.
 2. Add this repository as a custom repository in HACS:
    - Go to **HACS** > **Integrations** > **⋮** > **Custom repositories**
-   - Add `https://github.com/frenck/home-assistant-doom` with category
+   - Add `https://github.com/robemmerson/home-assistant-pacman` with category
      **Integration**
-3. Search for "DOOM" in HACS and install it.
+3. Search for "Pac-Man" in HACS and install it.
 4. Restart Home Assistant.
 5. Go to **Settings** > **Devices & services** > **Add integration** and
-   search for "DOOM".
+   search for "Pac-Man".
 
 ### Manual installation
 
 1. Download the latest release from the
-   [releases page](https://github.com/frenck/home-assistant-doom/releases).
-2. Extract the `doom.zip` file.
-3. Copy the `custom_components/doom` folder to your Home Assistant
+   [releases page](https://github.com/robemmerson/home-assistant-pacman/releases).
+2. Extract the `pacman.zip` file.
+3. Copy the `custom_components/pacman` folder to your Home Assistant
    `config/custom_components/` directory.
 4. Restart Home Assistant.
 5. Go to **Settings** > **Devices & services** > **Add integration** and
-   search for "DOOM".
+   search for "Pac-Man".
 
 ## Usage
 
@@ -86,149 +71,123 @@ After installing and setting up the integration:
 
 1. Edit any dashboard.
 2. Click **Add card**.
-3. Search for **DOOM**.
+3. Search for **Pac-Man**.
 4. Add the card and resize it to your liking.
 5. Click **"Click to play"** to start the game.
-
-![Screenshot of the "Add card" dialog showing the DOOM card](https://raw.githubusercontent.com/frenck/home-assistant-doom/main/images/doom-add-card.png)
 
 ### Card options
 
 The card editor provides the following configuration options:
 
 - **Title**: Optional card header title. No title is shown by default.
-- **Sound**: Enable or disable sound output. On by default.
 - **Auto start**: Start the game immediately without clicking to play.
   Off by default.
 
-![Screenshot of the card editor showing the DOOM card](https://raw.githubusercontent.com/frenck/home-assistant-doom/main/images/doom-card-editor.png)
-
 ### Controls
 
-| Action        | Key     |
-| ------------- | ------- |
-| Move forward  | `↑`     |
-| Move backward | `↓`     |
-| Turn left     | `←`     |
-| Turn right    | `→`     |
-| Strafe left   | `,`     |
-| Strafe right  | `.`     |
-| Fire          | `Ctrl`  |
-| Use / Open    | `Space` |
-| Run           | `Shift` |
-| Strafe        | `Alt`   |
-| Weapon select | `1`-`7` |
-
-> **Note:** A keyboard is recommended for the best experience.
+| Action     | Key / Input        |
+| ---------- | ------------------ |
+| Move up    | `↑` or `W`         |
+| Move down  | `↓` or `S`         |
+| Move left  | `←` or `A`         |
+| Move right | `→` or `D`         |
+| Touch      | Swipe in direction |
 
 ## Entities
 
 The integration provides several entities, all grouped under a single
-**DOOM** device.
+**Pac-Man** device.
 
-![Screenshot of the DOOM device with all entities](https://raw.githubusercontent.com/frenck/home-assistant-doom/main/images/doom-device.png)
+### Pac-Man binary sensor
 
-### DOOM binary sensor
+A binary sensor that tracks whether someone is actively playing Pac-Man on
+your Home Assistant instance. It uses a heartbeat mechanism: the dashboard
+card sends periodic pings while the game is running. If no ping is received
+within 3 seconds (or the page is closed), the sensor turns off.
 
-A binary sensor that tracks whether someone is actively playing DOOM on your
-Home Assistant instance. It uses a heartbeat mechanism: the dashboard card
-sends periodic pings while the game is running. If no ping is received within
-3 seconds (or the page is closed), the sensor turns off.
-
-| State | Label                  |
-| ----- | ---------------------- |
-| `on`  | Ripping and tearing 🔥 |
-| `off` | Dormant 💤             |
+| State | Label           |
+| ----- | --------------- |
+| `on`  | Waka waka waka  |
+| `off` | Waiting to play |
 
 ### Quote/Fact sensor
 
-An enum sensor that displays a random DOOM fact or quote. It updates once per
-day and picks from a pool of 46 facts covering the game's history, lore,
-development trivia, and iconic quotes.
+An enum sensor that displays a random Pac-Man fact. It updates once per day
+and picks from a pool of facts covering the game's history, lore, and
+development trivia.
 
 ### Current player sensor
 
-Tracks which Home Assistant user is currently playing DOOM. When nobody is
+Tracks which Home Assistant user is currently playing Pac-Man. When nobody is
 playing, the state is "Nobody is playing".
 
 ### Session duration sensor
 
-Shows the duration of the current (or last) DOOM session, displayed in
-minutes. Updates in real time with a 1-second tick while the game is running.
+Shows the duration of the current (or last) Pac-Man session, displayed in
+minutes. Updates in real time while the game is running.
 
 ### Total play time sensor
 
-Tracks the cumulative time spent playing DOOM across all sessions, displayed
+Tracks the cumulative time spent playing Pac-Man across all sessions, displayed
 in hours. This value persists across restarts.
 
 ### Sessions played sensor
 
-A counter that increments each time a new DOOM session is started. This value
-persists across restarts.
+A counter that increments each time a new Pac-Man session is started. This
+value persists across restarts.
 
 ### Last played sensor
 
-A timestamp sensor that records when the last DOOM session ended.
+A timestamp sensor that records when the last Pac-Man session ended.
 
 ## Easter egg 🥚
 
-True to Doom's legacy, this integration includes a hidden cheat code.
-Type **`iddqd`** anywhere in the Home Assistant interface (yes, just start
-typing it!) and a DOOM dialog will appear, letting you play the game
-immediately, no dashboard card needed. God mode activated.
+Type **`wakawaka`** anywhere in the Home Assistant interface and a Pac-Man
+dialog will appear, letting you play the game immediately — no dashboard card
+needed. WAKA WAKA WAKA!
 
 ## Example automations
 
-### DOOM lighting mode
+### Pac-Man lighting mode
 
-Set your office lights to a hellish red color scheme while playing DOOM, and
-restore them when you stop:
+Set your office lights to arcade yellow while playing Pac-Man, and restore
+them when you stop:
 
 ```yaml
 automation:
-  - alias: "DOOM lights on"
-    description: "Set office lights to DOOM colors when playing"
+  - alias: "Pac-Man lights on"
+    description: "Set office lights to Pac-Man colors when playing"
     triggers:
       - trigger: state
-        entity_id: binary_sensor.doom
+        entity_id: binary_sensor.pac_man
         to: "on"
     actions:
       - action: scene.create
         data:
-          scene_id: doom_office_before
+          scene_id: pacman_office_before
           snapshot_entities:
             - light.office
       - action: light.turn_on
         target:
           entity_id: light.office
         data:
-          rgb_color: [200, 0, 0]
+          rgb_color: [255, 255, 0]
           brightness: 255
 
-  - alias: "DOOM lights off"
-    description: "Restore office lights when DOOM session ends"
+  - alias: "Pac-Man lights off"
+    description: "Restore office lights when Pac-Man session ends"
     triggers:
       - trigger: state
-        entity_id: binary_sensor.doom
+        entity_id: binary_sensor.pac_man
         to: "off"
     actions:
       - action: scene.turn_on
         target:
-          entity_id: scene.doom_office_before
+          entity_id: scene.pacman_office_before
 ```
 
 > **Tip:** Replace `light.office` with your own light entity IDs. You can add
 > multiple lights to `snapshot_entities` and `target` to cover an entire room.
-
-## Legal
-
-DOOM is a registered trademark of id Software LLC. The shareware version of
-DOOM (DOOM1.WAD) is freely redistributable per id Software's original
-shareware distribution license. The full registered versions of DOOM and
-DOOM II require a separate purchase from id Software.
-
-This project is not affiliated with or endorsed by id Software or ZeniMax
-Media.
 
 ## Changelog & releases
 
@@ -256,7 +215,7 @@ Thank you for being involved! 😍
 
 ## Authors & contributors
 
-The original setup of this repository is by [Franck Nijhof][user_profile].
+The original setup of this repository is by [robemmerson][user_profile].
 
 For a full list of all authors and contributors, check
 [the contributor's page][contributors].
@@ -265,7 +224,7 @@ For a full list of all authors and contributors, check
 
 MIT License
 
-Copyright (c) 2026 Franck Nijhof
+Copyright (c) 2026 robemmerson
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -284,19 +243,15 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER I
 AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-[commits-shield]: https://img.shields.io/github/commit-activity/y/frenck/home-assistant-doom.svg
-[commits]: https://github.com/frenck/home-assistant-doom/commits/main
-[contributors]: https://github.com/frenck/home-assistant-doom/graphs/contributors
-[copilot]: https://github.com/features/copilot
-[github-sponsors-shield]: https://frenck.dev/wp-content/uploads/2019/01/github_sponsor.png
-[github-sponsors]: https://github.com/sponsors/frenck
-[github]: https://github.com
+[claude-code]: https://claude.ai/claude-code
+[commits-shield]: https://img.shields.io/github/commit-activity/y/robemmerson/home-assistant-pacman.svg
+[commits]: https://github.com/robemmerson/home-assistant-pacman/commits/main
+[contributors]: https://github.com/robemmerson/home-assistant-pacman/graphs/contributors
 [hacs-shield]: https://img.shields.io/badge/HACS-Custom-41BDF5.svg
 [hacs]: https://hacs.xyz/
-[last-commit-shield]: https://img.shields.io/github/last-commit/frenck/home-assistant-doom.svg
-[license-shield]: https://img.shields.io/github/license/frenck/home-assistant-doom.svg
+[last-commit-shield]: https://img.shields.io/github/last-commit/robemmerson/home-assistant-pacman.svg
+[license-shield]: https://img.shields.io/github/license/robemmerson/home-assistant-pacman.svg
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2026.svg
-[releases-shield]: https://img.shields.io/github/release/frenck/home-assistant-doom.svg
-[releases]: https://github.com/frenck/home-assistant-doom/releases
-[user_profile]: https://github.com/frenck
-[vscode]: https://code.visualstudio.com
+[releases-shield]: https://img.shields.io/github/release/robemmerson/home-assistant-pacman.svg
+[releases]: https://github.com/robemmerson/home-assistant-pacman/releases
+[user_profile]: https://github.com/robemmerson

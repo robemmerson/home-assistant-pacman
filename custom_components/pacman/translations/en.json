@@ -1,0 +1,94 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pac-Man",
+        "description": "The ghosts are loose in your smart home! Set up Pac-Man to chase them down with a playable card right on your dashboard. Waka waka waka!"
+      }
+    },
+    "abort": {
+      "already_configured": "Pac-Man is already chomping away on your system. There can only be one Pac-Man!"
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "playing": {
+        "name": "Pac-Man",
+        "state": {
+          "on": "Waka waka waka",
+          "off": "Waiting to play"
+        }
+      }
+    },
+    "sensor": {
+      "fact": {
+        "name": "Quote/Fact",
+        "state": {
+          "waka_waka": "Waka waka waka!",
+          "original_1980": "Pac-Man was created by Toru Iwatani and released by Namco in Japan on May 22, 1980.",
+          "namco_creation": "Pac-Man was developed by Namco and was originally called 'Puck Man' in Japan.",
+          "toru_iwatani": "Toru Iwatani, the creator of Pac-Man, was inspired by the image of a pizza with a slice removed.",
+          "pizza_inspiration": "The shape of Pac-Man was inspired by a pizza with one slice taken out of it.",
+          "four_ghosts": "The four ghosts are Blinky (red), Pinky (pink), Inky (cyan), and Clyde (orange).",
+          "blinky_shadow": "Blinky, the red ghost, always chases Pac-Man directly.",
+          "pinky_speedy": "Pinky, the pink ghost, tries to ambush Pac-Man by targeting four tiles ahead.",
+          "inky_bashful": "Inky, the cyan ghost, uses both Blinky's position and Pac-Man's direction to set its target.",
+          "clyde_pokey": "Clyde, the orange ghost, chases when far from Pac-Man but retreats to its corner when close.",
+          "power_pellet": "Eating a Power Pellet temporarily turns the ghosts blue, allowing Pac-Man to eat them.",
+          "fruit_bonus": "Bonus fruit items appear twice per level in the center of the maze, worth bonus points.",
+          "perfect_score": "The maximum score in a perfect game of Pac-Man is 3,333,360 points.",
+          "kill_screen": "Pac-Man has a 'kill screen' at level 256 where the right half of the maze becomes garbled.",
+          "maze_patterns": "Expert players use pre-planned movement patterns to avoid ghosts without power pellets.",
+          "ghost_house": "The ghost house in the center of the maze is where the ghosts start each life.",
+          "tunnel_speed": "Ghosts slow down when passing through the tunnels on the sides of the maze.",
+          "scatter_mode": "Ghosts periodically enter 'scatter mode' and retreat to their designated corners.",
+          "chase_mode": "In 'chase mode', each ghost pursues Pac-Man using its unique targeting strategy.",
+          "frightened_mode": "After eating a power pellet, ghosts enter 'frightened mode' and turn blue.",
+          "elroy_mode": "When few dots remain, Blinky speeds up. This was called 'Cruise Elroy' by Midway staff.",
+          "ms_pacman": "Ms. Pac-Man (1982) introduced moving fruit and randomised ghost behavior.",
+          "highest_grossing": "Pac-Man was the highest-grossing arcade game of the 1980s.",
+          "cultural_icon": "Pac-Man became one of the most recognizable pop culture icons of all time.",
+          "pac_man_fever": "The 1982 novelty song 'Pac-Man Fever' reached number 9 on the US Billboard Hot 100.",
+          "japan_1980": "In Japan, Pac-Man was released on May 22, 1980 under the name 'Puck Man'.",
+          "us_1980": "Pac-Man was released in North America in October 1980, renamed from 'Puck Man'.",
+          "ghost_names_japan": "The Japanese ghost names are Oikake (Chaser), Machibuse (Ambusher), Kimagure (Fickle), and Otoboke (Stupid).",
+          "255_levels": "Pac-Man has 255 playable levels before the kill screen at level 256.",
+          "first_mascot": "Pac-Man is widely considered the first video game character to become a pop culture mascot.",
+          "cabinet_design": "The original Pac-Man arcade cabinet was yellow to match the character.",
+          "sound_effects": "Pac-Man's 'waka waka' sound was created by speeding up a voice saying the syllables.",
+          "intermissions": "Pac-Man features animated intermissions between certain levels showing comedic skits.",
+          "no_end": "The original Pac-Man has no true ending — it loops continuously until the kill screen.",
+          "speed_increase": "Pac-Man and the ghosts both get faster as levels progress.",
+          "pink_ghosts": "In early Pac-Man designs, all the ghosts were originally the same color.",
+          "waka_sound": "The 'waka' sound Pac-Man makes when eating dots is one of the most recognizable sounds in gaming history.",
+          "game_over": "The game over screen in Pac-Man simply shows the text 'GAME OVER' in pink.",
+          "continues": "The original arcade Pac-Man does not have a continue feature — once you're out of lives, it's over.",
+          "millennium_arcade": "Pac-Man was voted the most popular arcade game of the millennium in multiple polls.",
+          "smithsonian": "The original Pac-Man arcade cabinet is preserved in the Smithsonian Institution.",
+          "moma": "Pac-Man is one of the video games included in the Museum of Modern Art's permanent collection.",
+          "genome_project": "Scientists have used Pac-Man as a metaphor and visual representation in genome research.",
+          "google_doodle": "Google celebrated Pac-Man's 30th anniversary with a fully playable Pac-Man Google Doodle.",
+          "guinness_records": "Pac-Man holds multiple Guinness World Records, including most successful coin-operated game."
+        }
+      },
+      "last_played": {
+        "name": "Last played"
+      },
+      "session_duration": {
+        "name": "Session duration"
+      },
+      "total_play_time": {
+        "name": "Total play time"
+      },
+      "sessions_played": {
+        "name": "Sessions played"
+      },
+      "current_player": {
+        "name": "Current player",
+        "state": {
+          "nobody": "Nobody is playing"
+        }
+      }
+    }
+  }
+}

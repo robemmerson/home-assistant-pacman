@@ -1,6 +1,6 @@
 ---
-name: Report an issue with DOOM for Home Assistant
-description: Report a malfunction, unexpected behavior, or other issue with DOOM for Home Assistant.
+name: Report an issue with Pac-Man for Home Assistant
+description: Report a malfunction, unexpected behavior, or other issue with Pac-Man for Home Assistant.
 body:
   - type: markdown
     attributes:
@@ -8,7 +8,7 @@ body:
         ### ✋ **This bug tracker is for reporting issues only!**
 
         If you have a feature or enhancement request, please use the
-        [feature request form](https://github.com/frenck/home-assistant-doom/issues/new?template=feature_request.yml) instead.
+        [feature request form](https://github.com/robemmerson/home-assistant-pacman/issues/new?template=feature_request.yml) instead.
 
         ---
 
@@ -21,8 +21,6 @@ body:
 
         Thanks for taking the time to contribute! 🙌
 
-        ../Frenck
-
         ---
 
   - type: input
@@ -30,7 +28,7 @@ body:
     validations:
       required: true
     attributes:
-      label: What version of DOOM for Home Assistant are you using?
+      label: What version of Pac-Man for Home Assistant are you using?
 
   - type: input
     id: homeassistant

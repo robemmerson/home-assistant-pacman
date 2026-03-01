@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pac-Man"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fact": {
+        "state": {},
+        "name": "Dyfyniad/Ffaith"
+      },
+      "last_played": {
+        "name": "Chwaraewyd ddiwethaf"
+      },
+      "session_duration": {
+        "name": "Hyd y sesiwn"
+      },
+      "total_play_time": {
+        "name": "Cyfanswm amser chwarae"
+      },
+      "sessions_played": {
+        "name": "Sesiynau a chwaraewyd"
+      },
+      "current_player": {
+        "name": "Chwaraewr presennol",
+        "state": {
+          "nobody": "Neb yn chwarae"
+        }
+      }
+    },
+    "binary_sensor": {
+      "playing": {
+        "name": "Pac-Man"
+      }
+    }
+  }
+}

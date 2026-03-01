@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pac-Man"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fact": {
+        "state": {},
+        "name": "Aanhaling/Feit"
+      },
+      "last_played": {
+        "name": "Laas gespeel"
+      },
+      "session_duration": {
+        "name": "Sessieduur"
+      },
+      "total_play_time": {
+        "name": "Totale speeltyd"
+      },
+      "sessions_played": {
+        "name": "Sessies gespeel"
+      },
+      "current_player": {
+        "name": "Huidige speler",
+        "state": {
+          "nobody": "Niemand speel nie"
+        }
+      }
+    },
+    "binary_sensor": {
+      "playing": {
+        "name": "Pac-Man"
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
   "editor": {
     "card": {
-      "doom": {
+      "pacman": {
         "title": "Titolo",
         "sound": "Sono",
         "auto_start": "Aŭtomata komenco"
@@ -9,7 +9,7 @@
     }
   },
   "dialog": {
-    "iddqd": {
+    "wakawaka": {
       "title": "DIA REĜIMO AKTIVIGITA"
     }
   }

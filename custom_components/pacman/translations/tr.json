@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pac-Man"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fact": {
+        "state": {},
+        "name": "Alıntı/Gerçek"
+      },
+      "last_played": {
+        "name": "Last played"
+      },
+      "session_duration": {
+        "name": "Session duration"
+      },
+      "total_play_time": {
+        "name": "Total play time"
+      },
+      "sessions_played": {
+        "name": "Sessions played"
+      },
+      "current_player": {
+        "name": "Current player",
+        "state": {
+          "nobody": "Nobody is playing"
+        }
+      }
+    },
+    "binary_sensor": {
+      "playing": {
+        "name": "Pac-Man"
+      }
+    }
+  }
+}

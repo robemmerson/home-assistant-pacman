@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pac-Man"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fact": {
+        "state": {},
+        "name": "Zitat/Fakt"
+      },
+      "last_played": {
+        "name": "Zletscht gschpilt"
+      },
+      "session_duration": {
+        "name": "Sitzigsduure"
+      },
+      "total_play_time": {
+        "name": "Gsamtspiilzyt"
+      },
+      "sessions_played": {
+        "name": "Gspilti Sitzige"
+      },
+      "current_player": {
+        "name": "Aktuelle Spiiler",
+        "state": {
+          "nobody": "Niemer spiilt"
+        }
+      }
+    },
+    "binary_sensor": {
+      "playing": {
+        "name": "Pac-Man"
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pac-Man"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fact": {
+        "state": {},
+        "name": "Απόφθεγμα/Γεγονός"
+      },
+      "last_played": {
+        "name": "Τελευταίο παιχνίδι"
+      },
+      "session_duration": {
+        "name": "Διάρκεια συνεδρίας"
+      },
+      "total_play_time": {
+        "name": "Συνολικός χρόνος παιχνιδιού"
+      },
+      "sessions_played": {
+        "name": "Συνεδρίες που παίχτηκαν"
+      },
+      "current_player": {
+        "name": "Τρέχων παίκτης",
+        "state": {
+          "nobody": "Κανείς δεν παίζει"
+        }
+      }
+    },
+    "binary_sensor": {
+      "playing": {
+        "name": "Pac-Man"
+      }
+    }
+  }
+}

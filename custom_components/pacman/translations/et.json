@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pac-Man"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fact": {
+        "name": "Tsitaat/Fakt",
+        "state": {}
+      },
+      "last_played": {
+        "name": "Viimati mängitud"
+      },
+      "session_duration": {
+        "name": "Seansi kestus"
+      },
+      "total_play_time": {
+        "name": "Mänguaeg kokku"
+      },
+      "sessions_played": {
+        "name": "Mängitud seansse"
+      },
+      "current_player": {
+        "name": "Praegune mängija",
+        "state": {
+          "nobody": "Keegi ei mängi"
+        }
+      }
+    },
+    "binary_sensor": {
+      "playing": {
+        "name": "Pac-Man"
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
   "editor": {
     "card": {
-      "doom": {
+      "pacman": {
         "title": "ชื่อ",
         "sound": "เสียง",
         "auto_start": "เริ่มอัตโนมัติ"
@@ -9,7 +9,7 @@
     }
   },
   "dialog": {
-    "iddqd": {
+    "wakawaka": {
       "title": "เปิดโหมดพระเจ้าแล้ว"
     }
   }

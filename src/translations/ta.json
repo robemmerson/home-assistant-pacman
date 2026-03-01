@@ -1,7 +1,7 @@
 {
   "editor": {
     "card": {
-      "doom": {
+      "pacman": {
         "title": "தலைப்பு",
         "sound": "ஒலி",
         "auto_start": "தானியங்கி தொடக்கம்"
@@ -9,7 +9,7 @@
     }
   },
   "dialog": {
-    "iddqd": {
+    "wakawaka": {
       "title": "காட் மோட் செயல்படுத்தப்பட்டது"
     }
   }

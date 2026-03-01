@@ -1,7 +1,7 @@
 {
   "editor": {
     "card": {
-      "doom": {
+      "pacman": {
         "title": "Teideal",
         "sound": "Fuaim",
         "auto_start": "Tosaigh go huathoibríoch"
@@ -9,7 +9,7 @@
     }
   },
   "dialog": {
-    "iddqd": {
+    "wakawaka": {
       "title": "MÓD DÉ GNÍOMHACHTAITHE"
     }
   }

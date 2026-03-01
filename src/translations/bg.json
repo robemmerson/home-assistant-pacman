@@ -1,7 +1,7 @@
 {
   "editor": {
     "card": {
-      "doom": {
+      "pacman": {
         "title": "Заглавие",
         "sound": "Звук",
         "auto_start": "Автоматично стартиране"
@@ -9,7 +9,7 @@
     }
   },
   "dialog": {
-    "iddqd": {
+    "wakawaka": {
       "title": "РЕЖИМ БОГ АКТИВИРАН"
     }
   }

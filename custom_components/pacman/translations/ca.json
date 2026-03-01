@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pac-Man"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fact": {
+        "name": "Cita/Fet",
+        "state": {}
+      },
+      "last_played": {
+        "name": "Última partida"
+      },
+      "session_duration": {
+        "name": "Durada de la sessió"
+      },
+      "total_play_time": {
+        "name": "Temps total de joc"
+      },
+      "sessions_played": {
+        "name": "Sessions jugades"
+      },
+      "current_player": {
+        "name": "Jugador actual",
+        "state": {
+          "nobody": "Ningú està jugant"
+        }
+      }
+    },
+    "binary_sensor": {
+      "playing": {
+        "name": "Pac-Man"
+      }
+    }
+  }
+}

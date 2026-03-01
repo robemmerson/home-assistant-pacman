@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pac-Man"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fact": {
+        "name": "Aipamen/Gertaera",
+        "state": {}
+      },
+      "last_played": {
+        "name": "Azken aldiz jokatua"
+      },
+      "session_duration": {
+        "name": "Saioaren iraupena"
+      },
+      "total_play_time": {
+        "name": "Jokatutako denbora guztira"
+      },
+      "sessions_played": {
+        "name": "Jokatutako saioak"
+      },
+      "current_player": {
+        "name": "Uneko jokalaria",
+        "state": {
+          "nobody": "Inor ez da jokatzen"
+        }
+      }
+    },
+    "binary_sensor": {
+      "playing": {
+        "name": "Pac-Man"
+      }
+    }
+  }
+}

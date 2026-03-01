@@ -1,7 +1,7 @@
 {
-  "name": "doom-card",
+  "name": "pacman-card",
   "version": "0.0.0",
-  "description": "DOOM Lovelace card for Home Assistant",
+  "description": "Pac-Man Lovelace card for Home Assistant",
   "main": "index.js",
   "scripts": {
     "start": "rollup -c --watch --bundleConfigAsCjs",
@@ -11,10 +11,10 @@
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit"
   },
-  "author": "Franck Nijhof",
+  "author": "robemmerson",
   "repository": {
     "type": "git",
-    "url": "https://github.com/frenck/hass-doom"
+    "url": "https://github.com/robemmerson/home-assistant-pacman"
   },
   "license": "MIT",
   "dependencies": {

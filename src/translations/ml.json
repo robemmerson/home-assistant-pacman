@@ -1,7 +1,7 @@
 {
   "editor": {
     "card": {
-      "doom": {
+      "pacman": {
         "title": "ശീർഷകം",
         "sound": "ശബ്ദം",
         "auto_start": "യാന്ത്രിക ആരംഭം"
@@ -9,7 +9,7 @@
     }
   },
   "dialog": {
-    "iddqd": {
+    "wakawaka": {
       "title": "ഗോഡ് മോഡ് സജീവമാക്കി"
     }
   }

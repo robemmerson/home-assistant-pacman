@@ -1,7 +1,7 @@
 {
   "editor": {
     "card": {
-      "doom": {
+      "pacman": {
         "title": "శీర్షిక",
         "sound": "ధ్వని",
         "auto_start": "ఆటో ప్రారంభం"
@@ -9,7 +9,7 @@
     }
   },
   "dialog": {
-    "iddqd": {
+    "wakawaka": {
       "title": "గాడ్ మోడ్ సక్రియం చేయబడింది"
     }
   }

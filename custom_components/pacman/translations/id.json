@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pac-Man"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fact": {
+        "state": {},
+        "name": "Kutipan/Fakta"
+      },
+      "last_played": {
+        "name": "Terakhir dimainkan"
+      },
+      "session_duration": {
+        "name": "Durasi sesi"
+      },
+      "total_play_time": {
+        "name": "Total waktu bermain"
+      },
+      "sessions_played": {
+        "name": "Sesi dimainkan"
+      },
+      "current_player": {
+        "name": "Pemain saat ini",
+        "state": {
+          "nobody": "Tidak ada yang bermain"
+        }
+      }
+    },
+    "binary_sensor": {
+      "playing": {
+        "name": "Pac-Man"
+      }
+    }
+  }
+}

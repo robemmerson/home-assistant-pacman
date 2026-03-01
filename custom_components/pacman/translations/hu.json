@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pac-Man"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fact": {
+        "name": "Idézet/Tény",
+        "state": {}
+      },
+      "last_played": {
+        "name": "Utoljára játszva"
+      },
+      "session_duration": {
+        "name": "Munkamenet időtartama"
+      },
+      "total_play_time": {
+        "name": "Összes játékidő"
+      },
+      "sessions_played": {
+        "name": "Lejátszott munkamenetek"
+      },
+      "current_player": {
+        "name": "Jelenlegi játékos",
+        "state": {
+          "nobody": "Senki sem játszik"
+        }
+      }
+    },
+    "binary_sensor": {
+      "playing": {
+        "name": "Pac-Man"
+      }
+    }
+  }
+}

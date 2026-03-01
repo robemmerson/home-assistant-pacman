@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pac-Man"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fact": {
+        "state": {},
+        "name": "اقتباس/حقيقة"
+      },
+      "last_played": {
+        "name": "آخر مرة لُعبت"
+      },
+      "session_duration": {
+        "name": "مدة الجلسة"
+      },
+      "total_play_time": {
+        "name": "إجمالي وقت اللعب"
+      },
+      "sessions_played": {
+        "name": "الجلسات المُلعَبة"
+      },
+      "current_player": {
+        "name": "اللاعب الحالي",
+        "state": {
+          "nobody": "لا أحد يلعب"
+        }
+      }
+    },
+    "binary_sensor": {
+      "playing": {
+        "name": "Pac-Man"
+      }
+    }
+  }
+}

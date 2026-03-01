@@ -1,7 +1,7 @@
 {
   "editor": {
     "card": {
-      "doom": {
+      "pacman": {
         "title": "כותרת",
         "sound": "צליל",
         "auto_start": "הפעלה אוטומטית"
@@ -9,7 +9,7 @@
     }
   },
   "dialog": {
-    "iddqd": {
+    "wakawaka": {
       "title": "מצב אלוהים הופעל"
     }
   }

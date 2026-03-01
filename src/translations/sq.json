@@ -1,7 +1,7 @@
 {
   "editor": {
     "card": {
-      "doom": {
+      "pacman": {
         "title": "Titulli",
         "sound": "Tingulli",
         "auto_start": "Auto start"
@@ -9,7 +9,7 @@
     }
   },
   "dialog": {
-    "iddqd": {
+    "wakawaka": {
       "title": "MODALITETI I ZOTIT I AKTIVIZUAR"
     }
   }

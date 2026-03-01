@@ -1,7 +1,7 @@
 {
   "editor": {
     "card": {
-      "doom": {
+      "pacman": {
         "title": "Cím",
         "sound": "Hang",
         "auto_start": "Automatikus indítás"
@@ -9,7 +9,7 @@
     }
   },
   "dialog": {
-    "iddqd": {
+    "wakawaka": {
       "title": "ISTEN MÓD AKTIVÁLVA"
     }
   }

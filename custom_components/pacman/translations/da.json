@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pac-Man"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fact": {
+        "state": {},
+        "name": "Citat/Faktum"
+      },
+      "last_played": {
+        "name": "Sidst spillet"
+      },
+      "session_duration": {
+        "name": "Sessionsvarighed"
+      },
+      "total_play_time": {
+        "name": "Samlet spilletid"
+      },
+      "sessions_played": {
+        "name": "Sessioner spillet"
+      },
+      "current_player": {
+        "name": "Nuværende spiller",
+        "state": {
+          "nobody": "Ingen spiller"
+        }
+      }
+    },
+    "binary_sensor": {
+      "playing": {
+        "name": "Pac-Man"
+      }
+    }
+  }
+}

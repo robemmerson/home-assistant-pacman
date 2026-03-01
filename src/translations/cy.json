@@ -1,7 +1,7 @@
 {
   "editor": {
     "card": {
-      "doom": {
+      "pacman": {
         "title": "Teitl",
         "sound": "Sain",
         "auto_start": "Cychwyn awtomatig"
@@ -9,7 +9,7 @@
     }
   },
   "dialog": {
-    "iddqd": {
+    "wakawaka": {
       "title": "MODD DUW WEDI'I ACTIFADU"
     }
   }
