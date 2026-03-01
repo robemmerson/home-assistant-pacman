@@ -3,9 +3,12 @@ repos:
     rev: v5.0.0
     hooks:
       - id: check-json
+        exclude: ^custom_components/doom/frontend/assets/
       - id: check-yaml
       - id: end-of-file-fixer
+        exclude: ^custom_components/doom/frontend/assets/
       - id: trailing-whitespace
+        exclude: ^custom_components/doom/frontend/assets/
       - id: check-merge-conflict
       - id: check-case-conflict
       - id: detect-private-key
