@@ -21,7 +21,6 @@ venv/
 
 # Node
 node_modules/
-package-lock.json
 
 # Build artifacts
 custom_components/doom/frontend/doom-card.js
