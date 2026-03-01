@@ -81,13 +81,10 @@ export class PacmanCard extends LitElement implements LovelaceCard {
     return 4;
   }
 
-  public getGridOptions(options?: { columns?: number }) {
-    // Pac-Man native ratio is 28:36 ≈ 3:4, but we adapt to HA grid.
-    const columns = options?.columns ?? 12;
-    const rows = Math.max(2, Math.round((columns * 5) / 12));
+  public getGridOptions() {
     return {
       columns: 12,
-      rows,
+      rows: 8,
       min_columns: 3,
       min_rows: 2,
     };
