@@ -10,32 +10,8 @@ import { CARD_NAME, CARD_EDITOR_NAME } from "../const";
 import { PacmanCardConfig } from "./pacman-card-config";
 import { PACMAN_STATIC_BASE } from "./const";
 
-const ASSETS_PATH = `${PACMAN_STATIC_BASE}/assets`;
+const GAME_URL = `${PACMAN_STATIC_BASE}/bward-game/index.html`;
 const PING_INTERVAL_MS = 2000;
-
-declare global {
-  interface Window {
-    PacMan: (canvas: HTMLCanvasElement) => { stop: () => void };
-  }
-}
-
-/** Load pacman-game.js into the global scope exactly once. */
-let pacmanLoadPromise: Promise<void> | null = null;
-function ensurePacManLoaded(): Promise<void> {
-  if (pacmanLoadPromise) return pacmanLoadPromise;
-  if ("PacMan" in window) {
-    pacmanLoadPromise = Promise.resolve();
-    return pacmanLoadPromise;
-  }
-  pacmanLoadPromise = new Promise<void>((resolve, reject) => {
-    const script = document.createElement("script");
-    script.src = `${ASSETS_PATH}/pacman-game.js`;
-    script.onload = () => resolve();
-    script.onerror = () => reject(new Error("Failed to load Pac-Man"));
-    document.head.appendChild(script);
-  });
-  return pacmanLoadPromise;
-}
 
 registerCustomCard({
   type: CARD_NAME,
@@ -50,13 +26,11 @@ export class PacmanCard extends LitElement implements LovelaceCard {
 
   @state() private _config?: PacmanCardConfig;
   @state() private _gameStarted = false;
-  @state() private _loading = false;
   @state() private _isFullscreen = false;
 
   private _gameRunning = false;
   private _entryId?: string;
   private _pingInterval?: ReturnType<typeof setInterval>;
-  private _commandInterface?: { stop: () => void };
   private _boundBeforeUnload = this._stopPinging.bind(this);
   private _boundVisibilityChange = this._handleVisibilityChange.bind(this);
   private _boundFullscreenChange = this._handleFullscreenChange.bind(this);
@@ -187,14 +161,6 @@ export class PacmanCard extends LitElement implements LovelaceCard {
                   />
                 </svg>`}
           </button>
-          ${this._loading
-            ? html`
-                <div id="loading">
-                  <div class="spinner"></div>
-                  <p>Loading Pac-Man...</p>
-                </div>
-              `
-            : nothing}
         </div>
       </ha-card>
     `;
@@ -210,48 +176,28 @@ export class PacmanCard extends LitElement implements LovelaceCard {
     if (this._gameRunning) return;
     this._gameRunning = true;
     this._gameStarted = true;
-    this._loading = true;
 
     await this.updateComplete;
-    await ensurePacManLoaded();
 
     const container = this.shadowRoot!.getElementById("game")!;
-    const canvas = document.createElement("canvas");
-    canvas.id = "pacman-canvas";
-    // Fill the container
-    canvas.style.width = "100%";
-    canvas.style.height = "100%";
-    container.appendChild(canvas);
+    const iframe = document.createElement("iframe");
+    iframe.src = GAME_URL;
+    iframe.style.cssText = "width:100%;height:100%;border:none;display:block;";
+    iframe.allow = "autoplay";
+    container.appendChild(iframe);
 
-    // Set canvas pixel size to match display size
-    const rect = container.getBoundingClientRect();
-    canvas.width = Math.max(rect.width || 400, 200);
-    canvas.height = Math.max(rect.height || 300, 150);
-
-    this._loading = false;
-    this._commandInterface = window.PacMan(canvas);
-    canvas.focus();
     await this._resolveEntryId();
     this._startPinging();
   }
 
   private _destroyGame(): void {
     this._stopPinging();
-    if (this._commandInterface) {
-      try {
-        this._commandInterface.stop();
-      } catch {
-        // Best effort
-      }
-      this._commandInterface = undefined;
-    }
     const container = this.shadowRoot?.getElementById("game");
     if (container) {
       container.innerHTML = "";
     }
     this._gameRunning = false;
     this._gameStarted = false;
-    this._loading = false;
   }
 
   // --- Binary sensor ping/stop ---
@@ -348,11 +294,6 @@ export class PacmanCard extends LitElement implements LovelaceCard {
         width: 100%;
         height: 100%;
       }
-      #game canvas {
-        width: 100% !important;
-        height: 100% !important;
-        display: block;
-      }
       #overlay {
         position: absolute;
         top: 0;
@@ -407,38 +348,6 @@ export class PacmanCard extends LitElement implements LovelaceCard {
           box-shadow:
             0 0 20px rgba(255, 255, 0, 0.7),
             0 0 40px rgba(255, 255, 0, 0.3);
-        }
-      }
-      #loading {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #000;
-        z-index: 99;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        font-family: "Courier New", monospace;
-      }
-      #loading p {
-        color: #ffff00;
-        font-size: 1.5em;
-        margin-top: 1em;
-      }
-      .spinner {
-        width: 50px;
-        height: 50px;
-        border: 4px solid #333;
-        border-top: 4px solid #ffff00;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-      }
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
         }
       }
       #fullscreen-btn {

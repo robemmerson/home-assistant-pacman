@@ -1,5 +1,5 @@
-var t, e, n, i, o, a, r, l, u, s, d, c, f;
-function h(t, e) {
+var t, e, n, i, o, a, r, l, u, s, d, c;
+function f(t, e) {
   return (
     e || (e = t.slice(0)),
     Object.freeze(
@@ -7,7 +7,7 @@ function h(t, e) {
     )
   );
 }
-function p(t, e) {
+function h(t, e) {
   var n = Object.keys(t);
   if (Object.getOwnPropertySymbols) {
     var i = Object.getOwnPropertySymbols(t);
@@ -19,22 +19,22 @@ function p(t, e) {
   }
   return n;
 }
-function v(t) {
+function p(t) {
   for (var e = 1; e < arguments.length; e++) {
     var n = null != arguments[e] ? arguments[e] : {};
     e % 2
-      ? p(Object(n), !0).forEach(function (e) {
-          _(t, e, n[e]);
+      ? h(Object(n), !0).forEach(function (e) {
+          v(t, e, n[e]);
         })
       : Object.getOwnPropertyDescriptors
         ? Object.defineProperties(t, Object.getOwnPropertyDescriptors(n))
-        : p(Object(n)).forEach(function (e) {
+        : h(Object(n)).forEach(function (e) {
             Object.defineProperty(t, e, Object.getOwnPropertyDescriptor(n, e));
           });
   }
   return t;
 }
-function _(t, e, n) {
+function v(t, e, n) {
   return (
     (e = U(e)) in t
       ? Object.defineProperty(t, e, {
@@ -47,22 +47,22 @@ function _(t, e, n) {
     t
   );
 }
-function g(t, e, n, i) {
-  var o = y(P(1 & i ? t.prototype : t), e, n);
+function _(t, e, n, i) {
+  var o = g(I(1 & i ? t.prototype : t), e, n);
   return 2 & i && "function" == typeof o
     ? function (t) {
         return o.apply(n, t);
       }
     : o;
 }
-function y() {
+function g() {
   return (
-    (y =
+    (g =
       "undefined" != typeof Reflect && Reflect.get
         ? Reflect.get.bind()
         : function (t, e, n) {
             var i = (function (t, e) {
-              for (; !{}.hasOwnProperty.call(t, e) && null !== (t = P(t)); );
+              for (; !{}.hasOwnProperty.call(t, e) && null !== (t = I(t)); );
               return t;
             })(t, e);
             if (i) {
@@ -70,13 +70,13 @@ function y() {
               return o.get ? o.get.call(arguments.length < 3 ? t : n) : o.value;
             }
           }),
-    y.apply(null, arguments)
+    g.apply(null, arguments)
   );
 }
-function m(t) {
+function y(t) {
   return (
     (function (t) {
-      if (Array.isArray(t)) return M(t);
+      if (Array.isArray(t)) return z(t);
     })(t) ||
     (function (t) {
       if (
@@ -85,7 +85,7 @@ function m(t) {
       )
         return Array.from(t);
     })(t) ||
-    z(t) ||
+    C(t) ||
     (function () {
       throw new TypeError(
         "Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
@@ -93,7 +93,7 @@ function m(t) {
     })()
   );
 }
-function b(t, e) {
+function m(t, e) {
   return (
     (function (t) {
       if (Array.isArray(t)) return t;
@@ -135,7 +135,7 @@ function b(t, e) {
         return l;
       }
     })(t, e) ||
-    z(t, e) ||
+    C(t, e) ||
     (function () {
       throw new TypeError(
         "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
@@ -143,7 +143,7 @@ function b(t, e) {
     })()
   );
 }
-function k() {
+function b() {
   /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var t,
     e,
     n = "function" == typeof Symbol ? Symbol : {},
@@ -153,7 +153,7 @@ function k() {
     var u = i && i.prototype instanceof l ? i : l,
       s = Object.create(u.prototype);
     return (
-      w(
+      k(
         s,
         "_invoke",
         (function (n, i, o) {
@@ -241,7 +241,7 @@ function k() {
   e = Object.getPrototypeOf;
   var d = [][i]
       ? e(e([][i]()))
-      : (w((e = {}), i, function () {
+      : (k((e = {}), i, function () {
           return this;
         }),
         e),
@@ -250,40 +250,40 @@ function k() {
     return (
       Object.setPrototypeOf
         ? Object.setPrototypeOf(t, s)
-        : ((t.__proto__ = s), w(t, o, "GeneratorFunction")),
+        : ((t.__proto__ = s), k(t, o, "GeneratorFunction")),
       (t.prototype = Object.create(c)),
       t
     );
   }
   return (
     (u.prototype = s),
-    w(c, "constructor", s),
-    w(s, "constructor", u),
+    k(c, "constructor", s),
+    k(s, "constructor", u),
     (u.displayName = "GeneratorFunction"),
-    w(s, o, "GeneratorFunction"),
-    w(c),
-    w(c, o, "Generator"),
-    w(c, i, function () {
+    k(s, o, "GeneratorFunction"),
+    k(c),
+    k(c, o, "Generator"),
+    k(c, i, function () {
       return this;
     }),
-    w(c, "toString", function () {
+    k(c, "toString", function () {
       return "[object Generator]";
     }),
-    (k = function () {
+    (b = function () {
       return { w: a, m: f };
     })()
   );
 }
-function w(t, e, n, i) {
+function k(t, e, n, i) {
   var o = Object.defineProperty;
   try {
     o({}, "", {});
   } catch (t) {
     o = 0;
   }
-  ((w = function (t, e, n, i) {
+  ((k = function (t, e, n, i) {
     function a(e, n) {
-      w(t, e, function (t) {
+      k(t, e, function (t) {
         return this._invoke(e, n, t);
       });
     }
@@ -293,9 +293,9 @@ function w(t, e, n, i) {
         : (t[e] = n)
       : (a("next", 0), a("throw", 1), a("return", 2));
   }),
-    w(t, e, n, i));
+    k(t, e, n, i));
 }
-function A(t, e, n, i, o, a, r) {
+function w(t, e, n, i, o, a, r) {
   try {
     var l = t[a](r),
       u = l.value;
@@ -304,55 +304,55 @@ function A(t, e, n, i, o, a, r) {
   }
   l.done ? e(u) : Promise.resolve(u).then(i, o);
 }
-function O(t) {
+function A(t) {
   return function () {
     var e = this,
       n = arguments;
     return new Promise(function (i, o) {
       var a = t.apply(e, n);
       function r(t) {
-        A(a, i, o, r, l, "next", t);
+        w(a, i, o, r, l, "next", t);
       }
       function l(t) {
-        A(a, i, o, r, l, "throw", t);
+        w(a, i, o, r, l, "throw", t);
       }
       r(void 0);
     });
   };
 }
-function $(t, e, n) {
+function O(t, e, n) {
   return (
-    (e = P(e)),
+    (e = I(e)),
     (function (t, e) {
-      if (e && ("object" == N(e) || "function" == typeof e)) return e;
+      if (e && ("object" == x(e) || "function" == typeof e)) return e;
       if (void 0 !== e)
         throw new TypeError(
           "Derived constructors may only return object or undefined"
         );
-      return E(t);
-    })(t, j() ? Reflect.construct(e, n || [], P(t).constructor) : e.apply(t, n))
+      return $(t);
+    })(t, S() ? Reflect.construct(e, n || [], I(t).constructor) : e.apply(t, n))
   );
 }
-function E(t) {
+function $(t) {
   if (void 0 === t)
     throw new ReferenceError(
       "this hasn't been initialised - super() hasn't been called"
     );
   return t;
 }
-function T(t, e) {
+function E(t, e) {
   if ("function" != typeof e && null !== e)
     throw new TypeError("Super expression must either be null or a function");
   ((t.prototype = Object.create(e && e.prototype, {
     constructor: { value: t, writable: !0, configurable: !0 },
   })),
     Object.defineProperty(t, "prototype", { writable: !1 }),
-    e && I(t, e));
+    e && j(t, e));
 }
-function S(t) {
+function T(t) {
   var e = "function" == typeof Map ? new Map() : void 0;
   return (
-    (S = function (t) {
+    (T = function (t) {
       if (
         null === t ||
         !(function (t) {
@@ -374,12 +374,12 @@ function S(t) {
       }
       function n() {
         return (function (t, e, n) {
-          if (j()) return Reflect.construct.apply(null, arguments);
+          if (S()) return Reflect.construct.apply(null, arguments);
           var i = [null];
           i.push.apply(i, e);
           var o = new (t.bind.apply(t, i))();
-          return (n && I(o, n.prototype), o);
-        })(t, arguments, P(this).constructor);
+          return (n && j(o, n.prototype), o);
+        })(t, arguments, I(this).constructor);
       }
       return (
         (n.prototype = Object.create(t.prototype, {
@@ -390,49 +390,49 @@ function S(t) {
             configurable: !0,
           },
         })),
-        I(n, t)
+        j(n, t)
       );
     }),
-    S(t)
+    T(t)
   );
 }
-function j() {
+function S() {
   try {
     var t = !Boolean.prototype.valueOf.call(
       Reflect.construct(Boolean, [], function () {})
     );
   } catch (t) {}
-  return (j = function () {
+  return (S = function () {
     return !!t;
   })();
 }
-function I(t, e) {
+function j(t, e) {
   return (
-    (I = Object.setPrototypeOf
+    (j = Object.setPrototypeOf
       ? Object.setPrototypeOf.bind()
       : function (t, e) {
           return ((t.__proto__ = e), t);
         }),
-    I(t, e)
+    j(t, e)
   );
 }
-function P(t) {
+function I(t) {
   return (
-    (P = Object.setPrototypeOf
+    (I = Object.setPrototypeOf
       ? Object.getPrototypeOf.bind()
       : function (t) {
           return t.__proto__ || Object.getPrototypeOf(t);
         }),
-    P(t)
+    I(t)
   );
 }
-function C(t, e) {
+function P(t, e) {
   var n =
     ("undefined" != typeof Symbol && t[Symbol.iterator]) || t["@@iterator"];
   if (!n) {
     if (
       Array.isArray(t) ||
-      (n = z(t)) ||
+      (n = C(t)) ||
       (e && t && "number" == typeof t.length)
     ) {
       n && (t = n);
@@ -476,9 +476,9 @@ function C(t, e) {
     },
   };
 }
-function z(t, e) {
+function C(t, e) {
   if (t) {
-    if ("string" == typeof t) return M(t, e);
+    if ("string" == typeof t) return z(t, e);
     var n = {}.toString.call(t).slice(8, -1);
     return (
       "Object" === n && t.constructor && (n = t.constructor.name),
@@ -486,21 +486,21 @@ function z(t, e) {
         ? Array.from(t)
         : "Arguments" === n ||
             /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)
-          ? M(t, e)
+          ? z(t, e)
           : void 0
     );
   }
 }
-function M(t, e) {
+function z(t, e) {
   (null == e || e > t.length) && (e = t.length);
   for (var n = 0, i = Array(e); n < e; n++) i[n] = t[n];
   return i;
 }
-function x(t, e) {
+function D(t, e) {
   if (!(t instanceof e))
     throw new TypeError("Cannot call a class as a function");
 }
-function D(t, e) {
+function M(t, e) {
   for (var n = 0; n < e.length; n++) {
     var i = e[n];
     ((i.enumerable = i.enumerable || !1),
@@ -511,28 +511,28 @@ function D(t, e) {
 }
 function R(t, e, n) {
   return (
-    e && D(t.prototype, e),
-    n && D(t, n),
+    e && M(t.prototype, e),
+    n && M(t, n),
     Object.defineProperty(t, "prototype", { writable: !1 }),
     t
   );
 }
 function U(t) {
   var e = (function (t, e) {
-    if ("object" != N(t) || !t) return t;
+    if ("object" != x(t) || !t) return t;
     var n = t[Symbol.toPrimitive];
     if (void 0 !== n) {
       var i = n.call(t, e || "default");
-      if ("object" != N(i)) return i;
+      if ("object" != x(i)) return i;
       throw new TypeError("@@toPrimitive must return a primitive value.");
     }
     return ("string" === e ? String : Number)(t);
   })(t, "string");
-  return "symbol" == N(e) ? e : e + "";
+  return "symbol" == x(e) ? e : e + "";
 }
-function N(t) {
+function x(t) {
   return (
-    (N =
+    (x =
       "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
         ? function (t) {
             return typeof t;
@@ -545,18 +545,18 @@ function N(t) {
               ? "symbol"
               : typeof t;
           }),
-    N(t)
+    x(t)
   );
 }
-var H = "pacman-card",
-  V = "".concat(H, "-editor");
-function K(t, e, n, i) {
+var N = "pacman-card",
+  H = "".concat(N, "-editor");
+function V(t, e, n, i) {
   var o,
     a = arguments.length,
     r =
       a < 3 ? e : null === i ? (i = Object.getOwnPropertyDescriptor(e, n)) : i;
   if (
-    "object" === ("undefined" == typeof Reflect ? "undefined" : N(Reflect)) &&
+    "object" === ("undefined" == typeof Reflect ? "undefined" : x(Reflect)) &&
     "function" == typeof Reflect.decorate
   )
     r = Reflect.decorate(t, e, n, i);
@@ -571,18 +571,18 @@ function K(t, e, n, i) {
  * Copyright 2019 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-var L = globalThis,
-  B =
-    L.ShadowRoot &&
-    (void 0 === L.ShadyCSS || L.ShadyCSS.nativeShadow) &&
+var K = globalThis,
+  L =
+    K.ShadowRoot &&
+    (void 0 === K.ShadyCSS || K.ShadyCSS.nativeShadow) &&
     "adoptedStyleSheets" in Document.prototype &&
     "replace" in CSSStyleSheet.prototype,
-  G = Symbol(),
-  F = new WeakMap(),
+  B = Symbol(),
+  G = new WeakMap(),
   W = (function () {
     return R(
       function t(e, n, i) {
-        if ((x(this, t), (this._$cssResult$ = !0), i !== G))
+        if ((D(this, t), (this._$cssResult$ = !0), i !== B))
           throw Error(
             "CSSResult is not constructable. Use `unsafeCSS` or `css` instead."
           );
@@ -594,12 +594,12 @@ var L = globalThis,
           get: function () {
             var t = this.o,
               e = this.t;
-            if (B && void 0 === t) {
+            if (L && void 0 === t) {
               var n = void 0 !== e && 1 === e.length;
-              (n && (t = F.get(e)),
+              (n && (t = G.get(e)),
                 void 0 === t &&
                   ((this.o = t = new CSSStyleSheet()).replaceSync(this.cssText),
-                  n && F.set(e, t)));
+                  n && G.set(e, t)));
             }
             return t;
           },
@@ -613,7 +613,7 @@ var L = globalThis,
       ]
     );
   })(),
-  q = B
+  F = L
     ? function (t) {
         return t;
       }
@@ -622,7 +622,7 @@ var L = globalThis,
           ? (function (t) {
               var e,
                 n = "",
-                i = C(t.cssRules);
+                i = P(t.cssRules);
               try {
                 for (i.s(); !(e = i.n()).done; ) {
                   n += e.value.cssText;
@@ -633,29 +633,29 @@ var L = globalThis,
                 i.f();
               }
               return (function (t) {
-                return new W("string" == typeof t ? t : t + "", void 0, G);
+                return new W("string" == typeof t ? t : t + "", void 0, B);
               })(n);
             })(t)
           : t;
       },
-  J = Object.is,
-  Z = Object.defineProperty,
-  Y = Object.getOwnPropertyDescriptor,
-  Q = Object.getOwnPropertyNames,
-  X = Object.getOwnPropertySymbols,
-  tt = Object.getPrototypeOf,
-  et = globalThis,
-  nt = et.trustedTypes,
-  it = nt ? nt.emptyScript : "",
-  ot = et.reactiveElementPolyfillSupport,
-  at = function (t, e) {
+  q = Object.is,
+  J = Object.defineProperty,
+  Z = Object.getOwnPropertyDescriptor,
+  Y = Object.getOwnPropertyNames,
+  Q = Object.getOwnPropertySymbols,
+  X = Object.getPrototypeOf,
+  tt = globalThis,
+  et = tt.trustedTypes,
+  nt = et ? et.emptyScript : "",
+  it = tt.reactiveElementPolyfillSupport,
+  ot = function (t, e) {
     return t;
   },
-  rt = {
+  at = {
     toAttribute: function (t, e) {
       switch (e) {
         case Boolean:
-          t = t ? it : null;
+          t = t ? nt : null;
           break;
         case Object:
         case Array:
@@ -683,27 +683,27 @@ var L = globalThis,
       return n;
     },
   },
-  lt = function (t, e) {
-    return !J(t, e);
+  rt = function (t, e) {
+    return !q(t, e);
   },
-  ut = {
+  lt = {
     attribute: !0,
     type: String,
-    converter: rt,
+    converter: at,
     reflect: !1,
     useDefault: !1,
-    hasChanged: lt,
+    hasChanged: rt,
   };
 ((null !== (t = Symbol.metadata) && void 0 !== t) ||
   (Symbol.metadata = Symbol("metadata")),
-  (null !== (e = et.litPropertyMetadata) && void 0 !== e) ||
-    (et.litPropertyMetadata = new WeakMap()));
-var st = (function () {
+  (null !== (e = tt.litPropertyMetadata) && void 0 !== e) ||
+    (tt.litPropertyMetadata = new WeakMap()));
+var ut = (function () {
   function t() {
     var e;
     return (
-      x(this, t),
-      ((e = $(this, t))._$Ep = void 0),
+      D(this, t),
+      ((e = O(this, t))._$Ep = void 0),
       (e.isUpdatePending = !1),
       (e.hasUpdated = !1),
       (e._$Em = null),
@@ -712,7 +712,7 @@ var st = (function () {
     );
   }
   return (
-    T(t, S(HTMLElement)),
+    E(t, T(HTMLElement)),
     R(
       t,
       [
@@ -759,7 +759,7 @@ var st = (function () {
           value: function () {
             var t,
               e = new Map(),
-              n = C(this.constructor.elementProperties.keys());
+              n = P(this.constructor.elementProperties.keys());
             try {
               for (n.s(); !(t = n.n()).done; ) {
                 var i = t.value;
@@ -783,18 +783,18 @@ var st = (function () {
                   : this.attachShadow(this.constructor.shadowRootOptions);
             return (
               (function (t, e) {
-                if (B)
+                if (L)
                   t.adoptedStyleSheets = e.map(function (t) {
                     return t instanceof CSSStyleSheet ? t : t.styleSheet;
                   });
                 else {
                   var n,
-                    i = C(e);
+                    i = P(e);
                   try {
                     for (i.s(); !(n = i.n()).done; ) {
                       var o = n.value,
                         a = document.createElement("style"),
-                        r = L.litNonce;
+                        r = K.litNonce;
                       (void 0 !== r && a.setAttribute("nonce", r),
                         (a.textContent = o.cssText),
                         t.appendChild(a));
@@ -861,7 +861,7 @@ var st = (function () {
                     ? void 0
                     : o.toAttribute)
                     ? n.converter
-                    : rt
+                    : at
                 ).toAttribute(e, n.type);
               ((this._$Em = t),
                 null == a ? this.removeAttribute(i) : this.setAttribute(i, a),
@@ -887,7 +887,7 @@ var st = (function () {
                           ? void 0
                           : o.fromAttribute)
                       ? l.converter
-                      : rt;
+                      : at;
               this._$Em = i;
               var s = u.fromAttribute(e, l.type);
               ((this[i] =
@@ -918,7 +918,7 @@ var st = (function () {
                 (!1 === i && (o = this[t]),
                 null != n || (n = l.getPropertyOptions(t)),
                 !(
-                  (null !== (a = n.hasChanged) && void 0 !== a ? a : lt)(
+                  (null !== (a = n.hasChanged) && void 0 !== a ? a : rt)(
                     o,
                     e
                   ) ||
@@ -970,10 +970,10 @@ var st = (function () {
         {
           key: "_$EP",
           value:
-            ((e = O(
-              k().m(function t() {
+            ((e = A(
+              b().m(function t() {
                 var e, n;
-                return k().w(
+                return b().w(
                   function (t) {
                     for (;;)
                       switch ((t.p = t.n)) {
@@ -1027,10 +1027,10 @@ var st = (function () {
                   this._$Ep)
                 ) {
                   var e,
-                    n = C(this._$Ep);
+                    n = P(this._$Ep);
                   try {
                     for (n.s(); !(e = n.n()).done; ) {
-                      var i = b(e.value, 2),
+                      var i = m(e.value, 2),
                         o = i[0],
                         a = i[1];
                       this[o] = a;
@@ -1045,10 +1045,10 @@ var st = (function () {
                 var r = this.constructor.elementProperties;
                 if (r.size > 0) {
                   var l,
-                    u = C(r);
+                    u = P(r);
                   try {
                     for (u.s(); !(l = u.n()).done; ) {
-                      var s = b(l.value, 2),
+                      var s = m(l.value, 2),
                         d = s[0],
                         c = s[1],
                         f = c.wrapped,
@@ -1157,7 +1157,7 @@ var st = (function () {
         {
           key: "observedAttributes",
           get: function () {
-            return (this.finalize(), this._$Eh && m(this._$Eh.keys()));
+            return (this.finalize(), this._$Eh && y(this._$Eh.keys()));
           },
         },
         {
@@ -1166,7 +1166,7 @@ var st = (function () {
             var e =
               arguments.length > 1 && void 0 !== arguments[1]
                 ? arguments[1]
-                : ut;
+                : lt;
             if (
               (e.state && (e.attribute = !1),
               this._$Ei(),
@@ -1177,7 +1177,7 @@ var st = (function () {
             ) {
               var n = Symbol(),
                 i = this.getPropertyDescriptor(t, n, e);
-              void 0 !== i && Z(this.prototype, t, i);
+              void 0 !== i && J(this.prototype, t, i);
             }
           },
         },
@@ -1186,7 +1186,7 @@ var st = (function () {
           value: function (t, e, n) {
             var i,
               o =
-                null !== (i = Y(this.prototype, t)) && void 0 !== i
+                null !== (i = Z(this.prototype, t)) && void 0 !== i
                   ? i
                   : {
                       get: function () {
@@ -1215,16 +1215,16 @@ var st = (function () {
             var e;
             return null !== (e = this.elementProperties.get(t)) && void 0 !== e
               ? e
-              : ut;
+              : lt;
           },
         },
         {
           key: "_$Ei",
           value: function () {
-            if (!this.hasOwnProperty(at("elementProperties"))) {
-              var t = tt(this);
+            if (!this.hasOwnProperty(ot("elementProperties"))) {
+              var t = X(this);
               (t.finalize(),
-                void 0 !== t.l && (this.l = m(t.l)),
+                void 0 !== t.l && (this.l = y(t.l)),
                 (this.elementProperties = new Map(t.elementProperties)));
             }
           },
@@ -1232,15 +1232,15 @@ var st = (function () {
         {
           key: "finalize",
           value: function () {
-            if (!this.hasOwnProperty(at("finalized"))) {
+            if (!this.hasOwnProperty(ot("finalized"))) {
               if (
                 ((this.finalized = !0),
                 this._$Ei(),
-                this.hasOwnProperty(at("properties")))
+                this.hasOwnProperty(ot("properties")))
               ) {
                 var t,
                   e = this.properties,
-                  n = C([].concat(m(Q(e)), m(X(e))));
+                  n = P([].concat(y(Y(e)), y(Q(e))));
                 try {
                   for (n.s(); !(t = n.n()).done; ) {
                     var i = t.value;
@@ -1257,10 +1257,10 @@ var st = (function () {
                 var a = litPropertyMetadata.get(o);
                 if (void 0 !== a) {
                   var r,
-                    l = C(a);
+                    l = P(a);
                   try {
                     for (l.s(); !(r = l.n()).done; ) {
-                      var u = b(r.value, 2),
+                      var u = m(r.value, 2),
                         s = u[0],
                         d = u[1];
                       this.elementProperties.set(s, d);
@@ -1274,10 +1274,10 @@ var st = (function () {
               }
               this._$Eh = new Map();
               var c,
-                f = C(this.elementProperties);
+                f = P(this.elementProperties);
               try {
                 for (f.s(); !(c = f.n()).done; ) {
-                  var h = b(c.value, 2),
+                  var h = m(c.value, 2),
                     p = h[0],
                     v = h[1],
                     _ = this._$Eu(p, v);
@@ -1298,18 +1298,18 @@ var st = (function () {
             var e = [];
             if (Array.isArray(t)) {
               var n,
-                i = C(new Set(t.flat(1 / 0).reverse()));
+                i = P(new Set(t.flat(1 / 0).reverse()));
               try {
                 for (i.s(); !(n = i.n()).done; ) {
                   var o = n.value;
-                  e.unshift(q(o));
+                  e.unshift(F(o));
                 }
               } catch (t) {
                 i.e(t);
               } finally {
                 i.f();
               }
-            } else void 0 !== t && e.push(q(t));
+            } else void 0 !== t && e.push(F(t));
             return e;
           },
         },
@@ -1331,59 +1331,59 @@ var st = (function () {
   );
   var e;
 })();
-((st.elementStyles = []),
-  (st.shadowRootOptions = { mode: "open" }),
-  (st[at("elementProperties")] = new Map()),
-  (st[at("finalized")] = new Map()),
-  null != ot && ot({ ReactiveElement: st }),
-  (null !== (n = et.reactiveElementVersions) && void 0 !== n
+((ut.elementStyles = []),
+  (ut.shadowRootOptions = { mode: "open" }),
+  (ut[ot("elementProperties")] = new Map()),
+  (ut[ot("finalized")] = new Map()),
+  null != it && it({ ReactiveElement: ut }),
+  (null !== (n = tt.reactiveElementVersions) && void 0 !== n
     ? n
-    : (et.reactiveElementVersions = [])
+    : (tt.reactiveElementVersions = [])
   ).push("2.1.2"));
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-var dt = globalThis,
-  ct = function (t) {
+var st = globalThis,
+  dt = function (t) {
     return t;
   },
-  ft = dt.trustedTypes,
-  ht = ft
-    ? ft.createPolicy("lit-html", {
+  ct = st.trustedTypes,
+  ft = ct
+    ? ct.createPolicy("lit-html", {
         createHTML: function (t) {
           return t;
         },
       })
     : void 0,
-  pt = "$lit$",
-  vt = "lit$".concat(Math.random().toFixed(9).slice(2), "$"),
-  _t = "?" + vt,
-  gt = "<".concat(_t, ">"),
-  yt = document,
-  mt = function () {
-    return yt.createComment("");
+  ht = "$lit$",
+  pt = "lit$".concat(Math.random().toFixed(9).slice(2), "$"),
+  vt = "?" + pt,
+  _t = "<".concat(vt, ">"),
+  gt = document,
+  yt = function () {
+    return gt.createComment("");
   },
-  bt = function (t) {
-    return null === t || ("object" != N(t) && "function" != typeof t);
+  mt = function (t) {
+    return null === t || ("object" != x(t) && "function" != typeof t);
   },
-  kt = Array.isArray,
-  wt = "[ \t\n\f\r]",
-  At = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g,
-  Ot = /-->/g,
-  $t = />/g,
-  Et = RegExp(
+  bt = Array.isArray,
+  kt = "[ \t\n\f\r]",
+  wt = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g,
+  At = /-->/g,
+  Ot = />/g,
+  $t = RegExp(
     ">|"
-      .concat(wt, "(?:([^\\s\"'>=/]+)(")
-      .concat(wt, "*=")
-      .concat(wt, "*(?:[^ \t\n\f\r\"'`<>=]|(\"|')|))|$)"),
+      .concat(kt, "(?:([^\\s\"'>=/]+)(")
+      .concat(kt, "*=")
+      .concat(kt, "*(?:[^ \t\n\f\r\"'`<>=]|(\"|')|))|$)"),
     "g"
   ),
-  Tt = /'/g,
-  St = /"/g,
-  jt = /^(?:script|style|textarea|title)$/i,
-  It = (function (t) {
+  Et = /'/g,
+  Tt = /"/g,
+  St = /^(?:script|style|textarea|title)$/i,
+  jt = (function (t) {
     return function (e) {
       for (
         var n = arguments.length, i = new Array(n > 1 ? n - 1 : 0), o = 1;
@@ -1394,22 +1394,22 @@ var dt = globalThis,
       return { _$litType$: t, strings: e, values: i };
     };
   })(1),
-  Pt = Symbol.for("lit-noChange"),
-  Ct = Symbol.for("lit-nothing"),
-  zt = new WeakMap(),
-  Mt = yt.createTreeWalker(yt, 129);
-function xt(t, e) {
-  if (!kt(t) || !t.hasOwnProperty("raw"))
+  It = Symbol.for("lit-noChange"),
+  Pt = Symbol.for("lit-nothing"),
+  Ct = new WeakMap(),
+  zt = gt.createTreeWalker(gt, 129);
+function Dt(t, e) {
+  if (!bt(t) || !t.hasOwnProperty("raw"))
     throw Error("invalid template strings array");
-  return void 0 !== ht ? ht.createHTML(e) : e;
+  return void 0 !== ft ? ft.createHTML(e) : e;
 }
-var Dt = function (t, e) {
+var Mt = function (t, e) {
     for (
       var n,
         i = t.length - 1,
         o = [],
         a = 2 === e ? "<svg>" : 3 === e ? "<math>" : "",
-        r = At,
+        r = wt,
         l = 0;
       l < i;
       l++
@@ -1419,37 +1419,37 @@ var Dt = function (t, e) {
         f < u.length && ((r.lastIndex = f), null !== (d = r.exec(u)));
       )
         ((f = r.lastIndex),
-          r === At
+          r === wt
             ? "!--" === d[1]
-              ? (r = Ot)
+              ? (r = At)
               : void 0 !== d[1]
-                ? (r = $t)
+                ? (r = Ot)
                 : void 0 !== d[2]
-                  ? (jt.test(d[2]) && (n = RegExp("</" + d[2], "g")), (r = Et))
-                  : void 0 !== d[3] && (r = Et)
-            : r === Et
+                  ? (St.test(d[2]) && (n = RegExp("</" + d[2], "g")), (r = $t))
+                  : void 0 !== d[3] && (r = $t)
+            : r === $t
               ? ">" === d[0]
-                ? ((r = null != n ? n : At), (c = -1))
+                ? ((r = null != n ? n : wt), (c = -1))
                 : void 0 === d[1]
                   ? (c = -2)
                   : ((c = r.lastIndex - d[2].length),
                     (s = d[1]),
-                    (r = void 0 === d[3] ? Et : '"' === d[3] ? St : Tt))
-              : r === St || r === Tt
-                ? (r = Et)
-                : r === Ot || r === $t
-                  ? (r = At)
-                  : ((r = Et), (n = void 0)));
-      var h = r === Et && t[l + 1].startsWith("/>") ? " " : "";
+                    (r = void 0 === d[3] ? $t : '"' === d[3] ? Tt : Et))
+              : r === Tt || r === Et
+                ? (r = $t)
+                : r === At || r === Ot
+                  ? (r = wt)
+                  : ((r = $t), (n = void 0)));
+      var h = r === $t && t[l + 1].startsWith("/>") ? " " : "";
       a +=
-        r === At
-          ? u + gt
+        r === wt
+          ? u + _t
           : c >= 0
-            ? (o.push(s), u.slice(0, c) + pt + u.slice(c) + vt + h)
-            : u + vt + (-2 === c ? l : h);
+            ? (o.push(s), u.slice(0, c) + ht + u.slice(c) + pt + h)
+            : u + pt + (-2 === c ? l : h);
     }
     return [
-      xt(
+      Dt(
         t,
         a + (t[i] || "<?>") + (2 === e ? "</svg>" : 3 === e ? "</math>" : "")
       ),
@@ -1462,51 +1462,51 @@ var Dt = function (t, e) {
         var i,
           o = e.strings,
           a = e._$litType$;
-        (x(this, t), (this.parts = []));
+        (D(this, t), (this.parts = []));
         var r = 0,
           l = 0,
           u = o.length - 1,
           s = this.parts,
-          d = b(Dt(o, a), 2),
+          d = m(Mt(o, a), 2),
           c = d[0],
           f = d[1];
         if (
           ((this.el = t.createElement(c, n)),
-          (Mt.currentNode = this.el.content),
+          (zt.currentNode = this.el.content),
           2 === a || 3 === a)
         ) {
           var h = this.el.content.firstChild;
-          h.replaceWith.apply(h, m(h.childNodes));
+          h.replaceWith.apply(h, y(h.childNodes));
         }
-        for (; null !== (i = Mt.nextNode()) && s.length < u; ) {
+        for (; null !== (i = zt.nextNode()) && s.length < u; ) {
           if (1 === i.nodeType) {
             if (i.hasAttributes()) {
               var p,
-                v = C(i.getAttributeNames());
+                v = P(i.getAttributeNames());
               try {
                 for (v.s(); !(p = v.n()).done; ) {
                   var _ = p.value;
-                  if (_.endsWith(pt)) {
+                  if (_.endsWith(ht)) {
                     var g = f[l++],
-                      y = i.getAttribute(_).split(vt),
+                      b = i.getAttribute(_).split(pt),
                       k = /([.?@])?(.*)/.exec(g);
                     (s.push({
                       type: 1,
                       index: r,
                       name: k[2],
-                      strings: y,
+                      strings: b,
                       ctor:
                         "." === k[1]
-                          ? Kt
+                          ? Vt
                           : "?" === k[1]
-                            ? Lt
+                            ? Kt
                             : "@" === k[1]
-                              ? Bt
-                              : Vt,
+                              ? Lt
+                              : Ht,
                     }),
                       i.removeAttribute(_));
                   } else
-                    _.startsWith(vt) &&
+                    _.startsWith(pt) &&
                       (s.push({ type: 6, index: r }), i.removeAttribute(_));
                 }
               } catch (t) {
@@ -1515,23 +1515,23 @@ var Dt = function (t, e) {
                 v.f();
               }
             }
-            if (jt.test(i.tagName)) {
-              var w = i.textContent.split(vt),
+            if (St.test(i.tagName)) {
+              var w = i.textContent.split(pt),
                 A = w.length - 1;
               if (A > 0) {
-                i.textContent = ft ? ft.emptyScript : "";
+                i.textContent = ct ? ct.emptyScript : "";
                 for (var O = 0; O < A; O++)
-                  (i.append(w[O], mt()),
-                    Mt.nextNode(),
+                  (i.append(w[O], yt()),
+                    zt.nextNode(),
                     s.push({ type: 2, index: ++r }));
-                i.append(w[A], mt());
+                i.append(w[A], yt());
               }
             }
           } else if (8 === i.nodeType)
-            if (i.data === _t) s.push({ type: 2, index: r });
+            if (i.data === vt) s.push({ type: 2, index: r });
             else
-              for (var $ = -1; -1 !== ($ = i.data.indexOf(vt, $ + 1)); )
-                (s.push({ type: 7, index: r }), ($ += vt.length - 1));
+              for (var $ = -1; -1 !== ($ = i.data.indexOf(pt, $ + 1)); )
+                (s.push({ type: 7, index: r }), ($ += pt.length - 1));
           r++;
         }
       },
@@ -1540,7 +1540,7 @@ var Dt = function (t, e) {
         {
           key: "createElement",
           value: function (t, e) {
-            var n = yt.createElement("template");
+            var n = gt.createElement("template");
             return ((n.innerHTML = t), n);
           },
         },
@@ -1555,14 +1555,14 @@ function Ut(t, e) {
     r,
     l = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : t,
     u = arguments.length > 3 ? arguments[3] : void 0;
-  if (e === Pt) return e;
+  if (e === It) return e;
   var s =
       void 0 !== u
         ? null === (n = l._$Co) || void 0 === n
           ? void 0
           : n[u]
         : l._$Cl,
-    d = bt(e) ? void 0 : e._$litDirective$;
+    d = mt(e) ? void 0 : e._$litDirective$;
   return (
     (null === (i = s) || void 0 === i ? void 0 : i.constructor) !== d &&
       (null !== (o = s) &&
@@ -1578,10 +1578,10 @@ function Ut(t, e) {
     e
   );
 }
-var Nt = (function () {
+var xt = (function () {
     return R(
       function t(e, n) {
-        (x(this, t),
+        (D(this, t),
           (this._$AV = []),
           (this._$AN = void 0),
           (this._$AD = e),
@@ -1611,28 +1611,28 @@ var Nt = (function () {
                 null !== (e = null == t ? void 0 : t.creationScope) &&
                 void 0 !== e
                   ? e
-                  : yt
+                  : gt
               ).importNode(i, !0);
-            Mt.currentNode = a;
+            zt.currentNode = a;
             for (
-              var r = Mt.nextNode(), l = 0, u = 0, s = o[0];
+              var r = zt.nextNode(), l = 0, u = 0, s = o[0];
               void 0 !== s;
             ) {
               var d;
               if (l === s.index) {
                 var c = void 0;
                 (2 === s.type
-                  ? (c = new Ht(r, r.nextSibling, this, t))
+                  ? (c = new Nt(r, r.nextSibling, this, t))
                   : 1 === s.type
                     ? (c = new s.ctor(r, s.name, s.strings, this, t))
-                    : 6 === s.type && (c = new Gt(r, this, t)),
+                    : 6 === s.type && (c = new Bt(r, this, t)),
                   this._$AV.push(c),
                   (s = o[++u]));
               }
               l !== (null === (d = s) || void 0 === d ? void 0 : d.index) &&
-                ((r = Mt.nextNode()), l++);
+                ((r = zt.nextNode()), l++);
             }
-            return ((Mt.currentNode = yt), a);
+            return ((zt.currentNode = gt), a);
           },
         },
         {
@@ -1640,7 +1640,7 @@ var Nt = (function () {
           value: function (t) {
             var e,
               n = 0,
-              i = C(this._$AV);
+              i = P(this._$AV);
             try {
               for (i.s(); !(e = i.n()).done; ) {
                 var o = e.value;
@@ -1660,13 +1660,13 @@ var Nt = (function () {
       ]
     );
   })(),
-  Ht = (function () {
+  Nt = (function () {
     return R(
       function t(e, n, i, o) {
         var a;
-        (x(this, t),
+        (D(this, t),
           (this.type = 2),
-          (this._$AH = Ct),
+          (this._$AH = Pt),
           (this._$AN = void 0),
           (this._$AA = e),
           (this._$AB = n),
@@ -1727,17 +1727,17 @@ var Nt = (function () {
                 ? arguments[1]
                 : this
             )),
-              bt(t)
-                ? t === Ct || null == t || "" === t
-                  ? (this._$AH !== Ct && this._$AR(), (this._$AH = Ct))
-                  : t !== this._$AH && t !== Pt && this._(t)
+              mt(t)
+                ? t === Pt || null == t || "" === t
+                  ? (this._$AH !== Pt && this._$AR(), (this._$AH = Pt))
+                  : t !== this._$AH && t !== It && this._(t)
                 : void 0 !== t._$litType$
                   ? this.$(t)
                   : void 0 !== t.nodeType
                     ? this.T(t)
                     : (function (t) {
                           return (
-                            kt(t) ||
+                            bt(t) ||
                             "function" ==
                               typeof (null == t ? void 0 : t[Symbol.iterator])
                           );
@@ -1761,9 +1761,9 @@ var Nt = (function () {
         {
           key: "_",
           value: function (t) {
-            (this._$AH !== Ct && bt(this._$AH)
+            (this._$AH !== Pt && mt(this._$AH)
               ? (this._$AA.nextSibling.data = t)
-              : this.T(yt.createTextNode(t)),
+              : this.T(gt.createTextNode(t)),
               (this._$AH = t));
           },
         },
@@ -1777,14 +1777,14 @@ var Nt = (function () {
                 "number" == typeof i
                   ? this._$AC(t)
                   : (void 0 === i.el &&
-                      (i.el = Rt.createElement(xt(i.h, i.h[0]), this.options)),
+                      (i.el = Rt.createElement(Dt(i.h, i.h[0]), this.options)),
                     i);
             if (
               (null === (e = this._$AH) || void 0 === e ? void 0 : e._$AD) === o
             )
               this._$AH.p(n);
             else {
-              var a = new Nt(o, this),
+              var a = new xt(o, this),
                 r = a.u(this.options);
               (a.p(n), this.T(r), (this._$AH = a));
             }
@@ -1793,27 +1793,27 @@ var Nt = (function () {
         {
           key: "_$AC",
           value: function (t) {
-            var e = zt.get(t.strings);
-            return (void 0 === e && zt.set(t.strings, (e = new Rt(t))), e);
+            var e = Ct.get(t.strings);
+            return (void 0 === e && Ct.set(t.strings, (e = new Rt(t))), e);
           },
         },
         {
           key: "k",
           value: function (t) {
-            kt(this._$AH) || ((this._$AH = []), this._$AR());
+            bt(this._$AH) || ((this._$AH = []), this._$AR());
             var e,
               n,
               i = this._$AH,
               o = 0,
-              a = C(t);
+              a = P(t);
             try {
               for (a.s(); !(n = a.n()).done; ) {
                 var r = n.value;
                 (o === i.length
                   ? i.push(
                       (e = new _k(
-                        this.O(mt()),
-                        this.O(mt()),
+                        this.O(yt()),
+                        this.O(yt()),
                         this,
                         this.options
                       ))
@@ -1846,8 +1846,8 @@ var Nt = (function () {
               t !== this._$AB;
             ) {
               var n,
-                i = ct(t).nextSibling;
-              (ct(t).remove(), (t = i));
+                i = dt(t).nextSibling;
+              (dt(t).remove(), (t = i));
             }
           },
         },
@@ -1863,12 +1863,12 @@ var Nt = (function () {
       ]
     );
   })(),
-  Vt = (function () {
+  Ht = (function () {
     return R(
       function t(e, n, i, o, a) {
-        (x(this, t),
+        (D(this, t),
           (this.type = 1),
-          (this._$AH = Ct),
+          (this._$AH = Pt),
           (this._$AN = void 0),
           (this.element = e),
           (this.name = n),
@@ -1877,7 +1877,7 @@ var Nt = (function () {
           i.length > 2 || "" !== i[0] || "" !== i[1]
             ? ((this._$AH = Array(i.length - 1).fill(new String())),
               (this.strings = i))
-            : (this._$AH = Ct));
+            : (this._$AH = Pt));
       },
       [
         {
@@ -1905,18 +1905,18 @@ var Nt = (function () {
               a = !1;
             if (void 0 === o)
               ((t = Ut(this, t, e, 0)),
-                (a = !bt(t) || (t !== this._$AH && t !== Pt)) &&
+                (a = !mt(t) || (t !== this._$AH && t !== It)) &&
                   (this._$AH = t));
             else {
               var r,
                 l,
                 u = t;
               for (t = o[0], r = 0; r < o.length - 1; r++)
-                ((l = Ut(this, u[n + r], e, r)) === Pt && (l = this._$AH[r]),
-                  a || (a = !bt(l) || l !== this._$AH[r]),
-                  l === Ct
-                    ? (t = Ct)
-                    : t !== Ct && (t += (null != l ? l : "") + o[r + 1]),
+                ((l = Ut(this, u[n + r], e, r)) === It && (l = this._$AH[r]),
+                  a || (a = !mt(l) || l !== this._$AH[r]),
+                  l === Pt
+                    ? (t = Pt)
+                    : t !== Pt && (t += (null != l ? l : "") + o[r + 1]),
                   (this._$AH[r] = l));
             }
             a && !i && this.j(t);
@@ -1925,7 +1925,7 @@ var Nt = (function () {
         {
           key: "j",
           value: function (t) {
-            t === Ct
+            t === Pt
               ? this.element.removeAttribute(this.name)
               : this.element.setAttribute(this.name, null != t ? t : "");
           },
@@ -1933,47 +1933,47 @@ var Nt = (function () {
       ]
     );
   })(),
-  Kt = (function () {
+  Vt = (function () {
     function t() {
       var e;
-      return (x(this, t), ((e = $(this, t, arguments)).type = 3), e);
+      return (D(this, t), ((e = O(this, t, arguments)).type = 3), e);
     }
     return (
-      T(t, Vt),
+      E(t, Ht),
       R(t, [
         {
           key: "j",
           value: function (t) {
-            this.element[this.name] = t === Ct ? void 0 : t;
+            this.element[this.name] = t === Pt ? void 0 : t;
+          },
+        },
+      ])
+    );
+  })(),
+  Kt = (function () {
+    function t() {
+      var e;
+      return (D(this, t), ((e = O(this, t, arguments)).type = 4), e);
+    }
+    return (
+      E(t, Ht),
+      R(t, [
+        {
+          key: "j",
+          value: function (t) {
+            this.element.toggleAttribute(this.name, !!t && t !== Pt);
           },
         },
       ])
     );
   })(),
   Lt = (function () {
-    function t() {
-      var e;
-      return (x(this, t), ((e = $(this, t, arguments)).type = 4), e);
-    }
-    return (
-      T(t, Vt),
-      R(t, [
-        {
-          key: "j",
-          value: function (t) {
-            this.element.toggleAttribute(this.name, !!t && t !== Ct);
-          },
-        },
-      ])
-    );
-  })(),
-  Bt = (function () {
     function t(e, n, i, o, a) {
       var r;
-      return (x(this, t), ((r = $(this, t, [e, n, i, o, a])).type = 5), r);
+      return (D(this, t), ((r = O(this, t, [e, n, i, o, a])).type = 5), r);
     }
     return (
-      T(t, Vt),
+      E(t, Ht),
       R(t, [
         {
           key: "_$AI",
@@ -1991,15 +1991,15 @@ var Nt = (function () {
                     0
                   )) && void 0 !== e
                   ? e
-                  : Ct) !== Pt
+                  : Pt) !== It
             ) {
               var n = this._$AH,
                 i =
-                  (t === Ct && n !== Ct) ||
+                  (t === Pt && n !== Pt) ||
                   t.capture !== n.capture ||
                   t.once !== n.once ||
                   t.passive !== n.passive,
-                o = t !== Ct && (n === Ct || i);
+                o = t !== Pt && (n === Pt || i);
               (i && this.element.removeEventListener(this.name, this, n),
                 o && this.element.addEventListener(this.name, this, t),
                 (this._$AH = t));
@@ -2027,10 +2027,10 @@ var Nt = (function () {
       ])
     );
   })(),
-  Gt = (function () {
+  Bt = (function () {
     return R(
       function t(e, n, i) {
-        (x(this, t),
+        (D(this, t),
           (this.element = e),
           (this.type = 6),
           (this._$AN = void 0),
@@ -2053,32 +2053,32 @@ var Nt = (function () {
       ]
     );
   })(),
-  Ft = dt.litHtmlPolyfillSupport;
-(null != Ft && Ft(Rt, Ht),
-  (null !== (i = dt.litHtmlVersions) && void 0 !== i
+  Gt = st.litHtmlPolyfillSupport;
+(null != Gt && Gt(Rt, Nt),
+  (null !== (i = st.litHtmlVersions) && void 0 !== i
     ? i
-    : (dt.litHtmlVersions = [])
+    : (st.litHtmlVersions = [])
   ).push("3.3.2"));
 var Wt = globalThis,
-  qt = (function () {
+  Ft = (function () {
     function t() {
       var e;
       return (
-        x(this, t),
-        ((e = $(this, t, arguments)).renderOptions = { host: E(e) }),
+        D(this, t),
+        ((e = O(this, t, arguments)).renderOptions = { host: $(e) }),
         (e._$Do = void 0),
         e
       );
     }
     return (
-      T(t, st),
+      E(t, ut),
       R(t, [
         {
           key: "createRenderRoot",
           value: function () {
             var e,
               n,
-              i = g(t, "createRenderRoot", this, 3)([]);
+              i = _(t, "createRenderRoot", this, 3)([]);
             return (
               (null !== (n = (e = this.renderOptions).renderBefore) &&
                 void 0 !== n) ||
@@ -2093,7 +2093,7 @@ var Wt = globalThis,
             var n = this.render();
             (this.hasUpdated ||
               (this.renderOptions.isConnected = this.isConnected),
-              g(t, "update", this, 3)([e]),
+              _(t, "update", this, 3)([e]),
               (this._$Do = (function (t, e, n) {
                 var i,
                   o =
@@ -2109,8 +2109,8 @@ var Wt = globalThis,
                       void 0 !== r
                         ? r
                         : null;
-                  o._$litPart$ = a = new Ht(
-                    e.insertBefore(mt(), l),
+                  o._$litPart$ = a = new Nt(
+                    e.insertBefore(yt(), l),
                     l,
                     void 0,
                     null != n ? n : {}
@@ -2124,7 +2124,7 @@ var Wt = globalThis,
           key: "connectedCallback",
           value: function () {
             var e;
-            (g(t, "connectedCallback", this, 3)([]),
+            (_(t, "connectedCallback", this, 3)([]),
               null === (e = this._$Do) || void 0 === e || e.setConnected(!0));
           },
         },
@@ -2132,14 +2132,14 @@ var Wt = globalThis,
           key: "disconnectedCallback",
           value: function () {
             var e;
-            (g(t, "disconnectedCallback", this, 3)([]),
+            (_(t, "disconnectedCallback", this, 3)([]),
               null === (e = this._$Do) || void 0 === e || e.setConnected(!1));
           },
         },
         {
           key: "render",
           value: function () {
-            return Pt;
+            return It;
           },
         },
       ])
@@ -2149,13 +2149,13 @@ var Wt = globalThis,
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */ ((qt._$litElement$ = !0),
-  (qt.finalized = !0),
+ */ ((Ft._$litElement$ = !0),
+  (Ft.finalized = !0),
   null === (o = Wt.litElementHydrateSupport) ||
     void 0 === o ||
-    o.call(Wt, { LitElement: qt }));
-var Jt = Wt.litElementPolyfillSupport;
-(null == Jt || Jt({ LitElement: qt }),
+    o.call(Wt, { LitElement: Ft }));
+var qt = Wt.litElementPolyfillSupport;
+(null == qt || qt({ LitElement: Ft }),
   (null !== (a = Wt.litElementVersions) && void 0 !== a
     ? a
     : (Wt.litElementVersions = [])
@@ -2165,7 +2165,7 @@ var Jt = Wt.litElementPolyfillSupport;
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-var Zt = function (t) {
+var Jt = function (t) {
     return function (e, n) {
       void 0 !== n
         ? n.addInitializer(function () {
@@ -2174,15 +2174,15 @@ var Zt = function (t) {
         : customElements.define(t, e);
     };
   },
-  Yt = {
+  Zt = {
     attribute: !0,
     type: String,
-    converter: rt,
+    converter: at,
     reflect: !1,
-    hasChanged: lt,
+    hasChanged: rt,
   },
-  Qt = function () {
-    var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : Yt,
+  Yt = function () {
+    var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : Zt,
       e = arguments.length > 1 ? arguments[1] : void 0,
       n = arguments.length > 2 ? arguments[2] : void 0,
       i = n.kind,
@@ -2218,10 +2218,10 @@ var Zt = function (t) {
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */ function Xt(t) {
+ */ function Qt(t) {
   return function (e, n) {
-    return "object" == N(n)
-      ? Qt(t, e, n)
+    return "object" == x(n)
+      ? Yt(t, e, n)
       : (function (t, e, n) {
           var i = e.hasOwnProperty(n);
           return (
@@ -2235,46 +2235,25 @@ var Zt = function (t) {
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */ function te(t) {
-  return Xt(v(v({}, t), {}, { state: !0, attribute: !1 }));
+ */ function Xt(t) {
+  return Qt(p(p({}, t), {}, { state: !0, attribute: !1 }));
 }
-var ee,
-  ne,
-  ie = "".concat("/pacman_static", "/assets"),
-  oe = null;
-function ae() {
-  return (
-    oe ||
-    (oe =
-      "PacMan" in window
-        ? Promise.resolve()
-        : new Promise(function (t, e) {
-            var n = document.createElement("script");
-            ((n.src = "".concat(ie, "/pacman-game.js")),
-              (n.onload = function () {
-                return t();
-              }),
-              (n.onerror = function () {
-                return e(new Error("Failed to load Pac-Man"));
-              }),
-              document.head.appendChild(n));
-          }))
-  );
-}
-((ee = {
-  type: H,
+var te,
+  ee,
+  ne = "".concat("/pacman_static", "/bward-game/index.html");
+((te = {
+  type: N,
   name: "Pac-Man",
   description: "Play Pac-Man in your Home Assistant dashboard.",
 }),
-  ((ne = window).customCards = ne.customCards || []),
-  ne.customCards.push(Object.assign(Object.assign({}, ee), { preview: !0 })));
-var re = (function () {
+  ((ee = window).customCards = ee.customCards || []),
+  ee.customCards.push(Object.assign(Object.assign({}, te), { preview: !0 })));
+var ie = (function () {
   function t() {
     var e;
     return (
-      x(this, t),
-      ((e = $(this, t, arguments))._gameStarted = !1),
-      (e._loading = !1),
+      D(this, t),
+      ((e = O(this, t, arguments))._gameStarted = !1),
       (e._isFullscreen = !1),
       (e._gameRunning = !1),
       (e._boundBeforeUnload = e._stopPinging.bind(e)),
@@ -2284,7 +2263,7 @@ var re = (function () {
     );
   }
   return (
-    T(t, qt),
+    E(t, Ft),
     R(
       t,
       [
@@ -2292,7 +2271,7 @@ var re = (function () {
           key: "setConfig",
           value: function (t) {
             this._config = Object.assign(Object.assign({}, t), {
-              type: "custom:".concat(H),
+              type: "custom:".concat(N),
             });
           },
         },
@@ -2311,7 +2290,7 @@ var re = (function () {
         {
           key: "connectedCallback",
           value: function () {
-            (g(t, "connectedCallback", this, 3)([]),
+            (_(t, "connectedCallback", this, 3)([]),
               window.addEventListener("beforeunload", this._boundBeforeUnload),
               document.addEventListener(
                 "visibilitychange",
@@ -2326,7 +2305,7 @@ var re = (function () {
         {
           key: "disconnectedCallback",
           value: function () {
-            (g(t, "disconnectedCallback", this, 3)([]),
+            (_(t, "disconnectedCallback", this, 3)([]),
               this._destroyGame(),
               window.removeEventListener(
                 "beforeunload",
@@ -2355,7 +2334,7 @@ var re = (function () {
           key: "updated",
           value: function (e) {
             var n;
-            (g(t, "updated", this, 3)([e]),
+            (_(t, "updated", this, 3)([e]),
               e.has("_config") &&
                 (null === (n = this._config) || void 0 === n
                   ? void 0
@@ -2368,11 +2347,11 @@ var re = (function () {
         {
           key: "render",
           value: function () {
-            if (!this._config) return Ct;
+            if (!this._config) return Pt;
             var t = "panel" !== this.layout && "grid" !== this.layout;
-            return It(
+            return jt(
               r ||
-                (r = h([
+                (r = f([
                   "\n      <ha-card .header=",
                   '>\n        <div\n          id="root"\n          style="',
                   '"\n          @keydown=',
@@ -2382,19 +2361,18 @@ var re = (function () {
                   '\n          <button\n            id="fullscreen-btn"\n            @click=',
                   "\n            title=",
                   "\n          >\n            ",
-                  "\n          </button>\n          ",
-                  "\n        </div>\n      </ha-card>\n    ",
+                  "\n          </button>\n        </div>\n      </ha-card>\n    ",
                 ])),
-              this._config.title || Ct,
+              this._config.title || Pt,
               t ? "padding-top: 75%" : "",
               this._trapKey,
               this._trapKey,
               this._trapKey,
               this._gameStarted
-                ? Ct
-                : It(
+                ? Pt
+                : jt(
                     l ||
-                      (l = h([
+                      (l = f([
                         '\n                <div id="overlay" @click=',
                         '>\n                  <div class="pac-logo">\n                    <svg\n                      viewBox="0 0 100 100"\n                      xmlns="http://www.w3.org/2000/svg"\n                    >\n                      <circle cx="50" cy="50" r="48" fill="#ffff00" />\n                      <polygon points="50,50 98,20 98,80" fill="#000" />\n                    </svg>\n                  </div>\n                  <p>Click to play</p>\n                </div>\n              ',
                       ])),
@@ -2403,26 +2381,18 @@ var re = (function () {
               this._toggleFullscreen,
               this._isFullscreen ? "Exit fullscreen" : "Fullscreen",
               this._isFullscreen
-                ? It(
+                ? jt(
                     u ||
-                      (u = h([
-                        '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">\n                  <path\n                    d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"\n                  />\n                </svg>',
+                      (u = f([
+                        '<svg\n                  viewBox="0 0 24 24"\n                  xmlns="http://www.w3.org/2000/svg"\n                >\n                  <path\n                    d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"\n                  />\n                </svg>',
                       ]))
                   )
-                : It(
+                : jt(
                     s ||
-                      (s = h([
-                        '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">\n                  <path\n                    d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"\n                  />\n                </svg>',
-                      ]))
-                  ),
-              this._loading
-                ? It(
-                    d ||
-                      (d = h([
-                        '\n                <div id="loading">\n                  <div class="spinner"></div>\n                  <p>Loading Pac-Man...</p>\n                </div>\n              ',
+                      (s = f([
+                        '<svg\n                  viewBox="0 0 24 24"\n                  xmlns="http://www.w3.org/2000/svg"\n                >\n                  <path\n                    d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"\n                  />\n                </svg>',
                       ]))
                   )
-                : Ct
             );
           },
         },
@@ -2435,10 +2405,10 @@ var re = (function () {
         {
           key: "_startPacman",
           value:
-            ((i = O(
-              k().m(function t() {
-                var e, n, i;
-                return k().w(
+            ((i = A(
+              b().m(function t() {
+                var e, n;
+                return b().w(
                   function (t) {
                     for (;;)
                       switch (t.n) {
@@ -2452,32 +2422,23 @@ var re = (function () {
                           return (
                             (this._gameRunning = !0),
                             (this._gameStarted = !0),
-                            (this._loading = !0),
                             (t.n = 2),
                             this.updateComplete
                           );
                         case 2:
-                          return ((t.n = 3), ae());
-                        case 3:
                           return (
                             (e = this.shadowRoot.getElementById("game")),
-                            ((n = document.createElement("canvas")).id =
-                              "pacman-canvas"),
-                            (n.style.width = "100%"),
-                            (n.style.height = "100%"),
+                            ((n = document.createElement("iframe")).src = ne),
+                            (n.style.cssText =
+                              "width:100%;height:100%;border:none;display:block;"),
+                            (n.allow = "autoplay"),
                             e.appendChild(n),
-                            (i = e.getBoundingClientRect()),
-                            (n.width = Math.max(i.width || 400, 200)),
-                            (n.height = Math.max(i.height || 300, 150)),
-                            (this._loading = !1),
-                            (this._commandInterface = window.PacMan(n)),
-                            n.focus(),
-                            (t.n = 4),
+                            (t.n = 3),
                             this._resolveEntryId()
                           );
-                        case 4:
+                        case 3:
                           this._startPinging();
-                        case 5:
+                        case 4:
                           return t.a(2);
                       }
                   },
@@ -2494,29 +2455,23 @@ var re = (function () {
           key: "_destroyGame",
           value: function () {
             var t;
-            if ((this._stopPinging(), this._commandInterface)) {
-              try {
-                this._commandInterface.stop();
-              } catch (t) {}
-              this._commandInterface = void 0;
-            }
+            this._stopPinging();
             var e =
               null === (t = this.shadowRoot) || void 0 === t
                 ? void 0
                 : t.getElementById("game");
             (e && (e.innerHTML = ""),
               (this._gameRunning = !1),
-              (this._gameStarted = !1),
-              (this._loading = !1));
+              (this._gameStarted = !1));
           },
         },
         {
           key: "_resolveEntryId",
           value:
-            ((n = O(
-              k().m(function t() {
+            ((n = A(
+              b().m(function t() {
                 var e, n;
-                return k().w(
+                return b().w(
                   function (t) {
                     for (;;)
                       switch ((t.p = t.n)) {
@@ -2622,20 +2577,20 @@ var re = (function () {
         {
           key: "getConfigElement",
           value:
-            ((e = O(
-              k().m(function t() {
-                return k().w(function (t) {
+            ((e = A(
+              b().m(function t() {
+                return b().w(function (t) {
                   for (;;)
                     switch (t.n) {
                       case 0:
                         return (
                           (t.n = 1),
                           Promise.resolve().then(function () {
-                            return ia;
+                            return ta;
                           })
                         );
                       case 1:
-                        return t.a(2, document.createElement(V));
+                        return t.a(2, document.createElement(H));
                     }
                 }, t);
               })
@@ -2680,11 +2635,11 @@ var re = (function () {
                         t[i + 1]
                       );
                     }, t[0]);
-              return new W(o, t, G);
+              return new W(o, t, B);
             })(
-              c ||
-                (c = h([
-                  '\n      :host {\n        display: block;\n        height: 100%;\n      }\n      ha-card {\n        overflow: hidden;\n        width: 100%;\n        height: 100%;\n        display: flex;\n        flex-direction: column;\n      }\n      #root {\n        width: 100%;\n        height: 100%;\n        position: relative;\n        background: #000;\n      }\n      #game {\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n      }\n      #game canvas {\n        width: 100% !important;\n        height: 100% !important;\n        display: block;\n      }\n      #overlay {\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        justify-content: center;\n        background-color: #000;\n        z-index: 100;\n        cursor: pointer;\n      }\n      .pac-logo {\n        width: 30%;\n        max-width: 120px;\n        min-width: 48px;\n        margin-bottom: 1em;\n        animation: chomp 0.4s ease-in-out infinite alternate;\n      }\n      .pac-logo svg {\n        width: 100%;\n        height: auto;\n      }\n      @keyframes chomp {\n        from {\n          clip-path: polygon(0 0, 100% 30%, 100% 70%, 0 100%);\n        }\n        to {\n          clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%);\n        }\n      }\n      #overlay p {\n        color: #ffff00;\n        font-family: "Courier New", monospace;\n        font-size: 1.05em;\n        font-weight: bold;\n        letter-spacing: 0.15em;\n        text-transform: uppercase;\n        padding: 0.6em 1.6em;\n        background: rgba(0, 0, 0, 0.7);\n        border-radius: 8px;\n        animation: pulse-glow 2.5s ease-in-out infinite;\n      }\n      @keyframes pulse-glow {\n        0%,\n        100% {\n          box-shadow: 0 0 8px rgba(255, 255, 0, 0.3);\n        }\n        50% {\n          box-shadow:\n            0 0 20px rgba(255, 255, 0, 0.7),\n            0 0 40px rgba(255, 255, 0, 0.3);\n        }\n      }\n      #loading {\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n        background: #000;\n        z-index: 99;\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        justify-content: center;\n        font-family: "Courier New", monospace;\n      }\n      #loading p {\n        color: #ffff00;\n        font-size: 1.5em;\n        margin-top: 1em;\n      }\n      .spinner {\n        width: 50px;\n        height: 50px;\n        border: 4px solid #333;\n        border-top: 4px solid #ffff00;\n        border-radius: 50%;\n        animation: spin 1s linear infinite;\n      }\n      @keyframes spin {\n        to {\n          transform: rotate(360deg);\n        }\n      }\n      #fullscreen-btn {\n        position: absolute;\n        bottom: 8px;\n        right: 8px;\n        z-index: 101;\n        background: rgba(0, 0, 0, 0.5);\n        border: 1px solid rgba(255, 255, 0, 0.4);\n        border-radius: 4px;\n        padding: 4px;\n        cursor: pointer;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        opacity: 0.4;\n        transition: opacity 0.2s;\n      }\n      #fullscreen-btn:hover {\n        opacity: 1;\n      }\n      #fullscreen-btn svg {\n        width: 20px;\n        height: 20px;\n        fill: #ffff00;\n      }\n    ',
+              d ||
+                (d = f([
+                  '\n      :host {\n        display: block;\n        height: 100%;\n      }\n      ha-card {\n        overflow: hidden;\n        width: 100%;\n        height: 100%;\n        display: flex;\n        flex-direction: column;\n      }\n      #root {\n        width: 100%;\n        height: 100%;\n        position: relative;\n        background: #000;\n      }\n      #game {\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n      }\n      #overlay {\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        justify-content: center;\n        background-color: #000;\n        z-index: 100;\n        cursor: pointer;\n      }\n      .pac-logo {\n        width: 30%;\n        max-width: 120px;\n        min-width: 48px;\n        margin-bottom: 1em;\n        animation: chomp 0.4s ease-in-out infinite alternate;\n      }\n      .pac-logo svg {\n        width: 100%;\n        height: auto;\n      }\n      @keyframes chomp {\n        from {\n          clip-path: polygon(0 0, 100% 30%, 100% 70%, 0 100%);\n        }\n        to {\n          clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%);\n        }\n      }\n      #overlay p {\n        color: #ffff00;\n        font-family: "Courier New", monospace;\n        font-size: 1.05em;\n        font-weight: bold;\n        letter-spacing: 0.15em;\n        text-transform: uppercase;\n        padding: 0.6em 1.6em;\n        background: rgba(0, 0, 0, 0.7);\n        border-radius: 8px;\n        animation: pulse-glow 2.5s ease-in-out infinite;\n      }\n      @keyframes pulse-glow {\n        0%,\n        100% {\n          box-shadow: 0 0 8px rgba(255, 255, 0, 0.3);\n        }\n        50% {\n          box-shadow:\n            0 0 20px rgba(255, 255, 0, 0.7),\n            0 0 40px rgba(255, 255, 0, 0.3);\n        }\n      }\n      #fullscreen-btn {\n        position: absolute;\n        bottom: 8px;\n        right: 8px;\n        z-index: 101;\n        background: rgba(0, 0, 0, 0.5);\n        border: 1px solid rgba(255, 255, 0, 0.4);\n        border-radius: 4px;\n        padding: 4px;\n        cursor: pointer;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        opacity: 0.4;\n        transition: opacity 0.2s;\n      }\n      #fullscreen-btn:hover {\n        opacity: 1;\n      }\n      #fullscreen-btn svg {\n        width: 20px;\n        height: 20px;\n        fill: #ffff00;\n      }\n    ',
                 ]))
             );
           },
@@ -2694,19 +2649,18 @@ var re = (function () {
   );
   var e, n, i;
 })();
-(K([Xt({ attribute: !1 })], re.prototype, "hass", void 0),
-  K([Xt({ attribute: !1 })], re.prototype, "layout", void 0),
-  K([te()], re.prototype, "_config", void 0),
-  K([te()], re.prototype, "_gameStarted", void 0),
-  K([te()], re.prototype, "_loading", void 0),
-  K([te()], re.prototype, "_isFullscreen", void 0),
-  (re = K([Zt(H)], re)),
+(V([Qt({ attribute: !1 })], ie.prototype, "hass", void 0),
+  V([Qt({ attribute: !1 })], ie.prototype, "layout", void 0),
+  V([Xt()], ie.prototype, "_config", void 0),
+  V([Xt()], ie.prototype, "_gameStarted", void 0),
+  V([Xt()], ie.prototype, "_isFullscreen", void 0),
+  (ie = V([Jt(N)], ie)),
   console.info(
     "%c  PAC-MAN CARD  %c  ".concat("0.0.0", "  "),
     "color: black; background: #ffff00; font-weight: bold;",
     "color: #ffff00; background: black; font-weight: bold;"
   ));
-var le = {
+var oe = {
     card: {
       pacman: {
         title: "Titel",
@@ -2715,18 +2669,18 @@ var le = {
       },
     },
   },
-  ue = { wakawaka: { title: "GODMODUS GEAKTIVEER" } },
-  se = { editor: le, dialog: ue },
-  de = Object.freeze({ __proto__: null, default: se, dialog: ue, editor: le }),
-  ce = {
+  ae = { wakawaka: { title: "GODMODUS GEAKTIVEER" } },
+  re = { editor: oe, dialog: ae },
+  le = Object.freeze({ __proto__: null, default: re, dialog: ae, editor: oe }),
+  ue = {
     card: {
       pacman: { title: "العنوان", sound: "الصوت", auto_start: "بدء تلقائي" },
     },
   },
-  fe = { wakawaka: { title: "وضع الإله مُفعَّل" } },
-  he = { editor: ce, dialog: fe },
-  pe = Object.freeze({ __proto__: null, default: he, dialog: fe, editor: ce }),
-  ve = {
+  se = { wakawaka: { title: "وضع الإله مُفعَّل" } },
+  de = { editor: ue, dialog: se },
+  ce = Object.freeze({ __proto__: null, default: de, dialog: se, editor: ue }),
+  fe = {
     card: {
       pacman: {
         title: "Заглавие",
@@ -2735,10 +2689,10 @@ var le = {
       },
     },
   },
-  _e = { wakawaka: { title: "РЕЖИМ БОГ АКТИВИРАН" } },
-  ge = { editor: ve, dialog: _e },
-  ye = Object.freeze({ __proto__: null, default: ge, dialog: _e, editor: ve }),
-  me = {
+  he = { wakawaka: { title: "РЕЖИМ БОГ АКТИВИРАН" } },
+  pe = { editor: fe, dialog: he },
+  ve = Object.freeze({ __proto__: null, default: pe, dialog: he, editor: fe }),
+  _e = {
     card: {
       pacman: {
         title: "শিরোনাম",
@@ -2747,10 +2701,10 @@ var le = {
       },
     },
   },
-  be = { wakawaka: { title: "গড মোড সক্রিয়" } },
-  ke = { editor: me, dialog: be },
-  we = Object.freeze({ __proto__: null, default: ke, dialog: be, editor: me }),
-  Ae = {
+  ge = { wakawaka: { title: "গড মোড সক্রিয়" } },
+  ye = { editor: _e, dialog: ge },
+  me = Object.freeze({ __proto__: null, default: ye, dialog: ge, editor: _e }),
+  be = {
     card: {
       pacman: {
         title: "Naslov",
@@ -2759,18 +2713,18 @@ var le = {
       },
     },
   },
-  Oe = { wakawaka: { title: "BOŽJI REŽIM AKTIVIRAN" } },
-  $e = { editor: Ae, dialog: Oe },
-  Ee = Object.freeze({ __proto__: null, default: $e, dialog: Oe, editor: Ae }),
-  Te = {
+  ke = { wakawaka: { title: "BOŽJI REŽIM AKTIVIRAN" } },
+  we = { editor: be, dialog: ke },
+  Ae = Object.freeze({ __proto__: null, default: we, dialog: ke, editor: be }),
+  Oe = {
     card: {
       pacman: { title: "Títol", sound: "So", auto_start: "Inici automàtic" },
     },
   },
-  Se = { wakawaka: { title: "MODE DÉU ACTIVAT" } },
-  je = { editor: Te, dialog: Se },
-  Ie = Object.freeze({ __proto__: null, default: je, dialog: Se, editor: Te }),
-  Pe = {
+  $e = { wakawaka: { title: "MODE DÉU ACTIVAT" } },
+  Ee = { editor: Oe, dialog: $e },
+  Te = Object.freeze({ __proto__: null, default: Ee, dialog: $e, editor: Oe }),
+  Se = {
     card: {
       pacman: {
         title: "Název",
@@ -2779,10 +2733,10 @@ var le = {
       },
     },
   },
-  Ce = { wakawaka: { title: "REŽIM BOHA AKTIVOVÁN" } },
-  ze = { editor: Pe, dialog: Ce },
-  Me = Object.freeze({ __proto__: null, default: ze, dialog: Ce, editor: Pe }),
-  xe = {
+  je = { wakawaka: { title: "REŽIM BOHA AKTIVOVÁN" } },
+  Ie = { editor: Se, dialog: je },
+  Pe = Object.freeze({ __proto__: null, default: Ie, dialog: je, editor: Se }),
+  Ce = {
     card: {
       pacman: {
         title: "Teitl",
@@ -2791,18 +2745,18 @@ var le = {
       },
     },
   },
-  De = { wakawaka: { title: "MODD DUW WEDI'I ACTIFADU" } },
-  Re = { editor: xe, dialog: De },
-  Ue = Object.freeze({ __proto__: null, default: Re, dialog: De, editor: xe }),
-  Ne = {
+  ze = { wakawaka: { title: "MODD DUW WEDI'I ACTIFADU" } },
+  De = { editor: Ce, dialog: ze },
+  Me = Object.freeze({ __proto__: null, default: De, dialog: ze, editor: Ce }),
+  Re = {
     card: {
       pacman: { title: "Titel", sound: "Lyd", auto_start: "Automatisk start" },
     },
   },
-  He = { wakawaka: { title: "GUDTILSTAND AKTIVERET" } },
-  Ve = { editor: Ne, dialog: He },
-  Ke = Object.freeze({ __proto__: null, default: Ve, dialog: He, editor: Ne }),
-  Le = {
+  Ue = { wakawaka: { title: "GUDTILSTAND AKTIVERET" } },
+  xe = { editor: Re, dialog: Ue },
+  Ne = Object.freeze({ __proto__: null, default: xe, dialog: Ue, editor: Re }),
+  He = {
     card: {
       pacman: {
         title: "Titel",
@@ -2811,10 +2765,10 @@ var le = {
       },
     },
   },
-  Be = { wakawaka: { title: "GOTTMODUS AKTIVIERT" } },
-  Ge = { editor: Le, dialog: Be },
-  Fe = Object.freeze({ __proto__: null, default: Ge, dialog: Be, editor: Le }),
-  We = {
+  Ve = { wakawaka: { title: "GOTTMODUS AKTIVIERT" } },
+  Ke = { editor: He, dialog: Ve },
+  Le = Object.freeze({ __proto__: null, default: Ke, dialog: Ve, editor: He }),
+  Be = {
     card: {
       pacman: {
         title: "Τίτλος",
@@ -2823,22 +2777,22 @@ var le = {
       },
     },
   },
-  qe = { wakawaka: { title: "ΛΕΙΤΟΥΡΓΙΑ ΘΕΟΥ ΕΝΕΡΓΟΠΟΙΗΘΗΚΕ" } },
-  Je = { editor: We, dialog: qe },
-  Ze = Object.freeze({ __proto__: null, default: Je, dialog: qe, editor: We }),
-  Ye = { card: { pacman: { title: "Title", auto_start: "Auto start" } } },
-  Qe = { wakawaka: { title: "WAKA WAKA WAKA!" } },
-  Xe = { editor: Ye, dialog: Qe },
-  tn = Object.freeze({ __proto__: null, default: Xe, dialog: Qe, editor: Ye }),
-  en = {
+  Ge = { wakawaka: { title: "ΛΕΙΤΟΥΡΓΙΑ ΘΕΟΥ ΕΝΕΡΓΟΠΟΙΗΘΗΚΕ" } },
+  We = { editor: Be, dialog: Ge },
+  Fe = Object.freeze({ __proto__: null, default: We, dialog: Ge, editor: Be }),
+  qe = { card: { pacman: { title: "Title", auto_start: "Auto start" } } },
+  Je = { wakawaka: { title: "WAKA WAKA WAKA!" } },
+  Ze = { editor: qe, dialog: Je },
+  Ye = Object.freeze({ __proto__: null, default: Ze, dialog: Je, editor: qe }),
+  Qe = {
     card: {
       pacman: { title: "Title", sound: "Sound", auto_start: "Auto start" },
     },
   },
-  nn = { wakawaka: { title: "WAKA WAKA WAKA!" } },
-  on = { editor: en, dialog: nn },
-  an = Object.freeze({ __proto__: null, default: on, dialog: nn, editor: en }),
-  rn = {
+  Xe = { wakawaka: { title: "WAKA WAKA WAKA!" } },
+  tn = { editor: Qe, dialog: Xe },
+  en = Object.freeze({ __proto__: null, default: tn, dialog: Xe, editor: Qe }),
+  nn = {
     card: {
       pacman: {
         title: "Titolo",
@@ -2847,9 +2801,20 @@ var le = {
       },
     },
   },
-  ln = { wakawaka: { title: "DIA REĜIMO AKTIVIGITA" } },
-  un = { editor: rn, dialog: ln },
-  sn = Object.freeze({ __proto__: null, default: un, dialog: ln, editor: rn }),
+  on = { wakawaka: { title: "DIA REĜIMO AKTIVIGITA" } },
+  an = { editor: nn, dialog: on },
+  rn = Object.freeze({ __proto__: null, default: an, dialog: on, editor: nn }),
+  ln = {
+    card: {
+      pacman: {
+        title: "Título",
+        sound: "Sonido",
+        auto_start: "Inicio automático",
+      },
+    },
+  },
+  un = { wakawaka: { title: "MODO DIOS ACTIVADO" } },
+  sn = { editor: ln, dialog: un },
   dn = {
     card: {
       pacman: {
@@ -2864,26 +2829,15 @@ var le = {
   hn = {
     card: {
       pacman: {
-        title: "Título",
-        sound: "Sonido",
-        auto_start: "Inicio automático",
-      },
-    },
-  },
-  pn = { wakawaka: { title: "MODO DIOS ACTIVADO" } },
-  vn = { editor: hn, dialog: pn },
-  _n = {
-    card: {
-      pacman: {
         title: "Pealkiri",
         sound: "Heli",
         auto_start: "Automaatne käivitamine",
       },
     },
   },
-  gn = { wakawaka: { title: "JUMALAREŽIIM AKTIVEERITUD" } },
-  yn = { editor: _n, dialog: gn },
-  mn = {
+  pn = { wakawaka: { title: "JUMALAREŽIIM AKTIVEERITUD" } },
+  vn = { editor: hn, dialog: pn },
+  _n = {
     card: {
       pacman: {
         title: "Izenburua",
@@ -2892,16 +2846,16 @@ var le = {
       },
     },
   },
-  bn = { wakawaka: { title: "JAINKO MODUA AKTIBATUTA" } },
-  kn = { editor: mn, dialog: bn },
-  wn = {
+  gn = { wakawaka: { title: "JAINKO MODUA AKTIBATUTA" } },
+  yn = { editor: _n, dialog: gn },
+  mn = {
     card: {
       pacman: { title: "عنوان", sound: "صدا", auto_start: "شروع خودکار" },
     },
   },
-  An = { wakawaka: { title: "حالت خدا فعال شد" } },
-  On = { editor: wn, dialog: An },
-  $n = {
+  bn = { wakawaka: { title: "حالت خدا فعال شد" } },
+  kn = { editor: mn, dialog: bn },
+  wn = {
     card: {
       pacman: {
         title: "Otsikko",
@@ -2910,9 +2864,9 @@ var le = {
       },
     },
   },
-  En = { wakawaka: { title: "JUMALATILA AKTIVOITU" } },
-  Tn = { editor: $n, dialog: En },
-  Sn = {
+  An = { wakawaka: { title: "JUMALATILA AKTIVOITU" } },
+  On = { editor: wn, dialog: An },
+  $n = {
     card: {
       pacman: {
         title: "Titre",
@@ -2921,16 +2875,16 @@ var le = {
       },
     },
   },
-  jn = { wakawaka: { title: "MODE DIEU ACTIVÉ" } },
-  In = { editor: Sn, dialog: jn },
-  Pn = {
+  En = { wakawaka: { title: "MODE DIEU ACTIVÉ" } },
+  Tn = { editor: $n, dialog: En },
+  Sn = {
     card: {
       pacman: { title: "Titel", sound: "Lûd", auto_start: "Automatysk starte" },
     },
   },
-  Cn = { wakawaka: { title: "GODMODUS AKTIVEARRE" } },
-  zn = { editor: Pn, dialog: Cn },
-  Mn = {
+  jn = { wakawaka: { title: "GODMODUS AKTIVEARRE" } },
+  In = { editor: Sn, dialog: jn },
+  Pn = {
     card: {
       pacman: {
         title: "Teideal",
@@ -2939,9 +2893,9 @@ var le = {
       },
     },
   },
-  xn = { wakawaka: { title: "MÓD DÉ GNÍOMHACHTAITHE" } },
-  Dn = { editor: Mn, dialog: xn },
-  Rn = {
+  Cn = { wakawaka: { title: "MÓD DÉ GNÍOMHACHTAITHE" } },
+  zn = { editor: Pn, dialog: Cn },
+  Dn = {
     card: {
       pacman: {
         title: "Título",
@@ -2950,9 +2904,9 @@ var le = {
       },
     },
   },
-  Un = { wakawaka: { title: "MODO DEUS ACTIVADO" } },
-  Nn = { editor: Rn, dialog: Un },
-  Hn = {
+  Mn = { wakawaka: { title: "MODO DEUS ACTIVADO" } },
+  Rn = { editor: Dn, dialog: Mn },
+  Un = {
     card: {
       pacman: {
         title: "Titel",
@@ -2961,16 +2915,16 @@ var le = {
       },
     },
   },
-  Vn = { wakawaka: { title: "GOTTMODUS AKTIVIERT" } },
-  Kn = { editor: Hn, dialog: Vn },
-  Ln = {
+  xn = { wakawaka: { title: "GOTTMODUS AKTIVIERT" } },
+  Nn = { editor: Un, dialog: xn },
+  Hn = {
     card: {
       pacman: { title: "כותרת", sound: "צליל", auto_start: "הפעלה אוטומטית" },
     },
   },
-  Bn = { wakawaka: { title: "מצב אלוהים הופעל" } },
-  Gn = { editor: Ln, dialog: Bn },
-  Fn = {
+  Vn = { wakawaka: { title: "מצב אלוהים הופעל" } },
+  Kn = { editor: Hn, dialog: Vn },
+  Ln = {
     card: {
       pacman: {
         title: "शीर्षक",
@@ -2979,9 +2933,9 @@ var le = {
       },
     },
   },
-  Wn = { wakawaka: { title: "गॉड मोड सक्रिय" } },
-  qn = { editor: Fn, dialog: Wn },
-  Jn = {
+  Bn = { wakawaka: { title: "गॉड मोड सक्रिय" } },
+  Gn = { editor: Ln, dialog: Bn },
+  Wn = {
     card: {
       pacman: {
         title: "Naslov",
@@ -2990,9 +2944,9 @@ var le = {
       },
     },
   },
-  Zn = { wakawaka: { title: "BOŽJI REŽIM AKTIVIRAN" } },
-  Yn = { editor: Jn, dialog: Zn },
-  Qn = {
+  Fn = { wakawaka: { title: "BOŽJI REŽIM AKTIVIRAN" } },
+  qn = { editor: Wn, dialog: Fn },
+  Jn = {
     card: {
       pacman: {
         title: "Cím",
@@ -3001,9 +2955,9 @@ var le = {
       },
     },
   },
-  Xn = { wakawaka: { title: "ISTEN MÓD AKTIVÁLVA" } },
-  ti = { editor: Qn, dialog: Xn },
-  ei = {
+  Zn = { wakawaka: { title: "ISTEN MÓD AKTIVÁLVA" } },
+  Yn = { editor: Jn, dialog: Zn },
+  Qn = {
     card: {
       pacman: {
         title: "Վերնագիր",
@@ -3012,16 +2966,16 @@ var le = {
       },
     },
   },
-  ni = { wakawaka: { title: "WAKA WAKA WAKA!" } },
-  ii = { editor: ei, dialog: ni },
-  oi = {
+  Xn = { wakawaka: { title: "WAKA WAKA WAKA!" } },
+  ti = { editor: Qn, dialog: Xn },
+  ei = {
     card: {
       pacman: { title: "Judul", sound: "Suara", auto_start: "Mulai otomatis" },
     },
   },
-  ai = { wakawaka: { title: "MODE TUHAN DIAKTIFKAN" } },
-  ri = { editor: oi, dialog: ai },
-  li = {
+  ni = { wakawaka: { title: "MODE TUHAN DIAKTIFKAN" } },
+  ii = { editor: ei, dialog: ni },
+  oi = {
     card: {
       pacman: {
         title: "Titill",
@@ -3030,9 +2984,9 @@ var le = {
       },
     },
   },
-  ui = { wakawaka: { title: "GUÐSTILLING VIRKJUÐ" } },
-  si = { editor: li, dialog: ui },
-  di = {
+  ai = { wakawaka: { title: "GUÐSTILLING VIRKJUÐ" } },
+  ri = { editor: oi, dialog: ai },
+  li = {
     card: {
       pacman: {
         title: "Titolo",
@@ -3041,16 +2995,16 @@ var le = {
       },
     },
   },
-  ci = { wakawaka: { title: "MODALITÀ DIO ATTIVATA" } },
-  fi = { editor: di, dialog: ci },
-  hi = {
+  ui = { wakawaka: { title: "MODALITÀ DIO ATTIVATA" } },
+  si = { editor: li, dialog: ui },
+  di = {
     card: {
       pacman: { title: "タイトル", sound: "サウンド", auto_start: "自動開始" },
     },
   },
-  pi = { wakawaka: { title: "ゴッドモード起動" } },
-  vi = { editor: hi, dialog: pi },
-  _i = {
+  ci = { wakawaka: { title: "ゴッドモード起動" } },
+  fi = { editor: di, dialog: ci },
+  hi = {
     card: {
       pacman: {
         title: "სათაური",
@@ -3059,14 +3013,14 @@ var le = {
       },
     },
   },
-  gi = { wakawaka: { title: "ღვთის რეჟიმი გააქტიურებულია" } },
-  yi = { editor: _i, dialog: gi },
-  mi = {
+  pi = { wakawaka: { title: "ღვთის რეჟიმი გააქტიურებულია" } },
+  vi = { editor: hi, dialog: pi },
+  _i = {
     card: { pacman: { title: "제목", sound: "소리", auto_start: "자동 시작" } },
   },
-  bi = { wakawaka: { title: "갓 모드 활성화" } },
-  ki = { editor: mi, dialog: bi },
-  wi = {
+  gi = { wakawaka: { title: "갓 모드 활성화" } },
+  yi = { editor: _i, dialog: gi },
+  mi = {
     card: {
       pacman: {
         title: "Titel",
@@ -3075,9 +3029,9 @@ var le = {
       },
     },
   },
-  Ai = { wakawaka: { title: "GOTTMODUS AKTIVÉIERT" } },
-  Oi = { editor: wi, dialog: Ai },
-  $i = {
+  bi = { wakawaka: { title: "GOTTMODUS AKTIVÉIERT" } },
+  ki = { editor: mi, dialog: bi },
+  wi = {
     card: {
       pacman: {
         title: "Pavadinimas",
@@ -3086,9 +3040,9 @@ var le = {
       },
     },
   },
-  Ei = { wakawaka: { title: "DIEVO REŽIMAS AKTYVUOTAS" } },
-  Ti = { editor: $i, dialog: Ei },
-  Si = {
+  Ai = { wakawaka: { title: "DIEVO REŽIMAS AKTYVUOTAS" } },
+  Oi = { editor: wi, dialog: Ai },
+  $i = {
     card: {
       pacman: {
         title: "Nosaukums",
@@ -3097,9 +3051,9 @@ var le = {
       },
     },
   },
-  ji = { wakawaka: { title: "DIEVA REŽĪMS AKTIVIZĒTS" } },
-  Ii = { editor: Si, dialog: ji },
-  Pi = {
+  Ei = { wakawaka: { title: "DIEVA REŽĪMS AKTIVIZĒTS" } },
+  Ti = { editor: $i, dialog: Ei },
+  Si = {
     card: {
       pacman: {
         title: "Наслов",
@@ -3108,9 +3062,9 @@ var le = {
       },
     },
   },
-  Ci = { wakawaka: { title: "РЕЖИМ НА БОГА АКТИВИРАН" } },
-  zi = { editor: Pi, dialog: Ci },
-  Mi = {
+  ji = { wakawaka: { title: "РЕЖИМ НА БОГА АКТИВИРАН" } },
+  Ii = { editor: Si, dialog: ji },
+  Pi = {
     card: {
       pacman: {
         title: "ശീർഷകം",
@@ -3119,16 +3073,16 @@ var le = {
       },
     },
   },
-  xi = { wakawaka: { title: "ഗോഡ് മോഡ് സജീവമാക്കി" } },
-  Di = { editor: Mi, dialog: xi },
-  Ri = {
+  Ci = { wakawaka: { title: "ഗോഡ് മോഡ് സജീവമാക്കി" } },
+  zi = { editor: Pi, dialog: Ci },
+  Di = {
     card: {
       pacman: { title: "Tittel", sound: "Lyd", auto_start: "Automatisk start" },
     },
   },
-  Ui = { wakawaka: { title: "GUDMODUS AKTIVERT" } },
-  Ni = { editor: Ri, dialog: Ui },
-  Hi = {
+  Mi = { wakawaka: { title: "GUDMODUS AKTIVERT" } },
+  Ri = { editor: Di, dialog: Mi },
+  Ui = {
     card: {
       pacman: {
         title: "Titel",
@@ -3137,16 +3091,16 @@ var le = {
       },
     },
   },
-  Vi = { wakawaka: { title: "GODMODUS GEACTIVEERD" } },
-  Ki = { editor: Hi, dialog: Vi },
-  Li = {
+  xi = { wakawaka: { title: "GODMODUS GEACTIVEERD" } },
+  Ni = { editor: Ui, dialog: xi },
+  Hi = {
     card: {
       pacman: { title: "Tittel", sound: "Lyd", auto_start: "Automatisk start" },
     },
   },
-  Bi = { wakawaka: { title: "GUDMODUS AKTIVERT" } },
-  Gi = { editor: Li, dialog: Bi },
-  Fi = {
+  Vi = { wakawaka: { title: "GUDMODUS AKTIVERT" } },
+  Ki = { editor: Hi, dialog: Vi },
+  Li = {
     card: {
       pacman: {
         title: "Tytuł",
@@ -3155,8 +3109,19 @@ var le = {
       },
     },
   },
-  Wi = { wakawaka: { title: "TRYB BOGA AKTYWOWANY" } },
-  qi = { editor: Fi, dialog: Wi },
+  Bi = { wakawaka: { title: "TRYB BOGA AKTYWOWANY" } },
+  Gi = { editor: Li, dialog: Bi },
+  Wi = {
+    card: {
+      pacman: {
+        title: "Título",
+        sound: "Som",
+        auto_start: "Início automático",
+      },
+    },
+  },
+  Fi = { wakawaka: { title: "MODO DEUS ATIVADO" } },
+  qi = { editor: Wi, dialog: Fi },
   Ji = {
     card: {
       pacman: {
@@ -3171,33 +3136,22 @@ var le = {
   Qi = {
     card: {
       pacman: {
-        title: "Título",
-        sound: "Som",
-        auto_start: "Início automático",
-      },
-    },
-  },
-  Xi = { wakawaka: { title: "MODO DEUS ATIVADO" } },
-  to = { editor: Qi, dialog: Xi },
-  eo = {
-    card: {
-      pacman: {
         title: "Titlu",
         sound: "Sunet",
         auto_start: "Pornire automată",
       },
     },
   },
-  no = { wakawaka: { title: "MODUL DIVIN ACTIVAT" } },
-  io = { editor: eo, dialog: no },
-  oo = {
+  Xi = { wakawaka: { title: "MODUL DIVIN ACTIVAT" } },
+  to = { editor: Qi, dialog: Xi },
+  eo = {
     card: {
       pacman: { title: "Заголовок", sound: "Звук", auto_start: "Автозапуск" },
     },
   },
-  ao = { wakawaka: { title: "РЕЖИМ БОГА АКТИВИРОВАН" } },
-  ro = { editor: oo, dialog: ao },
-  lo = {
+  no = { wakawaka: { title: "РЕЖИМ БОГА АКТИВИРОВАН" } },
+  io = { editor: eo, dialog: no },
+  oo = {
     card: {
       pacman: {
         title: "Názov",
@@ -3206,23 +3160,23 @@ var le = {
       },
     },
   },
-  uo = { wakawaka: { title: "REŽIM BOHA AKTIVOVANÝ" } },
-  so = { editor: lo, dialog: uo },
-  co = {
+  ao = { wakawaka: { title: "REŽIM BOHA AKTIVOVANÝ" } },
+  ro = { editor: oo, dialog: ao },
+  lo = {
     card: {
       pacman: { title: "Naslov", sound: "Zvok", auto_start: "Samodejni zagon" },
     },
   },
-  fo = { wakawaka: { title: "BOŽJI NAČIN AKTIVIRAN" } },
-  ho = { editor: co, dialog: fo },
-  po = {
+  uo = { wakawaka: { title: "BOŽJI NAČIN AKTIVIRAN" } },
+  so = { editor: lo, dialog: uo },
+  co = {
     card: {
       pacman: { title: "Titulli", sound: "Tingulli", auto_start: "Auto start" },
     },
   },
-  vo = { wakawaka: { title: "MODALITETI I ZOTIT I AKTIVIZUAR" } },
-  _o = { editor: po, dialog: vo },
-  go = {
+  fo = { wakawaka: { title: "MODALITETI I ZOTIT I AKTIVIZUAR" } },
+  ho = { editor: co, dialog: fo },
+  po = {
     card: {
       pacman: {
         title: "Наслов",
@@ -3231,9 +3185,9 @@ var le = {
       },
     },
   },
-  yo = { wakawaka: { title: "БОЖЈИ РЕЖИМ АКТИВИРАН" } },
-  mo = { editor: go, dialog: yo },
-  bo = {
+  vo = { wakawaka: { title: "БОЖЈИ РЕЖИМ АКТИВИРАН" } },
+  _o = { editor: po, dialog: vo },
+  go = {
     card: {
       pacman: {
         title: "Naslov",
@@ -3242,16 +3196,16 @@ var le = {
       },
     },
   },
-  ko = { wakawaka: { title: "BOŽJI REŽIM AKTIVIRAN" } },
-  wo = { editor: bo, dialog: ko },
-  Ao = {
+  yo = { wakawaka: { title: "BOŽJI REŽIM AKTIVIRAN" } },
+  mo = { editor: go, dialog: yo },
+  bo = {
     card: {
       pacman: { title: "Titel", sound: "Ljud", auto_start: "Automatisk start" },
     },
   },
-  Oo = { wakawaka: { title: "GUDLÄGE AKTIVERAT" } },
-  $o = { editor: Ao, dialog: Oo },
-  Eo = {
+  ko = { wakawaka: { title: "GUDLÄGE AKTIVERAT" } },
+  wo = { editor: bo, dialog: ko },
+  Ao = {
     card: {
       pacman: {
         title: "தலைப்பு",
@@ -3260,23 +3214,23 @@ var le = {
       },
     },
   },
-  To = { wakawaka: { title: "காட் மோட் செயல்படுத்தப்பட்டது" } },
-  So = { editor: Eo, dialog: To },
-  jo = {
+  Oo = { wakawaka: { title: "காட் மோட் செயல்படுத்தப்பட்டது" } },
+  $o = { editor: Ao, dialog: Oo },
+  Eo = {
     card: {
       pacman: { title: "శీర్షిక", sound: "ధ్వని", auto_start: "ఆటో ప్రారంభం" },
     },
   },
-  Io = { wakawaka: { title: "గాడ్ మోడ్ సక్రియం చేయబడింది" } },
-  Po = { editor: jo, dialog: Io },
-  Co = {
+  To = { wakawaka: { title: "గాడ్ మోడ్ సక్రియం చేయబడింది" } },
+  So = { editor: Eo, dialog: To },
+  jo = {
     card: {
       pacman: { title: "ชื่อ", sound: "เสียง", auto_start: "เริ่มอัตโนมัติ" },
     },
   },
-  zo = { wakawaka: { title: "เปิดโหมดพระเจ้าแล้ว" } },
-  Mo = { editor: Co, dialog: zo },
-  xo = {
+  Io = { wakawaka: { title: "เปิดโหมดพระเจ้าแล้ว" } },
+  Po = { editor: jo, dialog: Io },
+  Co = {
     card: {
       pacman: {
         title: "Başlık",
@@ -3285,23 +3239,23 @@ var le = {
       },
     },
   },
-  Do = { wakawaka: { title: "TANRI MODU ETKİNLEŞTİRİLDİ" } },
-  Ro = { editor: xo, dialog: Do },
-  Uo = {
+  zo = { wakawaka: { title: "TANRI MODU ETKİNLEŞTİRİLDİ" } },
+  Do = { editor: Co, dialog: zo },
+  Mo = {
     card: {
       pacman: { title: "Заголовок", sound: "Звук", auto_start: "Автозапуск" },
     },
   },
-  No = { wakawaka: { title: "РЕЖИМ БОГА АКТИВОВАНО" } },
-  Ho = { editor: Uo, dialog: No },
-  Vo = {
+  Ro = { wakawaka: { title: "РЕЖИМ БОГА АКТИВОВАНО" } },
+  Uo = { editor: Mo, dialog: Ro },
+  xo = {
     card: {
       pacman: { title: "عنوان", sound: "آواز", auto_start: "خودکار شروع" },
     },
   },
-  Ko = { wakawaka: { title: "گاڈ موڈ فعال" } },
-  Lo = { editor: Vo, dialog: Ko },
-  Bo = {
+  No = { wakawaka: { title: "گاڈ موڈ فعال" } },
+  Ho = { editor: xo, dialog: No },
+  Vo = {
     card: {
       pacman: {
         title: "Tiêu đề",
@@ -3310,139 +3264,139 @@ var le = {
       },
     },
   },
-  Go = { wakawaka: { title: "CHẾ ĐỘ THẦN ĐÃ KÍCH HOẠT" } },
-  Fo = { editor: Bo, dialog: Go },
-  Wo = {
+  Ko = { wakawaka: { title: "CHẾ ĐỘ THẦN ĐÃ KÍCH HOẠT" } },
+  Lo = { editor: Vo, dialog: Ko },
+  Bo = {
     card: { pacman: { title: "标题", sound: "声音", auto_start: "自动启动" } },
   },
-  qo = { wakawaka: { title: "上帝模式已激活" } },
-  Jo = { editor: Wo, dialog: qo },
-  Zo = {
+  Go = { wakawaka: { title: "上帝模式已激活" } },
+  Wo = { editor: Bo, dialog: Go },
+  Fo = {
     card: { pacman: { title: "標題", sound: "聲音", auto_start: "自動啟動" } },
   },
-  Yo = { wakawaka: { title: "上帝模式已啟動" } },
-  Qo = { editor: Zo, dialog: Yo },
-  Xo = {
-    af: de,
-    ar: pe,
-    bg: ye,
-    bn: we,
-    bs: Ee,
-    ca: Ie,
-    cs: Me,
-    cy: Ue,
-    da: Ke,
-    de: Fe,
-    el: Ze,
-    en: tn,
-    "en-GB": an,
-    eo: sn,
-    es: Object.freeze({ __proto__: null, default: fn, dialog: cn, editor: dn }),
+  qo = { wakawaka: { title: "上帝模式已啟動" } },
+  Jo = { editor: Fo, dialog: qo },
+  Zo = {
+    af: le,
+    ar: ce,
+    bg: ve,
+    bn: me,
+    bs: Ae,
+    ca: Te,
+    cs: Pe,
+    cy: Me,
+    da: Ne,
+    de: Le,
+    el: Fe,
+    en: Ye,
+    "en-GB": en,
+    eo: rn,
+    es: Object.freeze({ __proto__: null, default: sn, dialog: un, editor: ln }),
     "es-419": Object.freeze({
       __proto__: null,
-      default: vn,
-      dialog: pn,
-      editor: hn,
+      default: fn,
+      dialog: cn,
+      editor: dn,
     }),
-    et: Object.freeze({ __proto__: null, default: yn, dialog: gn, editor: _n }),
-    eu: Object.freeze({ __proto__: null, default: kn, dialog: bn, editor: mn }),
-    fa: Object.freeze({ __proto__: null, default: On, dialog: An, editor: wn }),
-    fi: Object.freeze({ __proto__: null, default: Tn, dialog: En, editor: $n }),
-    fr: Object.freeze({ __proto__: null, default: In, dialog: jn, editor: Sn }),
-    fy: Object.freeze({ __proto__: null, default: zn, dialog: Cn, editor: Pn }),
-    ga: Object.freeze({ __proto__: null, default: Dn, dialog: xn, editor: Mn }),
-    gl: Object.freeze({ __proto__: null, default: Nn, dialog: Un, editor: Rn }),
+    et: Object.freeze({ __proto__: null, default: vn, dialog: pn, editor: hn }),
+    eu: Object.freeze({ __proto__: null, default: yn, dialog: gn, editor: _n }),
+    fa: Object.freeze({ __proto__: null, default: kn, dialog: bn, editor: mn }),
+    fi: Object.freeze({ __proto__: null, default: On, dialog: An, editor: wn }),
+    fr: Object.freeze({ __proto__: null, default: Tn, dialog: En, editor: $n }),
+    fy: Object.freeze({ __proto__: null, default: In, dialog: jn, editor: Sn }),
+    ga: Object.freeze({ __proto__: null, default: zn, dialog: Cn, editor: Pn }),
+    gl: Object.freeze({ __proto__: null, default: Rn, dialog: Mn, editor: Dn }),
     gsw: Object.freeze({
       __proto__: null,
-      default: Kn,
-      dialog: Vn,
-      editor: Hn,
+      default: Nn,
+      dialog: xn,
+      editor: Un,
     }),
-    he: Object.freeze({ __proto__: null, default: Gn, dialog: Bn, editor: Ln }),
-    hi: Object.freeze({ __proto__: null, default: qn, dialog: Wn, editor: Fn }),
-    hr: Object.freeze({ __proto__: null, default: Yn, dialog: Zn, editor: Jn }),
-    hu: Object.freeze({ __proto__: null, default: ti, dialog: Xn, editor: Qn }),
-    hy: Object.freeze({ __proto__: null, default: ii, dialog: ni, editor: ei }),
-    id: Object.freeze({ __proto__: null, default: ri, dialog: ai, editor: oi }),
-    is: Object.freeze({ __proto__: null, default: si, dialog: ui, editor: li }),
-    it: Object.freeze({ __proto__: null, default: fi, dialog: ci, editor: di }),
-    ja: Object.freeze({ __proto__: null, default: vi, dialog: pi, editor: hi }),
-    ka: Object.freeze({ __proto__: null, default: yi, dialog: gi, editor: _i }),
-    ko: Object.freeze({ __proto__: null, default: ki, dialog: bi, editor: mi }),
-    lb: Object.freeze({ __proto__: null, default: Oi, dialog: Ai, editor: wi }),
-    lt: Object.freeze({ __proto__: null, default: Ti, dialog: Ei, editor: $i }),
-    lv: Object.freeze({ __proto__: null, default: Ii, dialog: ji, editor: Si }),
-    mk: Object.freeze({ __proto__: null, default: zi, dialog: Ci, editor: Pi }),
-    ml: Object.freeze({ __proto__: null, default: Di, dialog: xi, editor: Mi }),
-    nb: Object.freeze({ __proto__: null, default: Ni, dialog: Ui, editor: Ri }),
-    nl: Object.freeze({ __proto__: null, default: Ki, dialog: Vi, editor: Hi }),
-    nn: Object.freeze({ __proto__: null, default: Gi, dialog: Bi, editor: Li }),
-    pl: Object.freeze({ __proto__: null, default: qi, dialog: Wi, editor: Fi }),
-    pt: Object.freeze({ __proto__: null, default: Yi, dialog: Zi, editor: Ji }),
+    he: Object.freeze({ __proto__: null, default: Kn, dialog: Vn, editor: Hn }),
+    hi: Object.freeze({ __proto__: null, default: Gn, dialog: Bn, editor: Ln }),
+    hr: Object.freeze({ __proto__: null, default: qn, dialog: Fn, editor: Wn }),
+    hu: Object.freeze({ __proto__: null, default: Yn, dialog: Zn, editor: Jn }),
+    hy: Object.freeze({ __proto__: null, default: ti, dialog: Xn, editor: Qn }),
+    id: Object.freeze({ __proto__: null, default: ii, dialog: ni, editor: ei }),
+    is: Object.freeze({ __proto__: null, default: ri, dialog: ai, editor: oi }),
+    it: Object.freeze({ __proto__: null, default: si, dialog: ui, editor: li }),
+    ja: Object.freeze({ __proto__: null, default: fi, dialog: ci, editor: di }),
+    ka: Object.freeze({ __proto__: null, default: vi, dialog: pi, editor: hi }),
+    ko: Object.freeze({ __proto__: null, default: yi, dialog: gi, editor: _i }),
+    lb: Object.freeze({ __proto__: null, default: ki, dialog: bi, editor: mi }),
+    lt: Object.freeze({ __proto__: null, default: Oi, dialog: Ai, editor: wi }),
+    lv: Object.freeze({ __proto__: null, default: Ti, dialog: Ei, editor: $i }),
+    mk: Object.freeze({ __proto__: null, default: Ii, dialog: ji, editor: Si }),
+    ml: Object.freeze({ __proto__: null, default: zi, dialog: Ci, editor: Pi }),
+    nb: Object.freeze({ __proto__: null, default: Ri, dialog: Mi, editor: Di }),
+    nl: Object.freeze({ __proto__: null, default: Ni, dialog: xi, editor: Ui }),
+    nn: Object.freeze({ __proto__: null, default: Ki, dialog: Vi, editor: Hi }),
+    pl: Object.freeze({ __proto__: null, default: Gi, dialog: Bi, editor: Li }),
+    pt: Object.freeze({ __proto__: null, default: qi, dialog: Fi, editor: Wi }),
     "pt-BR": Object.freeze({
       __proto__: null,
-      default: to,
-      dialog: Xi,
-      editor: Qi,
+      default: Yi,
+      dialog: Zi,
+      editor: Ji,
     }),
-    ro: Object.freeze({ __proto__: null, default: io, dialog: no, editor: eo }),
-    ru: Object.freeze({ __proto__: null, default: ro, dialog: ao, editor: oo }),
-    sk: Object.freeze({ __proto__: null, default: so, dialog: uo, editor: lo }),
-    sl: Object.freeze({ __proto__: null, default: ho, dialog: fo, editor: co }),
-    sq: Object.freeze({ __proto__: null, default: _o, dialog: vo, editor: po }),
-    sr: Object.freeze({ __proto__: null, default: mo, dialog: yo, editor: go }),
+    ro: Object.freeze({ __proto__: null, default: to, dialog: Xi, editor: Qi }),
+    ru: Object.freeze({ __proto__: null, default: io, dialog: no, editor: eo }),
+    sk: Object.freeze({ __proto__: null, default: ro, dialog: ao, editor: oo }),
+    sl: Object.freeze({ __proto__: null, default: so, dialog: uo, editor: lo }),
+    sq: Object.freeze({ __proto__: null, default: ho, dialog: fo, editor: co }),
+    sr: Object.freeze({ __proto__: null, default: _o, dialog: vo, editor: po }),
     "sr-Latn": Object.freeze({
       __proto__: null,
-      default: wo,
-      dialog: ko,
-      editor: bo,
+      default: mo,
+      dialog: yo,
+      editor: go,
     }),
-    sv: Object.freeze({ __proto__: null, default: $o, dialog: Oo, editor: Ao }),
-    ta: Object.freeze({ __proto__: null, default: So, dialog: To, editor: Eo }),
-    te: Object.freeze({ __proto__: null, default: Po, dialog: Io, editor: jo }),
-    th: Object.freeze({ __proto__: null, default: Mo, dialog: zo, editor: Co }),
-    tr: Object.freeze({ __proto__: null, default: Ro, dialog: Do, editor: xo }),
-    uk: Object.freeze({ __proto__: null, default: Ho, dialog: No, editor: Uo }),
-    ur: Object.freeze({ __proto__: null, default: Lo, dialog: Ko, editor: Vo }),
-    vi: Object.freeze({ __proto__: null, default: Fo, dialog: Go, editor: Bo }),
+    sv: Object.freeze({ __proto__: null, default: wo, dialog: ko, editor: bo }),
+    ta: Object.freeze({ __proto__: null, default: $o, dialog: Oo, editor: Ao }),
+    te: Object.freeze({ __proto__: null, default: So, dialog: To, editor: Eo }),
+    th: Object.freeze({ __proto__: null, default: Po, dialog: Io, editor: jo }),
+    tr: Object.freeze({ __proto__: null, default: Do, dialog: zo, editor: Co }),
+    uk: Object.freeze({ __proto__: null, default: Uo, dialog: Ro, editor: Mo }),
+    ur: Object.freeze({ __proto__: null, default: Ho, dialog: No, editor: xo }),
+    vi: Object.freeze({ __proto__: null, default: Lo, dialog: Ko, editor: Vo }),
     "zh-Hans": Object.freeze({
       __proto__: null,
-      default: Jo,
-      dialog: qo,
-      editor: Wo,
+      default: Wo,
+      dialog: Go,
+      editor: Bo,
     }),
     "zh-Hant": Object.freeze({
       __proto__: null,
-      default: Qo,
-      dialog: Yo,
-      editor: Zo,
+      default: Jo,
+      dialog: qo,
+      editor: Fo,
     }),
   };
-function ta(t, e) {
+function Yo(t, e) {
   try {
     return t.split(".").reduce(function (t, e) {
       return t[e];
-    }, Xo[e]);
+    }, Zo[e]);
   } catch (t) {
     return;
   }
 }
-var ea = [
+var Qo = [
     { name: "title", selector: { text: {} } },
     { name: "auto_start", selector: { boolean: {} } },
   ],
-  na = (function () {
+  Xo = (function () {
     function t() {
       var e;
       return (
-        x(this, t),
-        ((e = $(this, t, arguments))._computeLabel = function (t) {
+        D(this, t),
+        ((e = O(this, t, arguments))._computeLabel = function (t) {
           var n;
           return ((n = e.hass),
           function (t) {
             var e,
               i,
-              o = ta(
+              o = Yo(
                 t,
                 null !==
                   (i =
@@ -3452,14 +3406,14 @@ var ea = [
                   ? i
                   : "en"
               );
-            return (o || (o = ta(t, "en")), null != o ? o : t);
+            return (o || (o = Yo(t, "en")), null != o ? o : t);
           })("editor.card.pacman.".concat(t.name));
         }),
         e
       );
     }
     return (
-      T(t, qt),
+      E(t, Ft),
       R(t, [
         {
           key: "setConfig",
@@ -3484,9 +3438,9 @@ var ea = [
           key: "render",
           value: function () {
             return this.hass && this._config
-              ? It(
-                  f ||
-                    (f = h([
+              ? jt(
+                  c ||
+                    (c = f([
                       "\n      <ha-form\n        .hass=",
                       "\n        .data=",
                       "\n        .schema=",
@@ -3496,22 +3450,22 @@ var ea = [
                     ])),
                   this.hass,
                   this._config,
-                  ea,
+                  Qo,
                   this._computeLabel,
                   this._valueChanged
                 )
-              : Ct;
+              : Pt;
           },
         },
       ])
     );
   })();
-(K([Xt({ attribute: !1 })], na.prototype, "hass", void 0),
-  K([te()], na.prototype, "_config", void 0),
-  (na = K([Zt(V)], na)));
-var ia = Object.freeze({
+(V([Qt({ attribute: !1 })], Xo.prototype, "hass", void 0),
+  V([Xt()], Xo.prototype, "_config", void 0),
+  (Xo = V([Jt(H)], Xo)));
+var ta = Object.freeze({
   __proto__: null,
   get PacmanCardEditor() {
-    return na;
+    return Xo;
   },
 });
