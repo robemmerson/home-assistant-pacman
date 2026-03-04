@@ -135,7 +135,13 @@
             gameCoord
           ) {
             if (type !== "audio") {
-              return _origCreate.call(this, sources, type, totalSources, gameCoord);
+              return _origCreate.call(
+                this,
+                sources,
+                type,
+                totalSources,
+                gameCoord
+              );
             }
             var self = this;
             return new Promise(function (resolve) {

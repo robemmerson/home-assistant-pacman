@@ -31,4 +31,1237 @@ var Jt=function(t){return function(e,n){void 0!==n?n.addInitializer(function(){c
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */function Xt(t){return Qt(p(p({},t),{},{state:!0,attribute:!1}))}var te,ee,ne="".concat("/pacman_static","/bward-game/index.html");te={type:N,name:"Pac-Man",description:"Play Pac-Man in your Home Assistant dashboard."},(ee=window).customCards=ee.customCards||[],ee.customCards.push(Object.assign(Object.assign({},te),{preview:!0}));var ie=function(){function t(){var e;return D(this,t),(e=O(this,t,arguments))._gameStarted=!1,e._isFullscreen=!1,e._gameRunning=!1,e._boundBeforeUnload=e._stopPinging.bind(e),e._boundVisibilityChange=e._handleVisibilityChange.bind(e),e._boundFullscreenChange=e._handleFullscreenChange.bind(e),e}return E(t,Ft),R(t,[{key:"setConfig",value:function(t){this._config=Object.assign(Object.assign({},t),{type:"custom:".concat(N)})}},{key:"getCardSize",value:function(){return 4}},{key:"getGridOptions",value:function(){return{columns:12,rows:8,min_columns:3,min_rows:2}}},{key:"connectedCallback",value:function(){_(t,"connectedCallback",this,3)([]),window.addEventListener("beforeunload",this._boundBeforeUnload),document.addEventListener("visibilitychange",this._boundVisibilityChange),document.addEventListener("fullscreenchange",this._boundFullscreenChange)}},{key:"disconnectedCallback",value:function(){_(t,"disconnectedCallback",this,3)([]),this._destroyGame(),window.removeEventListener("beforeunload",this._boundBeforeUnload),document.removeEventListener("visibilitychange",this._boundVisibilityChange),document.removeEventListener("fullscreenchange",this._boundFullscreenChange)}},{key:"firstUpdated",value:function(){var t;(null===(t=this._config)||void 0===t?void 0:t.auto_start)&&this._startPacman()}},{key:"updated",value:function(e){var n;_(t,"updated",this,3)([e]),e.has("_config")&&(null===(n=this._config)||void 0===n?void 0:n.auto_start)&&!this._gameRunning&&!this._gameStarted&&this._startPacman()}},{key:"render",value:function(){if(!this._config)return Pt;var t="panel"!==this.layout&&"grid"!==this.layout;return jt(r||(r=f(["\n      <ha-card .header=",'>\n        <div\n          id="root"\n          style="','"\n          @keydown=',"\n          @keyup=","\n          @keypress=",'\n        >\n          <div id="game"></div>\n          ','\n          <button\n            id="fullscreen-btn"\n            @click=',"\n            title=","\n          >\n            ","\n          </button>\n        </div>\n      </ha-card>\n    "])),this._config.title||Pt,t?"padding-top: 75%":"",this._trapKey,this._trapKey,this._trapKey,this._gameStarted?Pt:jt(l||(l=f(['\n                <div id="overlay" @click=','>\n                  <div class="pac-logo">\n                    <svg\n                      viewBox="0 0 100 100"\n                      xmlns="http://www.w3.org/2000/svg"\n                    >\n                      <circle cx="50" cy="50" r="48" fill="#ffff00" />\n                      <polygon points="50,50 98,20 98,80" fill="#000" />\n                    </svg>\n                  </div>\n                  <p>Click to play</p>\n                </div>\n              '])),this._startPacman),this._toggleFullscreen,this._isFullscreen?"Exit fullscreen":"Fullscreen",this._isFullscreen?jt(u||(u=f(['<svg\n                  viewBox="0 0 24 24"\n                  xmlns="http://www.w3.org/2000/svg"\n                >\n                  <path\n                    d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"\n                  />\n                </svg>']))):jt(s||(s=f(['<svg\n                  viewBox="0 0 24 24"\n                  xmlns="http://www.w3.org/2000/svg"\n                >\n                  <path\n                    d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"\n                  />\n                </svg>']))))}},{key:"_trapKey",value:function(t){this._gameRunning&&t.stopPropagation()}},{key:"_startPacman",value:(i=A(b().m(function t(){var e,n;return b().w(function(t){for(;;)switch(t.n){case 0:if(!this._gameRunning){t.n=1;break}return t.a(2);case 1:return this._gameRunning=!0,this._gameStarted=!0,t.n=2,this.updateComplete;case 2:return e=this.shadowRoot.getElementById("game"),(n=document.createElement("iframe")).src=ne,n.style.cssText="width:100%;height:100%;border:none;display:block;",n.allow="autoplay",e.appendChild(n),t.n=3,this._resolveEntryId();case 3:this._startPinging();case 4:return t.a(2)}},t,this)})),function(){return i.apply(this,arguments)})},{key:"_destroyGame",value:function(){var t;this._stopPinging();var e=null===(t=this.shadowRoot)||void 0===t?void 0:t.getElementById("game");e&&(e.innerHTML=""),this._gameRunning=!1,this._gameStarted=!1}},{key:"_resolveEntryId",value:(n=A(b().m(function t(){var e,n;return b().w(function(t){for(;;)switch(t.p=t.n){case 0:if(!this._entryId&&this.hass){t.n=1;break}return t.a(2);case 1:return t.p=1,t.n=2,this.hass.callWS({type:"config_entries/get"});case 2:e=t.v,n=e.find(function(t){return"pacman"===t.domain}),n&&(this._entryId=n.entry_id),t.n=4;break;case 3:t.p=3,t.v;case 4:return t.a(2)}},t,this,[[1,3]])})),function(){return n.apply(this,arguments)})},{key:"_startPinging",value:function(){var t=this;this._stopPinging(),this._sendPing(),this._pingInterval=setInterval(function(){return t._sendPing()},2e3)}},{key:"_stopPinging",value:function(){this._pingInterval&&(clearInterval(this._pingInterval),this._pingInterval=void 0),this._sendStop()}},{key:"_sendPing",value:function(){this.hass&&this._entryId&&this.hass.callWS({type:"pacman/ping",entry_id:this._entryId}).catch(function(){})}},{key:"_sendStop",value:function(){this.hass&&this._entryId&&this.hass.callWS({type:"pacman/stop",entry_id:this._entryId}).catch(function(){})}},{key:"_toggleFullscreen",value:function(){document.fullscreenElement?document.exitFullscreen().catch(function(){}):this.requestFullscreen().catch(function(){})}},{key:"_handleFullscreenChange",value:function(){this._isFullscreen=document.fullscreenElement===this}},{key:"_handleVisibilityChange",value:function(){this._gameRunning&&(document.hidden?this._stopPinging():this._startPinging())}}],[{key:"getConfigElement",value:(e=A(b().m(function t(){return b().w(function(t){for(;;)switch(t.n){case 0:return t.n=1,Promise.resolve().then(function(){return ta});case 1:return t.a(2,document.createElement(H))}},t)})),function(){return e.apply(this,arguments)})},{key:"getStubConfig",value:function(){return{auto_start:!1}}},{key:"styles",get:function(){return function(t){for(var e=arguments.length,n=new Array(e>1?e-1:0),i=1;i<e;i++)n[i-1]=arguments[i];var o=1===t.length?t[0]:n.reduce(function(e,n,i){return e+function(t){if(!0===t._$cssResult$)return t.cssText;if("number"==typeof t)return t;throw Error("Value passed to 'css' function must be a 'css' function result: "+t+". Use 'unsafeCSS' to pass non-literal values, but take care to ensure page security.")}(n)+t[i+1]},t[0]);return new W(o,t,B)}(d||(d=f(['\n      :host {\n        display: block;\n        height: 100%;\n      }\n      ha-card {\n        overflow: hidden;\n        width: 100%;\n        height: 100%;\n        display: flex;\n        flex-direction: column;\n      }\n      #root {\n        width: 100%;\n        height: 100%;\n        position: relative;\n        background: #000;\n      }\n      #game {\n        position: absolute;\n        inset: 0;\n      }\n      #overlay {\n        position: absolute;\n        inset: 0;\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        justify-content: center;\n        background-color: #000;\n        z-index: 100;\n        cursor: pointer;\n      }\n      .pac-logo {\n        width: 30%;\n        max-width: 120px;\n        min-width: 48px;\n        margin-bottom: 1em;\n        animation: chomp 0.4s ease-in-out infinite alternate;\n      }\n      .pac-logo svg {\n        width: 100%;\n        height: auto;\n      }\n      @keyframes chomp {\n        from {\n          clip-path: polygon(0 0, 100% 30%, 100% 70%, 0 100%);\n        }\n        to {\n          clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%);\n        }\n      }\n      #overlay p {\n        color: #ffff00;\n        font-family: "Courier New", monospace;\n        font-size: 1.05em;\n        font-weight: bold;\n        letter-spacing: 0.15em;\n        text-transform: uppercase;\n        padding: 0.6em 1.6em;\n        background: rgba(0, 0, 0, 0.7);\n        border-radius: 8px;\n        animation: pulse-glow 2.5s ease-in-out infinite;\n      }\n      @keyframes pulse-glow {\n        0%,\n        100% {\n          box-shadow: 0 0 8px rgba(255, 255, 0, 0.3);\n        }\n        50% {\n          box-shadow:\n            0 0 20px rgba(255, 255, 0, 0.7),\n            0 0 40px rgba(255, 255, 0, 0.3);\n        }\n      }\n      #fullscreen-btn {\n        position: absolute;\n        bottom: 8px;\n        right: 8px;\n        z-index: 101;\n        background: rgba(0, 0, 0, 0.5);\n        border: 1px solid rgba(255, 255, 0, 0.4);\n        border-radius: 4px;\n        padding: 4px;\n        cursor: pointer;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        opacity: 0.4;\n        transition: opacity 0.2s;\n      }\n      #fullscreen-btn:hover {\n        opacity: 1;\n      }\n      #fullscreen-btn svg {\n        width: 20px;\n        height: 20px;\n        fill: #ffff00;\n      }\n    '])))}}]);var e,n,i}();V([Qt({attribute:!1})],ie.prototype,"hass",void 0),V([Qt({attribute:!1})],ie.prototype,"layout",void 0),V([Xt()],ie.prototype,"_config",void 0),V([Xt()],ie.prototype,"_gameStarted",void 0),V([Xt()],ie.prototype,"_isFullscreen",void 0),ie=V([Jt(N)],ie),console.info("%c  PAC-MAN CARD  %c  ".concat("0.0.0","  "),"color: black; background: #ffff00; font-weight: bold;","color: #ffff00; background: black; font-weight: bold;");var oe={card:{pacman:{title:"Titel",sound:"Klank",auto_start:"Outomatiese begin"}}},ae={wakawaka:{title:"GODMODUS GEAKTIVEER"}},re={editor:oe,dialog:ae},le=Object.freeze({__proto__:null,default:re,dialog:ae,editor:oe}),ue={card:{pacman:{title:"العنوان",sound:"الصوت",auto_start:"بدء تلقائي"}}},se={wakawaka:{title:"وضع الإله مُفعَّل"}},de={editor:ue,dialog:se},ce=Object.freeze({__proto__:null,default:de,dialog:se,editor:ue}),fe={card:{pacman:{title:"Заглавие",sound:"Звук",auto_start:"Автоматично стартиране"}}},he={wakawaka:{title:"РЕЖИМ БОГ АКТИВИРАН"}},pe={editor:fe,dialog:he},ve=Object.freeze({__proto__:null,default:pe,dialog:he,editor:fe}),_e={card:{pacman:{title:"শিরোনাম",sound:"শব্দ",auto_start:"স্বয়ংক্রিয় শুরু"}}},ge={wakawaka:{title:"গড মোড সক্রিয়"}},ye={editor:_e,dialog:ge},me=Object.freeze({__proto__:null,default:ye,dialog:ge,editor:_e}),be={card:{pacman:{title:"Naslov",sound:"Zvuk",auto_start:"Automatsko pokretanje"}}},ke={wakawaka:{title:"BOŽJI REŽIM AKTIVIRAN"}},we={editor:be,dialog:ke},Ae=Object.freeze({__proto__:null,default:we,dialog:ke,editor:be}),Oe={card:{pacman:{title:"Títol",sound:"So",auto_start:"Inici automàtic"}}},$e={wakawaka:{title:"MODE DÉU ACTIVAT"}},Ee={editor:Oe,dialog:$e},Te=Object.freeze({__proto__:null,default:Ee,dialog:$e,editor:Oe}),Se={card:{pacman:{title:"Název",sound:"Zvuk",auto_start:"Automatické spuštění"}}},je={wakawaka:{title:"REŽIM BOHA AKTIVOVÁN"}},Ie={editor:Se,dialog:je},Pe=Object.freeze({__proto__:null,default:Ie,dialog:je,editor:Se}),Ce={card:{pacman:{title:"Teitl",sound:"Sain",auto_start:"Cychwyn awtomatig"}}},ze={wakawaka:{title:"MODD DUW WEDI'I ACTIFADU"}},De={editor:Ce,dialog:ze},Me=Object.freeze({__proto__:null,default:De,dialog:ze,editor:Ce}),Re={card:{pacman:{title:"Titel",sound:"Lyd",auto_start:"Automatisk start"}}},Ue={wakawaka:{title:"GUDTILSTAND AKTIVERET"}},xe={editor:Re,dialog:Ue},Ne=Object.freeze({__proto__:null,default:xe,dialog:Ue,editor:Re}),He={card:{pacman:{title:"Titel",sound:"Ton",auto_start:"Automatischer Start"}}},Ve={wakawaka:{title:"GOTTMODUS AKTIVIERT"}},Ke={editor:He,dialog:Ve},Le=Object.freeze({__proto__:null,default:Ke,dialog:Ve,editor:He}),Be={card:{pacman:{title:"Τίτλος",sound:"Ήχος",auto_start:"Αυτόματη εκκίνηση"}}},Ge={wakawaka:{title:"ΛΕΙΤΟΥΡΓΙΑ ΘΕΟΥ ΕΝΕΡΓΟΠΟΙΗΘΗΚΕ"}},We={editor:Be,dialog:Ge},Fe=Object.freeze({__proto__:null,default:We,dialog:Ge,editor:Be}),qe={card:{pacman:{title:"Title",auto_start:"Auto start"}}},Je={wakawaka:{title:"WAKA WAKA WAKA!"}},Ze={editor:qe,dialog:Je},Ye=Object.freeze({__proto__:null,default:Ze,dialog:Je,editor:qe}),Qe={card:{pacman:{title:"Title",sound:"Sound",auto_start:"Auto start"}}},Xe={wakawaka:{title:"WAKA WAKA WAKA!"}},tn={editor:Qe,dialog:Xe},en=Object.freeze({__proto__:null,default:tn,dialog:Xe,editor:Qe}),nn={card:{pacman:{title:"Titolo",sound:"Sono",auto_start:"Aŭtomata komenco"}}},on={wakawaka:{title:"DIA REĜIMO AKTIVIGITA"}},an={editor:nn,dialog:on},rn=Object.freeze({__proto__:null,default:an,dialog:on,editor:nn}),ln={card:{pacman:{title:"Título",sound:"Sonido",auto_start:"Inicio automático"}}},un={wakawaka:{title:"MODO DIOS ACTIVADO"}},sn={editor:ln,dialog:un},dn={card:{pacman:{title:"Título",sound:"Sonido",auto_start:"Inicio automático"}}},cn={wakawaka:{title:"MODO DIOS ACTIVADO"}},fn={editor:dn,dialog:cn},hn={card:{pacman:{title:"Pealkiri",sound:"Heli",auto_start:"Automaatne käivitamine"}}},pn={wakawaka:{title:"JUMALAREŽIIM AKTIVEERITUD"}},vn={editor:hn,dialog:pn},_n={card:{pacman:{title:"Izenburua",sound:"Soinua",auto_start:"Hasiera automatikoa"}}},gn={wakawaka:{title:"JAINKO MODUA AKTIBATUTA"}},yn={editor:_n,dialog:gn},mn={card:{pacman:{title:"عنوان",sound:"صدا",auto_start:"شروع خودکار"}}},bn={wakawaka:{title:"حالت خدا فعال شد"}},kn={editor:mn,dialog:bn},wn={card:{pacman:{title:"Otsikko",sound:"Ääni",auto_start:"Automaattinen käynnistys"}}},An={wakawaka:{title:"JUMALATILA AKTIVOITU"}},On={editor:wn,dialog:An},$n={card:{pacman:{title:"Titre",sound:"Son",auto_start:"Démarrage automatique"}}},En={wakawaka:{title:"MODE DIEU ACTIVÉ"}},Tn={editor:$n,dialog:En},Sn={card:{pacman:{title:"Titel",sound:"Lûd",auto_start:"Automatysk starte"}}},jn={wakawaka:{title:"GODMODUS AKTIVEARRE"}},In={editor:Sn,dialog:jn},Pn={card:{pacman:{title:"Teideal",sound:"Fuaim",auto_start:"Tosaigh go huathoibríoch"}}},Cn={wakawaka:{title:"MÓD DÉ GNÍOMHACHTAITHE"}},zn={editor:Pn,dialog:Cn},Dn={card:{pacman:{title:"Título",sound:"Son",auto_start:"Inicio automático"}}},Mn={wakawaka:{title:"MODO DEUS ACTIVADO"}},Rn={editor:Dn,dialog:Mn},Un={card:{pacman:{title:"Titel",sound:"Ton",auto_start:"Automatischer Start"}}},xn={wakawaka:{title:"GOTTMODUS AKTIVIERT"}},Nn={editor:Un,dialog:xn},Hn={card:{pacman:{title:"כותרת",sound:"צליל",auto_start:"הפעלה אוטומטית"}}},Vn={wakawaka:{title:"מצב אלוהים הופעל"}},Kn={editor:Hn,dialog:Vn},Ln={card:{pacman:{title:"शीर्षक",sound:"ध्वनि",auto_start:"स्वचालित प्रारंभ"}}},Bn={wakawaka:{title:"गॉड मोड सक्रिय"}},Gn={editor:Ln,dialog:Bn},Wn={card:{pacman:{title:"Naslov",sound:"Zvuk",auto_start:"Automatsko pokretanje"}}},Fn={wakawaka:{title:"BOŽJI REŽIM AKTIVIRAN"}},qn={editor:Wn,dialog:Fn},Jn={card:{pacman:{title:"Cím",sound:"Hang",auto_start:"Automatikus indítás"}}},Zn={wakawaka:{title:"ISTEN MÓD AKTIVÁLVA"}},Yn={editor:Jn,dialog:Zn},Qn={card:{pacman:{title:"Վերնագիր",sound:"Ձայն",auto_start:"Ինքնաադարձակ գործարկում"}}},Xn={wakawaka:{title:"WAKA WAKA WAKA!"}},ti={editor:Qn,dialog:Xn},ei={card:{pacman:{title:"Judul",sound:"Suara",auto_start:"Mulai otomatis"}}},ni={wakawaka:{title:"MODE TUHAN DIAKTIFKAN"}},ii={editor:ei,dialog:ni},oi={card:{pacman:{title:"Titill",sound:"Hljóð",auto_start:"Sjálfvirk ræsing"}}},ai={wakawaka:{title:"GUÐSTILLING VIRKJUÐ"}},ri={editor:oi,dialog:ai},li={card:{pacman:{title:"Titolo",sound:"Audio",auto_start:"Avvio automatico"}}},ui={wakawaka:{title:"MODALITÀ DIO ATTIVATA"}},si={editor:li,dialog:ui},di={card:{pacman:{title:"タイトル",sound:"サウンド",auto_start:"自動開始"}}},ci={wakawaka:{title:"ゴッドモード起動"}},fi={editor:di,dialog:ci},hi={card:{pacman:{title:"სათაური",sound:"ხმა",auto_start:"ავტომატური დაწყება"}}},pi={wakawaka:{title:"ღვთის რეჟიმი გააქტიურებულია"}},vi={editor:hi,dialog:pi},_i={card:{pacman:{title:"제목",sound:"소리",auto_start:"자동 시작"}}},gi={wakawaka:{title:"갓 모드 활성화"}},yi={editor:_i,dialog:gi},mi={card:{pacman:{title:"Titel",sound:"Toun",auto_start:"Automatesche Start"}}},bi={wakawaka:{title:"GOTTMODUS AKTIVÉIERT"}},ki={editor:mi,dialog:bi},wi={card:{pacman:{title:"Pavadinimas",sound:"Garsas",auto_start:"Automatinis paleidimas"}}},Ai={wakawaka:{title:"DIEVO REŽIMAS AKTYVUOTAS"}},Oi={editor:wi,dialog:Ai},$i={card:{pacman:{title:"Nosaukums",sound:"Skaņa",auto_start:"Automātiskā palaišana"}}},Ei={wakawaka:{title:"DIEVA REŽĪMS AKTIVIZĒTS"}},Ti={editor:$i,dialog:Ei},Si={card:{pacman:{title:"Наслов",sound:"Звук",auto_start:"Автоматско стартување"}}},ji={wakawaka:{title:"РЕЖИМ НА БОГА АКТИВИРАН"}},Ii={editor:Si,dialog:ji},Pi={card:{pacman:{title:"ശീർഷകം",sound:"ശബ്ദം",auto_start:"യാന്ത്രിക ആരംഭം"}}},Ci={wakawaka:{title:"ഗോഡ് മോഡ് സജീവമാക്കി"}},zi={editor:Pi,dialog:Ci},Di={card:{pacman:{title:"Tittel",sound:"Lyd",auto_start:"Automatisk start"}}},Mi={wakawaka:{title:"GUDMODUS AKTIVERT"}},Ri={editor:Di,dialog:Mi},Ui={card:{pacman:{title:"Titel",sound:"Geluid",auto_start:"Automatisch starten"}}},xi={wakawaka:{title:"GODMODUS GEACTIVEERD"}},Ni={editor:Ui,dialog:xi},Hi={card:{pacman:{title:"Tittel",sound:"Lyd",auto_start:"Automatisk start"}}},Vi={wakawaka:{title:"GUDMODUS AKTIVERT"}},Ki={editor:Hi,dialog:Vi},Li={card:{pacman:{title:"Tytuł",sound:"Dźwięk",auto_start:"Automatyczny start"}}},Bi={wakawaka:{title:"TRYB BOGA AKTYWOWANY"}},Gi={editor:Li,dialog:Bi},Wi={card:{pacman:{title:"Título",sound:"Som",auto_start:"Início automático"}}},Fi={wakawaka:{title:"MODO DEUS ATIVADO"}},qi={editor:Wi,dialog:Fi},Ji={card:{pacman:{title:"Título",sound:"Som",auto_start:"Início automático"}}},Zi={wakawaka:{title:"MODO DEUS ATIVADO"}},Yi={editor:Ji,dialog:Zi},Qi={card:{pacman:{title:"Titlu",sound:"Sunet",auto_start:"Pornire automată"}}},Xi={wakawaka:{title:"MODUL DIVIN ACTIVAT"}},to={editor:Qi,dialog:Xi},eo={card:{pacman:{title:"Заголовок",sound:"Звук",auto_start:"Автозапуск"}}},no={wakawaka:{title:"РЕЖИМ БОГА АКТИВИРОВАН"}},io={editor:eo,dialog:no},oo={card:{pacman:{title:"Názov",sound:"Zvuk",auto_start:"Automatické spustenie"}}},ao={wakawaka:{title:"REŽIM BOHA AKTIVOVANÝ"}},ro={editor:oo,dialog:ao},lo={card:{pacman:{title:"Naslov",sound:"Zvok",auto_start:"Samodejni zagon"}}},uo={wakawaka:{title:"BOŽJI NAČIN AKTIVIRAN"}},so={editor:lo,dialog:uo},co={card:{pacman:{title:"Titulli",sound:"Tingulli",auto_start:"Auto start"}}},fo={wakawaka:{title:"MODALITETI I ZOTIT I AKTIVIZUAR"}},ho={editor:co,dialog:fo},po={card:{pacman:{title:"Наслов",sound:"Звук",auto_start:"Аутоматско покретање"}}},vo={wakawaka:{title:"БОЖЈИ РЕЖИМ АКТИВИРАН"}},_o={editor:po,dialog:vo},go={card:{pacman:{title:"Naslov",sound:"Zvuk",auto_start:"Automatsko pokretanje"}}},yo={wakawaka:{title:"BOŽJI REŽIM AKTIVIRAN"}},mo={editor:go,dialog:yo},bo={card:{pacman:{title:"Titel",sound:"Ljud",auto_start:"Automatisk start"}}},ko={wakawaka:{title:"GUDLÄGE AKTIVERAT"}},wo={editor:bo,dialog:ko},Ao={card:{pacman:{title:"தலைப்பு",sound:"ஒலி",auto_start:"தானியங்கி தொடக்கம்"}}},Oo={wakawaka:{title:"காட் மோட் செயல்படுத்தப்பட்டது"}},$o={editor:Ao,dialog:Oo},Eo={card:{pacman:{title:"శీర్షిక",sound:"ధ్వని",auto_start:"ఆటో ప్రారంభం"}}},To={wakawaka:{title:"గాడ్ మోడ్ సక్రియం చేయబడింది"}},So={editor:Eo,dialog:To},jo={card:{pacman:{title:"ชื่อ",sound:"เสียง",auto_start:"เริ่มอัตโนมัติ"}}},Io={wakawaka:{title:"เปิดโหมดพระเจ้าแล้ว"}},Po={editor:jo,dialog:Io},Co={card:{pacman:{title:"Başlık",sound:"Ses",auto_start:"Otomatik başlatma"}}},zo={wakawaka:{title:"TANRI MODU ETKİNLEŞTİRİLDİ"}},Do={editor:Co,dialog:zo},Mo={card:{pacman:{title:"Заголовок",sound:"Звук",auto_start:"Автозапуск"}}},Ro={wakawaka:{title:"РЕЖИМ БОГА АКТИВОВАНО"}},Uo={editor:Mo,dialog:Ro},xo={card:{pacman:{title:"عنوان",sound:"آواز",auto_start:"خودکار شروع"}}},No={wakawaka:{title:"گاڈ موڈ فعال"}},Ho={editor:xo,dialog:No},Vo={card:{pacman:{title:"Tiêu đề",sound:"Âm thanh",auto_start:"Tự động bắt đầu"}}},Ko={wakawaka:{title:"CHẾ ĐỘ THẦN ĐÃ KÍCH HOẠT"}},Lo={editor:Vo,dialog:Ko},Bo={card:{pacman:{title:"标题",sound:"声音",auto_start:"自动启动"}}},Go={wakawaka:{title:"上帝模式已激活"}},Wo={editor:Bo,dialog:Go},Fo={card:{pacman:{title:"標題",sound:"聲音",auto_start:"自動啟動"}}},qo={wakawaka:{title:"上帝模式已啟動"}},Jo={editor:Fo,dialog:qo},Zo={af:le,ar:ce,bg:ve,bn:me,bs:Ae,ca:Te,cs:Pe,cy:Me,da:Ne,de:Le,el:Fe,en:Ye,"en-GB":en,eo:rn,es:Object.freeze({__proto__:null,default:sn,dialog:un,editor:ln}),"es-419":Object.freeze({__proto__:null,default:fn,dialog:cn,editor:dn}),et:Object.freeze({__proto__:null,default:vn,dialog:pn,editor:hn}),eu:Object.freeze({__proto__:null,default:yn,dialog:gn,editor:_n}),fa:Object.freeze({__proto__:null,default:kn,dialog:bn,editor:mn}),fi:Object.freeze({__proto__:null,default:On,dialog:An,editor:wn}),fr:Object.freeze({__proto__:null,default:Tn,dialog:En,editor:$n}),fy:Object.freeze({__proto__:null,default:In,dialog:jn,editor:Sn}),ga:Object.freeze({__proto__:null,default:zn,dialog:Cn,editor:Pn}),gl:Object.freeze({__proto__:null,default:Rn,dialog:Mn,editor:Dn}),gsw:Object.freeze({__proto__:null,default:Nn,dialog:xn,editor:Un}),he:Object.freeze({__proto__:null,default:Kn,dialog:Vn,editor:Hn}),hi:Object.freeze({__proto__:null,default:Gn,dialog:Bn,editor:Ln}),hr:Object.freeze({__proto__:null,default:qn,dialog:Fn,editor:Wn}),hu:Object.freeze({__proto__:null,default:Yn,dialog:Zn,editor:Jn}),hy:Object.freeze({__proto__:null,default:ti,dialog:Xn,editor:Qn}),id:Object.freeze({__proto__:null,default:ii,dialog:ni,editor:ei}),is:Object.freeze({__proto__:null,default:ri,dialog:ai,editor:oi}),it:Object.freeze({__proto__:null,default:si,dialog:ui,editor:li}),ja:Object.freeze({__proto__:null,default:fi,dialog:ci,editor:di}),ka:Object.freeze({__proto__:null,default:vi,dialog:pi,editor:hi}),ko:Object.freeze({__proto__:null,default:yi,dialog:gi,editor:_i}),lb:Object.freeze({__proto__:null,default:ki,dialog:bi,editor:mi}),lt:Object.freeze({__proto__:null,default:Oi,dialog:Ai,editor:wi}),lv:Object.freeze({__proto__:null,default:Ti,dialog:Ei,editor:$i}),mk:Object.freeze({__proto__:null,default:Ii,dialog:ji,editor:Si}),ml:Object.freeze({__proto__:null,default:zi,dialog:Ci,editor:Pi}),nb:Object.freeze({__proto__:null,default:Ri,dialog:Mi,editor:Di}),nl:Object.freeze({__proto__:null,default:Ni,dialog:xi,editor:Ui}),nn:Object.freeze({__proto__:null,default:Ki,dialog:Vi,editor:Hi}),pl:Object.freeze({__proto__:null,default:Gi,dialog:Bi,editor:Li}),pt:Object.freeze({__proto__:null,default:qi,dialog:Fi,editor:Wi}),"pt-BR":Object.freeze({__proto__:null,default:Yi,dialog:Zi,editor:Ji}),ro:Object.freeze({__proto__:null,default:to,dialog:Xi,editor:Qi}),ru:Object.freeze({__proto__:null,default:io,dialog:no,editor:eo}),sk:Object.freeze({__proto__:null,default:ro,dialog:ao,editor:oo}),sl:Object.freeze({__proto__:null,default:so,dialog:uo,editor:lo}),sq:Object.freeze({__proto__:null,default:ho,dialog:fo,editor:co}),sr:Object.freeze({__proto__:null,default:_o,dialog:vo,editor:po}),"sr-Latn":Object.freeze({__proto__:null,default:mo,dialog:yo,editor:go}),sv:Object.freeze({__proto__:null,default:wo,dialog:ko,editor:bo}),ta:Object.freeze({__proto__:null,default:$o,dialog:Oo,editor:Ao}),te:Object.freeze({__proto__:null,default:So,dialog:To,editor:Eo}),th:Object.freeze({__proto__:null,default:Po,dialog:Io,editor:jo}),tr:Object.freeze({__proto__:null,default:Do,dialog:zo,editor:Co}),uk:Object.freeze({__proto__:null,default:Uo,dialog:Ro,editor:Mo}),ur:Object.freeze({__proto__:null,default:Ho,dialog:No,editor:xo}),vi:Object.freeze({__proto__:null,default:Lo,dialog:Ko,editor:Vo}),"zh-Hans":Object.freeze({__proto__:null,default:Wo,dialog:Go,editor:Bo}),"zh-Hant":Object.freeze({__proto__:null,default:Jo,dialog:qo,editor:Fo})};function Yo(t,e){try{return t.split(".").reduce(function(t,e){return t[e]},Zo[e])}catch(t){return}}var Qo=[{name:"title",selector:{text:{}}},{name:"auto_start",selector:{boolean:{}}}],Xo=function(){function t(){var e;return D(this,t),(e=O(this,t,arguments))._computeLabel=function(t){var n;return(n=e.hass,function(t){var e,i,o=Yo(t,null!==(i=null===(e=null==n?void 0:n.locale)||void 0===e?void 0:e.language)&&void 0!==i?i:"en");return o||(o=Yo(t,"en")),null!=o?o:t})("editor.card.pacman.".concat(t.name))},e}return E(t,Ft),R(t,[{key:"setConfig",value:function(t){this._config=Object.assign({auto_start:!1},t)}},{key:"_valueChanged",value:function(t){var e=t.detail;this.dispatchEvent(new CustomEvent("config-changed",{detail:{config:e.value},bubbles:!0,composed:!0}))}},{key:"render",value:function(){return this.hass&&this._config?jt(c||(c=f(["\n      <ha-form\n        .hass=","\n        .data=","\n        .schema=","\n        .computeLabel=","\n        @value-changed=","\n      ></ha-form>\n    "])),this.hass,this._config,Qo,this._computeLabel,this._valueChanged):Pt}}])}();V([Qt({attribute:!1})],Xo.prototype,"hass",void 0),V([Xt()],Xo.prototype,"_config",void 0),Xo=V([Jt(H)],Xo);var ta=Object.freeze({__proto__:null,get PacmanCardEditor(){return Xo}});
+ */ function Xt(t) {
+  return Qt(p(p({}, t), {}, { state: !0, attribute: !1 }));
+}
+var te,
+  ee,
+  ne = "".concat("/pacman_static", "/bward-game/index.html");
+((te = {
+  type: N,
+  name: "Pac-Man",
+  description: "Play Pac-Man in your Home Assistant dashboard.",
+}),
+  ((ee = window).customCards = ee.customCards || []),
+  ee.customCards.push(Object.assign(Object.assign({}, te), { preview: !0 })));
+var ie = (function () {
+  function t() {
+    var e;
+    return (
+      D(this, t),
+      ((e = O(this, t, arguments))._gameStarted = !1),
+      (e._isFullscreen = !1),
+      (e._gameRunning = !1),
+      (e._boundBeforeUnload = e._stopPinging.bind(e)),
+      (e._boundVisibilityChange = e._handleVisibilityChange.bind(e)),
+      (e._boundFullscreenChange = e._handleFullscreenChange.bind(e)),
+      e
+    );
+  }
+  return (
+    E(t, Ft),
+    R(
+      t,
+      [
+        {
+          key: "setConfig",
+          value: function (t) {
+            this._config = Object.assign(Object.assign({}, t), {
+              type: "custom:".concat(N),
+            });
+          },
+        },
+        {
+          key: "getCardSize",
+          value: function () {
+            return 4;
+          },
+        },
+        {
+          key: "getGridOptions",
+          value: function () {
+            return { columns: 12, rows: 8, min_columns: 3, min_rows: 2 };
+          },
+        },
+        {
+          key: "connectedCallback",
+          value: function () {
+            (_(t, "connectedCallback", this, 3)([]),
+              window.addEventListener("beforeunload", this._boundBeforeUnload),
+              document.addEventListener(
+                "visibilitychange",
+                this._boundVisibilityChange
+              ),
+              document.addEventListener(
+                "fullscreenchange",
+                this._boundFullscreenChange
+              ));
+          },
+        },
+        {
+          key: "disconnectedCallback",
+          value: function () {
+            (_(t, "disconnectedCallback", this, 3)([]),
+              this._destroyGame(),
+              window.removeEventListener(
+                "beforeunload",
+                this._boundBeforeUnload
+              ),
+              document.removeEventListener(
+                "visibilitychange",
+                this._boundVisibilityChange
+              ),
+              document.removeEventListener(
+                "fullscreenchange",
+                this._boundFullscreenChange
+              ));
+          },
+        },
+        {
+          key: "firstUpdated",
+          value: function () {
+            var t;
+            (null === (t = this._config) || void 0 === t
+              ? void 0
+              : t.auto_start) && this._startPacman();
+          },
+        },
+        {
+          key: "updated",
+          value: function (e) {
+            var n;
+            (_(t, "updated", this, 3)([e]),
+              e.has("_config") &&
+                (null === (n = this._config) || void 0 === n
+                  ? void 0
+                  : n.auto_start) &&
+                !this._gameRunning &&
+                !this._gameStarted &&
+                this._startPacman());
+          },
+        },
+        {
+          key: "render",
+          value: function () {
+            if (!this._config) return Pt;
+            var t = "panel" !== this.layout && "grid" !== this.layout;
+            return jt(
+              r ||
+                (r = f([
+                  "\n      <ha-card .header=",
+                  '>\n        <div\n          id="root"\n          style="',
+                  '"\n          @keydown=',
+                  "\n          @keyup=",
+                  "\n          @keypress=",
+                  '\n        >\n          <div id="game"></div>\n          ',
+                  '\n          <button\n            id="fullscreen-btn"\n            @click=',
+                  "\n            title=",
+                  "\n          >\n            ",
+                  "\n          </button>\n        </div>\n      </ha-card>\n    ",
+                ])),
+              this._config.title || Pt,
+              t ? "padding-top: 75%" : "",
+              this._trapKey,
+              this._trapKey,
+              this._trapKey,
+              this._gameStarted
+                ? Pt
+                : jt(
+                    l ||
+                      (l = f([
+                        '\n                <div id="overlay" @click=',
+                        '>\n                  <div class="pac-logo">\n                    <svg\n                      viewBox="0 0 100 100"\n                      xmlns="http://www.w3.org/2000/svg"\n                    >\n                      <circle cx="50" cy="50" r="48" fill="#ffff00" />\n                      <polygon points="50,50 98,20 98,80" fill="#000" />\n                    </svg>\n                  </div>\n                  <p>Click to play</p>\n                </div>\n              ',
+                      ])),
+                    this._startPacman
+                  ),
+              this._toggleFullscreen,
+              this._isFullscreen ? "Exit fullscreen" : "Fullscreen",
+              this._isFullscreen
+                ? jt(
+                    u ||
+                      (u = f([
+                        '<svg\n                  viewBox="0 0 24 24"\n                  xmlns="http://www.w3.org/2000/svg"\n                >\n                  <path\n                    d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"\n                  />\n                </svg>',
+                      ]))
+                  )
+                : jt(
+                    s ||
+                      (s = f([
+                        '<svg\n                  viewBox="0 0 24 24"\n                  xmlns="http://www.w3.org/2000/svg"\n                >\n                  <path\n                    d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"\n                  />\n                </svg>',
+                      ]))
+                  )
+            );
+          },
+        },
+        {
+          key: "_trapKey",
+          value: function (t) {
+            this._gameRunning && t.stopPropagation();
+          },
+        },
+        {
+          key: "_startPacman",
+          value:
+            ((i = A(
+              b().m(function t() {
+                var e, n;
+                return b().w(
+                  function (t) {
+                    for (;;)
+                      switch (t.n) {
+                        case 0:
+                          if (!this._gameRunning) {
+                            t.n = 1;
+                            break;
+                          }
+                          return t.a(2);
+                        case 1:
+                          return (
+                            (this._gameRunning = !0),
+                            (this._gameStarted = !0),
+                            (t.n = 2),
+                            this.updateComplete
+                          );
+                        case 2:
+                          return (
+                            (e = this.shadowRoot.getElementById("game")),
+                            ((n = document.createElement("iframe")).src = ne),
+                            (n.style.cssText =
+                              "width:100%;height:100%;border:none;display:block;"),
+                            (n.allow = "autoplay"),
+                            e.appendChild(n),
+                            (t.n = 3),
+                            this._resolveEntryId()
+                          );
+                        case 3:
+                          this._startPinging();
+                        case 4:
+                          return t.a(2);
+                      }
+                  },
+                  t,
+                  this
+                );
+              })
+            )),
+            function () {
+              return i.apply(this, arguments);
+            }),
+        },
+        {
+          key: "_destroyGame",
+          value: function () {
+            var t;
+            this._stopPinging();
+            var e =
+              null === (t = this.shadowRoot) || void 0 === t
+                ? void 0
+                : t.getElementById("game");
+            (e && (e.innerHTML = ""),
+              (this._gameRunning = !1),
+              (this._gameStarted = !1));
+          },
+        },
+        {
+          key: "_resolveEntryId",
+          value:
+            ((n = A(
+              b().m(function t() {
+                var e, n;
+                return b().w(
+                  function (t) {
+                    for (;;)
+                      switch ((t.p = t.n)) {
+                        case 0:
+                          if (!this._entryId && this.hass) {
+                            t.n = 1;
+                            break;
+                          }
+                          return t.a(2);
+                        case 1:
+                          return (
+                            (t.p = 1),
+                            (t.n = 2),
+                            this.hass.callWS({ type: "config_entries/get" })
+                          );
+                        case 2:
+                          ((e = t.v),
+                            (n = e.find(function (t) {
+                              return "pacman" === t.domain;
+                            })),
+                            n && (this._entryId = n.entry_id),
+                            (t.n = 4));
+                          break;
+                        case 3:
+                          ((t.p = 3), t.v);
+                        case 4:
+                          return t.a(2);
+                      }
+                  },
+                  t,
+                  this,
+                  [[1, 3]]
+                );
+              })
+            )),
+            function () {
+              return n.apply(this, arguments);
+            }),
+        },
+        {
+          key: "_startPinging",
+          value: function () {
+            var t = this;
+            (this._stopPinging(),
+              this._sendPing(),
+              (this._pingInterval = setInterval(function () {
+                return t._sendPing();
+              }, 2e3)));
+          },
+        },
+        {
+          key: "_stopPinging",
+          value: function () {
+            (this._pingInterval &&
+              (clearInterval(this._pingInterval),
+              (this._pingInterval = void 0)),
+              this._sendStop());
+          },
+        },
+        {
+          key: "_sendPing",
+          value: function () {
+            this.hass &&
+              this._entryId &&
+              this.hass
+                .callWS({ type: "pacman/ping", entry_id: this._entryId })
+                .catch(function () {});
+          },
+        },
+        {
+          key: "_sendStop",
+          value: function () {
+            this.hass &&
+              this._entryId &&
+              this.hass
+                .callWS({ type: "pacman/stop", entry_id: this._entryId })
+                .catch(function () {});
+          },
+        },
+        {
+          key: "_toggleFullscreen",
+          value: function () {
+            document.fullscreenElement
+              ? document.exitFullscreen().catch(function () {})
+              : this.requestFullscreen().catch(function () {});
+          },
+        },
+        {
+          key: "_handleFullscreenChange",
+          value: function () {
+            this._isFullscreen = document.fullscreenElement === this;
+          },
+        },
+        {
+          key: "_handleVisibilityChange",
+          value: function () {
+            this._gameRunning &&
+              (document.hidden ? this._stopPinging() : this._startPinging());
+          },
+        },
+      ],
+      [
+        {
+          key: "getConfigElement",
+          value:
+            ((e = A(
+              b().m(function t() {
+                return b().w(function (t) {
+                  for (;;)
+                    switch (t.n) {
+                      case 0:
+                        return (
+                          (t.n = 1),
+                          Promise.resolve().then(function () {
+                            return ta;
+                          })
+                        );
+                      case 1:
+                        return t.a(2, document.createElement(H));
+                    }
+                }, t);
+              })
+            )),
+            function () {
+              return e.apply(this, arguments);
+            }),
+        },
+        {
+          key: "getStubConfig",
+          value: function () {
+            return { auto_start: !1 };
+          },
+        },
+        {
+          key: "styles",
+          get: function () {
+            return (function (t) {
+              for (
+                var e = arguments.length,
+                  n = new Array(e > 1 ? e - 1 : 0),
+                  i = 1;
+                i < e;
+                i++
+              )
+                n[i - 1] = arguments[i];
+              var o =
+                1 === t.length
+                  ? t[0]
+                  : n.reduce(function (e, n, i) {
+                      return (
+                        e +
+                        (function (t) {
+                          if (!0 === t._$cssResult$) return t.cssText;
+                          if ("number" == typeof t) return t;
+                          throw Error(
+                            "Value passed to 'css' function must be a 'css' function result: " +
+                              t +
+                              ". Use 'unsafeCSS' to pass non-literal values, but take care to ensure page security."
+                          );
+                        })(n) +
+                        t[i + 1]
+                      );
+                    }, t[0]);
+              return new W(o, t, B);
+            })(
+              d ||
+                (d = f([
+                  '\n      :host {\n        display: block;\n        height: 100%;\n      }\n      ha-card {\n        overflow: hidden;\n        width: 100%;\n        height: 100%;\n        display: flex;\n        flex-direction: column;\n      }\n      #root {\n        width: 100%;\n        height: 100%;\n        position: relative;\n        background: #000;\n      }\n      #game {\n        position: absolute;\n        inset: 0;\n      }\n      #overlay {\n        position: absolute;\n        inset: 0;\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        justify-content: center;\n        background-color: #000;\n        z-index: 100;\n        cursor: pointer;\n      }\n      .pac-logo {\n        width: 30%;\n        max-width: 120px;\n        min-width: 48px;\n        margin-bottom: 1em;\n        animation: chomp 0.4s ease-in-out infinite alternate;\n      }\n      .pac-logo svg {\n        width: 100%;\n        height: auto;\n      }\n      @keyframes chomp {\n        from {\n          clip-path: polygon(0 0, 100% 30%, 100% 70%, 0 100%);\n        }\n        to {\n          clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%);\n        }\n      }\n      #overlay p {\n        color: #ffff00;\n        font-family: "Courier New", monospace;\n        font-size: 1.05em;\n        font-weight: bold;\n        letter-spacing: 0.15em;\n        text-transform: uppercase;\n        padding: 0.6em 1.6em;\n        background: rgba(0, 0, 0, 0.7);\n        border-radius: 8px;\n        animation: pulse-glow 2.5s ease-in-out infinite;\n      }\n      @keyframes pulse-glow {\n        0%,\n        100% {\n          box-shadow: 0 0 8px rgba(255, 255, 0, 0.3);\n        }\n        50% {\n          box-shadow:\n            0 0 20px rgba(255, 255, 0, 0.7),\n            0 0 40px rgba(255, 255, 0, 0.3);\n        }\n      }\n      #fullscreen-btn {\n        position: absolute;\n        bottom: 8px;\n        right: 8px;\n        z-index: 101;\n        background: rgba(0, 0, 0, 0.5);\n        border: 1px solid rgba(255, 255, 0, 0.4);\n        border-radius: 4px;\n        padding: 4px;\n        cursor: pointer;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        opacity: 0.4;\n        transition: opacity 0.2s;\n      }\n      #fullscreen-btn:hover {\n        opacity: 1;\n      }\n      #fullscreen-btn svg {\n        width: 20px;\n        height: 20px;\n        fill: #ffff00;\n      }\n    ',
+                ]))
+            );
+          },
+        },
+      ]
+    )
+  );
+  var e, n, i;
+})();
+(V([Qt({ attribute: !1 })], ie.prototype, "hass", void 0),
+  V([Qt({ attribute: !1 })], ie.prototype, "layout", void 0),
+  V([Xt()], ie.prototype, "_config", void 0),
+  V([Xt()], ie.prototype, "_gameStarted", void 0),
+  V([Xt()], ie.prototype, "_isFullscreen", void 0),
+  (ie = V([Jt(N)], ie)),
+  console.info(
+    "%c  PAC-MAN CARD  %c  ".concat("0.0.0", "  "),
+    "color: black; background: #ffff00; font-weight: bold;",
+    "color: #ffff00; background: black; font-weight: bold;"
+  ));
+var oe = {
+    card: {
+      pacman: {
+        title: "Titel",
+        sound: "Klank",
+        auto_start: "Outomatiese begin",
+      },
+    },
+  },
+  ae = { wakawaka: { title: "GODMODUS GEAKTIVEER" } },
+  re = { editor: oe, dialog: ae },
+  le = Object.freeze({ __proto__: null, default: re, dialog: ae, editor: oe }),
+  ue = {
+    card: {
+      pacman: { title: "العنوان", sound: "الصوت", auto_start: "بدء تلقائي" },
+    },
+  },
+  se = { wakawaka: { title: "وضع الإله مُفعَّل" } },
+  de = { editor: ue, dialog: se },
+  ce = Object.freeze({ __proto__: null, default: de, dialog: se, editor: ue }),
+  fe = {
+    card: {
+      pacman: {
+        title: "Заглавие",
+        sound: "Звук",
+        auto_start: "Автоматично стартиране",
+      },
+    },
+  },
+  he = { wakawaka: { title: "РЕЖИМ БОГ АКТИВИРАН" } },
+  pe = { editor: fe, dialog: he },
+  ve = Object.freeze({ __proto__: null, default: pe, dialog: he, editor: fe }),
+  _e = {
+    card: {
+      pacman: {
+        title: "শিরোনাম",
+        sound: "শব্দ",
+        auto_start: "স্বয়ংক্রিয় শুরু",
+      },
+    },
+  },
+  ge = { wakawaka: { title: "গড মোড সক্রিয়" } },
+  ye = { editor: _e, dialog: ge },
+  me = Object.freeze({ __proto__: null, default: ye, dialog: ge, editor: _e }),
+  be = {
+    card: {
+      pacman: {
+        title: "Naslov",
+        sound: "Zvuk",
+        auto_start: "Automatsko pokretanje",
+      },
+    },
+  },
+  ke = { wakawaka: { title: "BOŽJI REŽIM AKTIVIRAN" } },
+  we = { editor: be, dialog: ke },
+  Ae = Object.freeze({ __proto__: null, default: we, dialog: ke, editor: be }),
+  Oe = {
+    card: {
+      pacman: { title: "Títol", sound: "So", auto_start: "Inici automàtic" },
+    },
+  },
+  $e = { wakawaka: { title: "MODE DÉU ACTIVAT" } },
+  Ee = { editor: Oe, dialog: $e },
+  Te = Object.freeze({ __proto__: null, default: Ee, dialog: $e, editor: Oe }),
+  Se = {
+    card: {
+      pacman: {
+        title: "Název",
+        sound: "Zvuk",
+        auto_start: "Automatické spuštění",
+      },
+    },
+  },
+  je = { wakawaka: { title: "REŽIM BOHA AKTIVOVÁN" } },
+  Ie = { editor: Se, dialog: je },
+  Pe = Object.freeze({ __proto__: null, default: Ie, dialog: je, editor: Se }),
+  Ce = {
+    card: {
+      pacman: {
+        title: "Teitl",
+        sound: "Sain",
+        auto_start: "Cychwyn awtomatig",
+      },
+    },
+  },
+  ze = { wakawaka: { title: "MODD DUW WEDI'I ACTIFADU" } },
+  De = { editor: Ce, dialog: ze },
+  Me = Object.freeze({ __proto__: null, default: De, dialog: ze, editor: Ce }),
+  Re = {
+    card: {
+      pacman: { title: "Titel", sound: "Lyd", auto_start: "Automatisk start" },
+    },
+  },
+  Ue = { wakawaka: { title: "GUDTILSTAND AKTIVERET" } },
+  xe = { editor: Re, dialog: Ue },
+  Ne = Object.freeze({ __proto__: null, default: xe, dialog: Ue, editor: Re }),
+  He = {
+    card: {
+      pacman: {
+        title: "Titel",
+        sound: "Ton",
+        auto_start: "Automatischer Start",
+      },
+    },
+  },
+  Ve = { wakawaka: { title: "GOTTMODUS AKTIVIERT" } },
+  Ke = { editor: He, dialog: Ve },
+  Le = Object.freeze({ __proto__: null, default: Ke, dialog: Ve, editor: He }),
+  Be = {
+    card: {
+      pacman: {
+        title: "Τίτλος",
+        sound: "Ήχος",
+        auto_start: "Αυτόματη εκκίνηση",
+      },
+    },
+  },
+  Ge = { wakawaka: { title: "ΛΕΙΤΟΥΡΓΙΑ ΘΕΟΥ ΕΝΕΡΓΟΠΟΙΗΘΗΚΕ" } },
+  We = { editor: Be, dialog: Ge },
+  Fe = Object.freeze({ __proto__: null, default: We, dialog: Ge, editor: Be }),
+  qe = { card: { pacman: { title: "Title", auto_start: "Auto start" } } },
+  Je = { wakawaka: { title: "WAKA WAKA WAKA!" } },
+  Ze = { editor: qe, dialog: Je },
+  Ye = Object.freeze({ __proto__: null, default: Ze, dialog: Je, editor: qe }),
+  Qe = {
+    card: {
+      pacman: { title: "Title", sound: "Sound", auto_start: "Auto start" },
+    },
+  },
+  Xe = { wakawaka: { title: "WAKA WAKA WAKA!" } },
+  tn = { editor: Qe, dialog: Xe },
+  en = Object.freeze({ __proto__: null, default: tn, dialog: Xe, editor: Qe }),
+  nn = {
+    card: {
+      pacman: {
+        title: "Titolo",
+        sound: "Sono",
+        auto_start: "Aŭtomata komenco",
+      },
+    },
+  },
+  on = { wakawaka: { title: "DIA REĜIMO AKTIVIGITA" } },
+  an = { editor: nn, dialog: on },
+  rn = Object.freeze({ __proto__: null, default: an, dialog: on, editor: nn }),
+  ln = {
+    card: {
+      pacman: {
+        title: "Título",
+        sound: "Sonido",
+        auto_start: "Inicio automático",
+      },
+    },
+  },
+  un = { wakawaka: { title: "MODO DIOS ACTIVADO" } },
+  sn = { editor: ln, dialog: un },
+  dn = {
+    card: {
+      pacman: {
+        title: "Título",
+        sound: "Sonido",
+        auto_start: "Inicio automático",
+      },
+    },
+  },
+  cn = { wakawaka: { title: "MODO DIOS ACTIVADO" } },
+  fn = { editor: dn, dialog: cn },
+  hn = {
+    card: {
+      pacman: {
+        title: "Pealkiri",
+        sound: "Heli",
+        auto_start: "Automaatne käivitamine",
+      },
+    },
+  },
+  pn = { wakawaka: { title: "JUMALAREŽIIM AKTIVEERITUD" } },
+  vn = { editor: hn, dialog: pn },
+  _n = {
+    card: {
+      pacman: {
+        title: "Izenburua",
+        sound: "Soinua",
+        auto_start: "Hasiera automatikoa",
+      },
+    },
+  },
+  gn = { wakawaka: { title: "JAINKO MODUA AKTIBATUTA" } },
+  yn = { editor: _n, dialog: gn },
+  mn = {
+    card: {
+      pacman: { title: "عنوان", sound: "صدا", auto_start: "شروع خودکار" },
+    },
+  },
+  bn = { wakawaka: { title: "حالت خدا فعال شد" } },
+  kn = { editor: mn, dialog: bn },
+  wn = {
+    card: {
+      pacman: {
+        title: "Otsikko",
+        sound: "Ääni",
+        auto_start: "Automaattinen käynnistys",
+      },
+    },
+  },
+  An = { wakawaka: { title: "JUMALATILA AKTIVOITU" } },
+  On = { editor: wn, dialog: An },
+  $n = {
+    card: {
+      pacman: {
+        title: "Titre",
+        sound: "Son",
+        auto_start: "Démarrage automatique",
+      },
+    },
+  },
+  En = { wakawaka: { title: "MODE DIEU ACTIVÉ" } },
+  Tn = { editor: $n, dialog: En },
+  Sn = {
+    card: {
+      pacman: { title: "Titel", sound: "Lûd", auto_start: "Automatysk starte" },
+    },
+  },
+  jn = { wakawaka: { title: "GODMODUS AKTIVEARRE" } },
+  In = { editor: Sn, dialog: jn },
+  Pn = {
+    card: {
+      pacman: {
+        title: "Teideal",
+        sound: "Fuaim",
+        auto_start: "Tosaigh go huathoibríoch",
+      },
+    },
+  },
+  Cn = { wakawaka: { title: "MÓD DÉ GNÍOMHACHTAITHE" } },
+  zn = { editor: Pn, dialog: Cn },
+  Dn = {
+    card: {
+      pacman: {
+        title: "Título",
+        sound: "Son",
+        auto_start: "Inicio automático",
+      },
+    },
+  },
+  Mn = { wakawaka: { title: "MODO DEUS ACTIVADO" } },
+  Rn = { editor: Dn, dialog: Mn },
+  Un = {
+    card: {
+      pacman: {
+        title: "Titel",
+        sound: "Ton",
+        auto_start: "Automatischer Start",
+      },
+    },
+  },
+  xn = { wakawaka: { title: "GOTTMODUS AKTIVIERT" } },
+  Nn = { editor: Un, dialog: xn },
+  Hn = {
+    card: {
+      pacman: { title: "כותרת", sound: "צליל", auto_start: "הפעלה אוטומטית" },
+    },
+  },
+  Vn = { wakawaka: { title: "מצב אלוהים הופעל" } },
+  Kn = { editor: Hn, dialog: Vn },
+  Ln = {
+    card: {
+      pacman: {
+        title: "शीर्षक",
+        sound: "ध्वनि",
+        auto_start: "स्वचालित प्रारंभ",
+      },
+    },
+  },
+  Bn = { wakawaka: { title: "गॉड मोड सक्रिय" } },
+  Gn = { editor: Ln, dialog: Bn },
+  Wn = {
+    card: {
+      pacman: {
+        title: "Naslov",
+        sound: "Zvuk",
+        auto_start: "Automatsko pokretanje",
+      },
+    },
+  },
+  Fn = { wakawaka: { title: "BOŽJI REŽIM AKTIVIRAN" } },
+  qn = { editor: Wn, dialog: Fn },
+  Jn = {
+    card: {
+      pacman: {
+        title: "Cím",
+        sound: "Hang",
+        auto_start: "Automatikus indítás",
+      },
+    },
+  },
+  Zn = { wakawaka: { title: "ISTEN MÓD AKTIVÁLVA" } },
+  Yn = { editor: Jn, dialog: Zn },
+  Qn = {
+    card: {
+      pacman: {
+        title: "Վերնագիր",
+        sound: "Ձայն",
+        auto_start: "Ինքնաադարձակ գործարկում",
+      },
+    },
+  },
+  Xn = { wakawaka: { title: "WAKA WAKA WAKA!" } },
+  ti = { editor: Qn, dialog: Xn },
+  ei = {
+    card: {
+      pacman: { title: "Judul", sound: "Suara", auto_start: "Mulai otomatis" },
+    },
+  },
+  ni = { wakawaka: { title: "MODE TUHAN DIAKTIFKAN" } },
+  ii = { editor: ei, dialog: ni },
+  oi = {
+    card: {
+      pacman: {
+        title: "Titill",
+        sound: "Hljóð",
+        auto_start: "Sjálfvirk ræsing",
+      },
+    },
+  },
+  ai = { wakawaka: { title: "GUÐSTILLING VIRKJUÐ" } },
+  ri = { editor: oi, dialog: ai },
+  li = {
+    card: {
+      pacman: {
+        title: "Titolo",
+        sound: "Audio",
+        auto_start: "Avvio automatico",
+      },
+    },
+  },
+  ui = { wakawaka: { title: "MODALITÀ DIO ATTIVATA" } },
+  si = { editor: li, dialog: ui },
+  di = {
+    card: {
+      pacman: { title: "タイトル", sound: "サウンド", auto_start: "自動開始" },
+    },
+  },
+  ci = { wakawaka: { title: "ゴッドモード起動" } },
+  fi = { editor: di, dialog: ci },
+  hi = {
+    card: {
+      pacman: {
+        title: "სათაური",
+        sound: "ხმა",
+        auto_start: "ავტომატური დაწყება",
+      },
+    },
+  },
+  pi = { wakawaka: { title: "ღვთის რეჟიმი გააქტიურებულია" } },
+  vi = { editor: hi, dialog: pi },
+  _i = {
+    card: { pacman: { title: "제목", sound: "소리", auto_start: "자동 시작" } },
+  },
+  gi = { wakawaka: { title: "갓 모드 활성화" } },
+  yi = { editor: _i, dialog: gi },
+  mi = {
+    card: {
+      pacman: {
+        title: "Titel",
+        sound: "Toun",
+        auto_start: "Automatesche Start",
+      },
+    },
+  },
+  bi = { wakawaka: { title: "GOTTMODUS AKTIVÉIERT" } },
+  ki = { editor: mi, dialog: bi },
+  wi = {
+    card: {
+      pacman: {
+        title: "Pavadinimas",
+        sound: "Garsas",
+        auto_start: "Automatinis paleidimas",
+      },
+    },
+  },
+  Ai = { wakawaka: { title: "DIEVO REŽIMAS AKTYVUOTAS" } },
+  Oi = { editor: wi, dialog: Ai },
+  $i = {
+    card: {
+      pacman: {
+        title: "Nosaukums",
+        sound: "Skaņa",
+        auto_start: "Automātiskā palaišana",
+      },
+    },
+  },
+  Ei = { wakawaka: { title: "DIEVA REŽĪMS AKTIVIZĒTS" } },
+  Ti = { editor: $i, dialog: Ei },
+  Si = {
+    card: {
+      pacman: {
+        title: "Наслов",
+        sound: "Звук",
+        auto_start: "Автоматско стартување",
+      },
+    },
+  },
+  ji = { wakawaka: { title: "РЕЖИМ НА БОГА АКТИВИРАН" } },
+  Ii = { editor: Si, dialog: ji },
+  Pi = {
+    card: {
+      pacman: {
+        title: "ശീർഷകം",
+        sound: "ശബ്ദം",
+        auto_start: "യാന്ത്രിക ആരംഭം",
+      },
+    },
+  },
+  Ci = { wakawaka: { title: "ഗോഡ് മോഡ് സജീവമാക്കി" } },
+  zi = { editor: Pi, dialog: Ci },
+  Di = {
+    card: {
+      pacman: { title: "Tittel", sound: "Lyd", auto_start: "Automatisk start" },
+    },
+  },
+  Mi = { wakawaka: { title: "GUDMODUS AKTIVERT" } },
+  Ri = { editor: Di, dialog: Mi },
+  Ui = {
+    card: {
+      pacman: {
+        title: "Titel",
+        sound: "Geluid",
+        auto_start: "Automatisch starten",
+      },
+    },
+  },
+  xi = { wakawaka: { title: "GODMODUS GEACTIVEERD" } },
+  Ni = { editor: Ui, dialog: xi },
+  Hi = {
+    card: {
+      pacman: { title: "Tittel", sound: "Lyd", auto_start: "Automatisk start" },
+    },
+  },
+  Vi = { wakawaka: { title: "GUDMODUS AKTIVERT" } },
+  Ki = { editor: Hi, dialog: Vi },
+  Li = {
+    card: {
+      pacman: {
+        title: "Tytuł",
+        sound: "Dźwięk",
+        auto_start: "Automatyczny start",
+      },
+    },
+  },
+  Bi = { wakawaka: { title: "TRYB BOGA AKTYWOWANY" } },
+  Gi = { editor: Li, dialog: Bi },
+  Wi = {
+    card: {
+      pacman: {
+        title: "Título",
+        sound: "Som",
+        auto_start: "Início automático",
+      },
+    },
+  },
+  Fi = { wakawaka: { title: "MODO DEUS ATIVADO" } },
+  qi = { editor: Wi, dialog: Fi },
+  Ji = {
+    card: {
+      pacman: {
+        title: "Título",
+        sound: "Som",
+        auto_start: "Início automático",
+      },
+    },
+  },
+  Zi = { wakawaka: { title: "MODO DEUS ATIVADO" } },
+  Yi = { editor: Ji, dialog: Zi },
+  Qi = {
+    card: {
+      pacman: {
+        title: "Titlu",
+        sound: "Sunet",
+        auto_start: "Pornire automată",
+      },
+    },
+  },
+  Xi = { wakawaka: { title: "MODUL DIVIN ACTIVAT" } },
+  to = { editor: Qi, dialog: Xi },
+  eo = {
+    card: {
+      pacman: { title: "Заголовок", sound: "Звук", auto_start: "Автозапуск" },
+    },
+  },
+  no = { wakawaka: { title: "РЕЖИМ БОГА АКТИВИРОВАН" } },
+  io = { editor: eo, dialog: no },
+  oo = {
+    card: {
+      pacman: {
+        title: "Názov",
+        sound: "Zvuk",
+        auto_start: "Automatické spustenie",
+      },
+    },
+  },
+  ao = { wakawaka: { title: "REŽIM BOHA AKTIVOVANÝ" } },
+  ro = { editor: oo, dialog: ao },
+  lo = {
+    card: {
+      pacman: { title: "Naslov", sound: "Zvok", auto_start: "Samodejni zagon" },
+    },
+  },
+  uo = { wakawaka: { title: "BOŽJI NAČIN AKTIVIRAN" } },
+  so = { editor: lo, dialog: uo },
+  co = {
+    card: {
+      pacman: { title: "Titulli", sound: "Tingulli", auto_start: "Auto start" },
+    },
+  },
+  fo = { wakawaka: { title: "MODALITETI I ZOTIT I AKTIVIZUAR" } },
+  ho = { editor: co, dialog: fo },
+  po = {
+    card: {
+      pacman: {
+        title: "Наслов",
+        sound: "Звук",
+        auto_start: "Аутоматско покретање",
+      },
+    },
+  },
+  vo = { wakawaka: { title: "БОЖЈИ РЕЖИМ АКТИВИРАН" } },
+  _o = { editor: po, dialog: vo },
+  go = {
+    card: {
+      pacman: {
+        title: "Naslov",
+        sound: "Zvuk",
+        auto_start: "Automatsko pokretanje",
+      },
+    },
+  },
+  yo = { wakawaka: { title: "BOŽJI REŽIM AKTIVIRAN" } },
+  mo = { editor: go, dialog: yo },
+  bo = {
+    card: {
+      pacman: { title: "Titel", sound: "Ljud", auto_start: "Automatisk start" },
+    },
+  },
+  ko = { wakawaka: { title: "GUDLÄGE AKTIVERAT" } },
+  wo = { editor: bo, dialog: ko },
+  Ao = {
+    card: {
+      pacman: {
+        title: "தலைப்பு",
+        sound: "ஒலி",
+        auto_start: "தானியங்கி தொடக்கம்",
+      },
+    },
+  },
+  Oo = { wakawaka: { title: "காட் மோட் செயல்படுத்தப்பட்டது" } },
+  $o = { editor: Ao, dialog: Oo },
+  Eo = {
+    card: {
+      pacman: { title: "శీర్షిక", sound: "ధ్వని", auto_start: "ఆటో ప్రారంభం" },
+    },
+  },
+  To = { wakawaka: { title: "గాడ్ మోడ్ సక్రియం చేయబడింది" } },
+  So = { editor: Eo, dialog: To },
+  jo = {
+    card: {
+      pacman: { title: "ชื่อ", sound: "เสียง", auto_start: "เริ่มอัตโนมัติ" },
+    },
+  },
+  Io = { wakawaka: { title: "เปิดโหมดพระเจ้าแล้ว" } },
+  Po = { editor: jo, dialog: Io },
+  Co = {
+    card: {
+      pacman: {
+        title: "Başlık",
+        sound: "Ses",
+        auto_start: "Otomatik başlatma",
+      },
+    },
+  },
+  zo = { wakawaka: { title: "TANRI MODU ETKİNLEŞTİRİLDİ" } },
+  Do = { editor: Co, dialog: zo },
+  Mo = {
+    card: {
+      pacman: { title: "Заголовок", sound: "Звук", auto_start: "Автозапуск" },
+    },
+  },
+  Ro = { wakawaka: { title: "РЕЖИМ БОГА АКТИВОВАНО" } },
+  Uo = { editor: Mo, dialog: Ro },
+  xo = {
+    card: {
+      pacman: { title: "عنوان", sound: "آواز", auto_start: "خودکار شروع" },
+    },
+  },
+  No = { wakawaka: { title: "گاڈ موڈ فعال" } },
+  Ho = { editor: xo, dialog: No },
+  Vo = {
+    card: {
+      pacman: {
+        title: "Tiêu đề",
+        sound: "Âm thanh",
+        auto_start: "Tự động bắt đầu",
+      },
+    },
+  },
+  Ko = { wakawaka: { title: "CHẾ ĐỘ THẦN ĐÃ KÍCH HOẠT" } },
+  Lo = { editor: Vo, dialog: Ko },
+  Bo = {
+    card: { pacman: { title: "标题", sound: "声音", auto_start: "自动启动" } },
+  },
+  Go = { wakawaka: { title: "上帝模式已激活" } },
+  Wo = { editor: Bo, dialog: Go },
+  Fo = {
+    card: { pacman: { title: "標題", sound: "聲音", auto_start: "自動啟動" } },
+  },
+  qo = { wakawaka: { title: "上帝模式已啟動" } },
+  Jo = { editor: Fo, dialog: qo },
+  Zo = {
+    af: le,
+    ar: ce,
+    bg: ve,
+    bn: me,
+    bs: Ae,
+    ca: Te,
+    cs: Pe,
+    cy: Me,
+    da: Ne,
+    de: Le,
+    el: Fe,
+    en: Ye,
+    "en-GB": en,
+    eo: rn,
+    es: Object.freeze({ __proto__: null, default: sn, dialog: un, editor: ln }),
+    "es-419": Object.freeze({
+      __proto__: null,
+      default: fn,
+      dialog: cn,
+      editor: dn,
+    }),
+    et: Object.freeze({ __proto__: null, default: vn, dialog: pn, editor: hn }),
+    eu: Object.freeze({ __proto__: null, default: yn, dialog: gn, editor: _n }),
+    fa: Object.freeze({ __proto__: null, default: kn, dialog: bn, editor: mn }),
+    fi: Object.freeze({ __proto__: null, default: On, dialog: An, editor: wn }),
+    fr: Object.freeze({ __proto__: null, default: Tn, dialog: En, editor: $n }),
+    fy: Object.freeze({ __proto__: null, default: In, dialog: jn, editor: Sn }),
+    ga: Object.freeze({ __proto__: null, default: zn, dialog: Cn, editor: Pn }),
+    gl: Object.freeze({ __proto__: null, default: Rn, dialog: Mn, editor: Dn }),
+    gsw: Object.freeze({
+      __proto__: null,
+      default: Nn,
+      dialog: xn,
+      editor: Un,
+    }),
+    he: Object.freeze({ __proto__: null, default: Kn, dialog: Vn, editor: Hn }),
+    hi: Object.freeze({ __proto__: null, default: Gn, dialog: Bn, editor: Ln }),
+    hr: Object.freeze({ __proto__: null, default: qn, dialog: Fn, editor: Wn }),
+    hu: Object.freeze({ __proto__: null, default: Yn, dialog: Zn, editor: Jn }),
+    hy: Object.freeze({ __proto__: null, default: ti, dialog: Xn, editor: Qn }),
+    id: Object.freeze({ __proto__: null, default: ii, dialog: ni, editor: ei }),
+    is: Object.freeze({ __proto__: null, default: ri, dialog: ai, editor: oi }),
+    it: Object.freeze({ __proto__: null, default: si, dialog: ui, editor: li }),
+    ja: Object.freeze({ __proto__: null, default: fi, dialog: ci, editor: di }),
+    ka: Object.freeze({ __proto__: null, default: vi, dialog: pi, editor: hi }),
+    ko: Object.freeze({ __proto__: null, default: yi, dialog: gi, editor: _i }),
+    lb: Object.freeze({ __proto__: null, default: ki, dialog: bi, editor: mi }),
+    lt: Object.freeze({ __proto__: null, default: Oi, dialog: Ai, editor: wi }),
+    lv: Object.freeze({ __proto__: null, default: Ti, dialog: Ei, editor: $i }),
+    mk: Object.freeze({ __proto__: null, default: Ii, dialog: ji, editor: Si }),
+    ml: Object.freeze({ __proto__: null, default: zi, dialog: Ci, editor: Pi }),
+    nb: Object.freeze({ __proto__: null, default: Ri, dialog: Mi, editor: Di }),
+    nl: Object.freeze({ __proto__: null, default: Ni, dialog: xi, editor: Ui }),
+    nn: Object.freeze({ __proto__: null, default: Ki, dialog: Vi, editor: Hi }),
+    pl: Object.freeze({ __proto__: null, default: Gi, dialog: Bi, editor: Li }),
+    pt: Object.freeze({ __proto__: null, default: qi, dialog: Fi, editor: Wi }),
+    "pt-BR": Object.freeze({
+      __proto__: null,
+      default: Yi,
+      dialog: Zi,
+      editor: Ji,
+    }),
+    ro: Object.freeze({ __proto__: null, default: to, dialog: Xi, editor: Qi }),
+    ru: Object.freeze({ __proto__: null, default: io, dialog: no, editor: eo }),
+    sk: Object.freeze({ __proto__: null, default: ro, dialog: ao, editor: oo }),
+    sl: Object.freeze({ __proto__: null, default: so, dialog: uo, editor: lo }),
+    sq: Object.freeze({ __proto__: null, default: ho, dialog: fo, editor: co }),
+    sr: Object.freeze({ __proto__: null, default: _o, dialog: vo, editor: po }),
+    "sr-Latn": Object.freeze({
+      __proto__: null,
+      default: mo,
+      dialog: yo,
+      editor: go,
+    }),
+    sv: Object.freeze({ __proto__: null, default: wo, dialog: ko, editor: bo }),
+    ta: Object.freeze({ __proto__: null, default: $o, dialog: Oo, editor: Ao }),
+    te: Object.freeze({ __proto__: null, default: So, dialog: To, editor: Eo }),
+    th: Object.freeze({ __proto__: null, default: Po, dialog: Io, editor: jo }),
+    tr: Object.freeze({ __proto__: null, default: Do, dialog: zo, editor: Co }),
+    uk: Object.freeze({ __proto__: null, default: Uo, dialog: Ro, editor: Mo }),
+    ur: Object.freeze({ __proto__: null, default: Ho, dialog: No, editor: xo }),
+    vi: Object.freeze({ __proto__: null, default: Lo, dialog: Ko, editor: Vo }),
+    "zh-Hans": Object.freeze({
+      __proto__: null,
+      default: Wo,
+      dialog: Go,
+      editor: Bo,
+    }),
+    "zh-Hant": Object.freeze({
+      __proto__: null,
+      default: Jo,
+      dialog: qo,
+      editor: Fo,
+    }),
+  };
+function Yo(t, e) {
+  try {
+    return t.split(".").reduce(function (t, e) {
+      return t[e];
+    }, Zo[e]);
+  } catch (t) {
+    return;
+  }
+}
+var Qo = [
+    { name: "title", selector: { text: {} } },
+    { name: "auto_start", selector: { boolean: {} } },
+  ],
+  Xo = (function () {
+    function t() {
+      var e;
+      return (
+        D(this, t),
+        ((e = O(this, t, arguments))._computeLabel = function (t) {
+          var n;
+          return ((n = e.hass),
+          function (t) {
+            var e,
+              i,
+              o = Yo(
+                t,
+                null !==
+                  (i =
+                    null === (e = null == n ? void 0 : n.locale) || void 0 === e
+                      ? void 0
+                      : e.language) && void 0 !== i
+                  ? i
+                  : "en"
+              );
+            return (o || (o = Yo(t, "en")), null != o ? o : t);
+          })("editor.card.pacman.".concat(t.name));
+        }),
+        e
+      );
+    }
+    return (
+      E(t, Ft),
+      R(t, [
+        {
+          key: "setConfig",
+          value: function (t) {
+            this._config = Object.assign({ auto_start: !1 }, t);
+          },
+        },
+        {
+          key: "_valueChanged",
+          value: function (t) {
+            var e = t.detail;
+            this.dispatchEvent(
+              new CustomEvent("config-changed", {
+                detail: { config: e.value },
+                bubbles: !0,
+                composed: !0,
+              })
+            );
+          },
+        },
+        {
+          key: "render",
+          value: function () {
+            return this.hass && this._config
+              ? jt(
+                  c ||
+                    (c = f([
+                      "\n      <ha-form\n        .hass=",
+                      "\n        .data=",
+                      "\n        .schema=",
+                      "\n        .computeLabel=",
+                      "\n        @value-changed=",
+                      "\n      ></ha-form>\n    ",
+                    ])),
+                  this.hass,
+                  this._config,
+                  Qo,
+                  this._computeLabel,
+                  this._valueChanged
+                )
+              : Pt;
+          },
+        },
+      ])
+    );
+  })();
+(V([Qt({ attribute: !1 })], Xo.prototype, "hass", void 0),
+  V([Xt()], Xo.prototype, "_config", void 0),
+  (Xo = V([Jt(H)], Xo)));
+var ta = Object.freeze({
+  __proto__: null,
+  get PacmanCardEditor() {
+    return Xo;
+  },
+});

@@ -2,4 +2,7 @@ node_modules/
 custom_components/doom/frontend/doom-card.js
 custom_components/doom/frontend/doom-iddqd.js
 custom_components/doom/frontend/assets/
+custom_components/pacman/frontend/pacman-card.js
+custom_components/pacman/frontend/pacman-wakawaka.js
+custom_components/pacman/frontend/assets/
 package-lock.json
