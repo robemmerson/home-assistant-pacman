@@ -124,6 +124,31 @@
       </div>
 
       <script>
+        // Make audio loading non-fatal in embedded environments (e.g. HA iframe)
+        // where canplaythrough may not fire or audio is restricted.
+        (function () {
+          var _origCreate = GameCoordinator.prototype.createElements;
+          GameCoordinator.prototype.createElements = function (
+            sources,
+            type,
+            totalSources,
+            gameCoord
+          ) {
+            if (type !== "audio") {
+              return _origCreate.call(this, sources, type, totalSources, gameCoord);
+            }
+            var self = this;
+            return new Promise(function (resolve) {
+              _origCreate
+                .call(self, sources, type, totalSources, gameCoord)
+                .then(resolve)
+                .catch(function () {
+                  resolve(); // continue without sound
+                });
+            });
+          };
+        })();
+
         window.onload = () => {
           let gameCoordinator = new GameCoordinator();
         };
