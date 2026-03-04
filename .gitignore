@@ -26,6 +26,11 @@ node_modules/
 custom_components/doom/frontend/doom-card.js
 custom_components/doom/frontend/doom-iddqd.js
 
+# Include the bward-game built bundle (excluded by the build/ rule above)
+!custom_components/pacman/frontend/bward-game/build/
+!custom_components/pacman/frontend/bward-game/build/app.js
+!custom_components/pacman/frontend/bward-game/build/app.css
+
 # OS
 .DS_Store
 Thumbs.db
