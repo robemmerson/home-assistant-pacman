@@ -1,0 +1,40 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "04:00"
+      timezone: Europe/London
+    open-pull-requests-limit: 5
+    labels:
+      - dependencies
+      - github-actions
+    commit-message:
+      prefix: "chore(ci)"
+    # Always update third-party actions; Dependabot will bump SHAs + refresh tag comments.
+    groups:
+      actions:
+        patterns:
+          - "*"
+
+  # Frontend card build toolchain (package.json / package-lock.json).
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "04:00"
+      timezone: Europe/London
+    open-pull-requests-limit: 5
+    labels:
+      - dependencies
+      - javascript
+    commit-message:
+      prefix: "chore(deps)"
+    # Build-only tooling: group the routine dev bumps into one PR so they
+    # don't drown out production dependency updates.
+    groups:
+      dev-dependencies:
+        dependency-type: development
