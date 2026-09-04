@@ -1,0 +1,7 @@
+[tool.ruff.lint.isort]
+# Home Assistant import conventions. Without these, ruff's stock isort
+# settings flag every module in custom_components/ with I001.
+force-sort-within-sections = true
+known-first-party = ["homeassistant"]
+combine-as-imports = true
+split-on-trailing-comma = false

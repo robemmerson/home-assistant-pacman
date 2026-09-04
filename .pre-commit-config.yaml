@@ -3,12 +3,12 @@ repos:
     rev: v5.0.0
     hooks:
       - id: check-json
-        exclude: ^custom_components/pacman/frontend/assets/
+        exclude: ^custom_components/pacman/frontend/(assets/|bward-game/build/)
       - id: check-yaml
       - id: end-of-file-fixer
-        exclude: ^custom_components/pacman/frontend/assets/
+        exclude: ^custom_components/pacman/frontend/(assets/|bward-game/build/)
       - id: trailing-whitespace
-        exclude: ^custom_components/pacman/frontend/assets/
+        exclude: ^custom_components/pacman/frontend/(assets/|bward-game/build/)
       - id: check-merge-conflict
       - id: check-case-conflict
       - id: detect-private-key
