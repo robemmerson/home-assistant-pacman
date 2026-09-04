@@ -5,4 +5,5 @@ custom_components/doom/frontend/assets/
 custom_components/pacman/frontend/pacman-card.js
 custom_components/pacman/frontend/pacman-wakawaka.js
 custom_components/pacman/frontend/assets/
+custom_components/pacman/frontend/bward-game/build/
 package-lock.json
